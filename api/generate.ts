@@ -1,5 +1,9 @@
 import Anthropic from "@anthropic-ai/sdk";
 import type { IncomingMessage, ServerResponse } from "node:http";
+import { getDailyLimit } from "./_lib/config";
+import { getSessionToken, verifySession } from "./_lib/session";
+import { incrementUsage } from "./_lib/rateLimit";
+import { sendJson } from "./_lib/respond";
 
 const SYSTEM_PROMPT = `You write short, high-impact bullet points for résumés, product copy, and status updates.
 
@@ -96,18 +100,19 @@ async function readJson(req: IncomingMessage): Promise<unknown> {
   });
 }
 
-function send(res: ServerResponse, status: number, payload: unknown): void {
-  res.statusCode = status;
-  res.setHeader("Content-Type", "application/json");
-  res.end(JSON.stringify(payload));
-}
-
 export default async function handler(
   req: IncomingMessage,
   res: ServerResponse
 ): Promise<void> {
   if (req.method !== "POST") {
-    send(res, 405, { error: "Method not allowed" });
+    sendJson(res, 405, { error: "Method not allowed" });
+    return;
+  }
+
+  const token = getSessionToken(req);
+  const session = token ? await verifySession(token) : null;
+  if (!session) {
+    sendJson(res, 401, { error: "Sign in to use this feature." });
     return;
   }
 
@@ -115,18 +120,35 @@ export default async function handler(
   try {
     parsed = await readJson(req);
   } catch {
-    send(res, 400, { error: "Invalid JSON body" });
+    sendJson(res, 400, { error: "Invalid JSON body" });
+    return;
+  }
+  if (!isValidBody(parsed)) {
+    sendJson(res, 400, { error: "Invalid request shape" });
     return;
   }
 
-  if (!isValidBody(parsed)) {
-    send(res, 400, { error: "Invalid request shape" });
+  const limit = getDailyLimit();
+  let usage;
+  try {
+    usage = await incrementUsage(session.username, limit);
+  } catch (e) {
+    const message = e instanceof Error ? e.message : "Rate limiter error";
+    sendJson(res, 500, { error: message });
+    return;
+  }
+  if (!usage.allowed) {
+    sendJson(res, 429, {
+      error: `Daily limit reached (${usage.count - 1}/${limit}). Resets at midnight UTC.`,
+      used: usage.count - 1,
+      limit,
+    });
     return;
   }
 
   const apiKey = process.env.ANTHROPIC_API_KEY;
   if (!apiKey) {
-    send(res, 500, { error: "ANTHROPIC_API_KEY is not configured on the server" });
+    sendJson(res, 500, { error: "ANTHROPIC_API_KEY is not configured on the server" });
     return;
   }
 
@@ -151,9 +173,9 @@ export default async function handler(
     const textBlock = response.content.find((b) => b.type === "text");
     const text = textBlock && textBlock.type === "text" ? textBlock.text : "";
     const bullets = parseBullets(text, count);
-    send(res, 200, { bullets });
+    sendJson(res, 200, { bullets, used: usage.count, limit });
   } catch (e) {
     const message = e instanceof Error ? e.message : "Generation failed";
-    send(res, 500, { error: message });
+    sendJson(res, 500, { error: message });
   }
 }

@@ -40,21 +40,41 @@ Used both for AI results and saved bullets. Each card shows:
 - Frontend: React + TypeScript, Vite.
 - Styling: Tailwind CSS.
 - AI: Anthropic SDK (`@anthropic-ai/sdk`), `claude-opus-4-7`. Called from a server-side handler — never from the browser.
-- API proxy: a single Vercel-style serverless function at `api/generate.ts` holds the API key and exposes `POST /api/generate`. The Vite dev server mounts the same handler as middleware so `npm run dev` works without `vercel` CLI.
+- API: Vercel-style serverless functions in `api/`. Vite mounts the same handlers as middleware in dev, so `npm run dev` works without the Vercel CLI.
+- Auth: GitHub OAuth + invite allowlist. JWT session in an `HttpOnly` cookie, signed with `SESSION_SECRET`.
+- Rate limit: Upstash Redis stores per-user daily counters with a 25h TTL. Configurable via `DAILY_LIMIT`.
 - State: local React state. Persistence (localStorage or backend store) will be added when needed.
 
-The browser bundle never sees `ANTHROPIC_API_KEY` — it's read from `process.env` on the server only.
+The browser bundle never sees `ANTHROPIC_API_KEY`, `GITHUB_CLIENT_SECRET`, `SESSION_SECRET`, or the Upstash creds — all of those are read from `process.env` on the server only.
 
-## Deploy
+## API surface
 
-Designed to deploy to Vercel as a static site + serverless function:
+| Route | Method | Purpose |
+|---|---|---|
+| `/api/auth/login` | GET | Redirects to GitHub OAuth. Sets a CSRF state cookie. |
+| `/api/auth/callback` | GET | OAuth callback. Verifies state, fetches GitHub user, checks allowlist, sets session cookie, redirects to `/`. |
+| `/api/auth/me` | GET | Returns `{username, used, limit, rate_limited}` if signed in, 401 otherwise. |
+| `/api/auth/logout` | GET | Clears session cookie, redirects to `/`. |
+| `/api/generate` | POST | Requires session. Increments per-user counter. 429 if over limit. Calls Claude with the description + min/max window. |
 
-1. Push the branch to GitHub.
-2. Import the repo in Vercel — it auto-detects Vite, builds with `npm run build`, and bundles `api/generate.ts` as a Node serverless function.
-3. Set `ANTHROPIC_API_KEY` in Vercel's project env vars.
-4. Deploy.
+## Deploy (Vercel)
 
-Local dev: `cp .env.example .env`, set `ANTHROPIC_API_KEY`, `npm run dev`.
+1. Push to GitHub.
+2. Import the repo in Vercel — it auto-detects Vite, builds with `npm run build`, and bundles each file in `api/` as a serverless function. (`api/_lib/` is shared code, not exposed as routes.)
+3. Set the env vars from `.env.example` in Vercel's project env vars (Production + Preview).
+4. After the first deploy, add the production URL to your GitHub OAuth App's callback list, and set `BASE_URL=https://<your-vercel-url>` in Vercel's env vars.
+
+## Local dev
+
+```
+cp .env.example .env
+# fill in ANTHROPIC_API_KEY, GITHUB_CLIENT_ID, GITHUB_CLIENT_SECRET, SESSION_SECRET,
+# ALLOWED_USERS, UPSTASH_REDIS_REST_URL, UPSTASH_REDIS_REST_TOKEN, BASE_URL
+npm install
+npm run dev
+```
+
+Local OAuth callback: `http://localhost:5173/api/auth/callback`. You can either register two GitHub OAuth Apps (one for dev, one for prod) or update the production app's callback URL when switching.
 
 ## Non-goals (for now)
 

@@ -1,10 +1,16 @@
-async function callApi(body: unknown): Promise<string[]> {
+export type GenerateResult = {
+  bullets: string[];
+  used?: number;
+  limit?: number;
+};
+
+async function callApi(body: unknown): Promise<GenerateResult> {
   const response = await fetch("/api/generate", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(body),
   });
-  let data: { bullets?: string[]; error?: string } = {};
+  let data: { bullets?: string[]; error?: string; used?: number; limit?: number } = {};
   try {
     data = await response.json();
   } catch {
@@ -13,7 +19,7 @@ async function callApi(body: unknown): Promise<string[]> {
   if (!response.ok) {
     throw new Error(data.error ?? `Request failed (${response.status})`);
   }
-  return data.bullets ?? [];
+  return { bullets: data.bullets ?? [], used: data.used, limit: data.limit };
 }
 
 export async function generateBullets(args: {
@@ -21,7 +27,7 @@ export async function generateBullets(args: {
   min: number;
   max: number;
   count?: number;
-}): Promise<string[]> {
+}): Promise<GenerateResult> {
   return callApi({ mode: "generate", ...args });
 }
 
@@ -30,6 +36,6 @@ export async function rephraseBullet(args: {
   min: number;
   max: number;
   count?: number;
-}): Promise<string[]> {
+}): Promise<GenerateResult> {
   return callApi({ mode: "rephrase", ...args });
 }
