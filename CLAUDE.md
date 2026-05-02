@@ -35,14 +35,26 @@ Used both for AI results and saved bullets. Each card shows:
   - `⚠ above max ({max})` (orange) when too long.
 - Actions: save, copy, rephrase ("Different Verbiage"), delete.
 
-## Stack (planned)
+## Stack
 
 - Frontend: React + TypeScript, Vite.
 - Styling: Tailwind CSS.
-- AI: Anthropic SDK (`@anthropic-ai/sdk`), latest Claude model.
-- State: local React state to start; persistence (localStorage or a small backend) added when needed.
+- AI: Anthropic SDK (`@anthropic-ai/sdk`), `claude-opus-4-7`. Called from a server-side handler — never from the browser.
+- API proxy: a single Vercel-style serverless function at `api/generate.ts` holds the API key and exposes `POST /api/generate`. The Vite dev server mounts the same handler as middleware so `npm run dev` works without `vercel` CLI.
+- State: local React state. Persistence (localStorage or backend store) will be added when needed.
 
-This is intentionally minimal — we'll iterate on structure as features land.
+The browser bundle never sees `ANTHROPIC_API_KEY` — it's read from `process.env` on the server only.
+
+## Deploy
+
+Designed to deploy to Vercel as a static site + serverless function:
+
+1. Push the branch to GitHub.
+2. Import the repo in Vercel — it auto-detects Vite, builds with `npm run build`, and bundles `api/generate.ts` as a Node serverless function.
+3. Set `ANTHROPIC_API_KEY` in Vercel's project env vars.
+4. Deploy.
+
+Local dev: `cp .env.example .env`, set `ANTHROPIC_API_KEY`, `npm run dev`.
 
 ## Non-goals (for now)
 

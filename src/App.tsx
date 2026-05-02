@@ -2,7 +2,7 @@ import { useState } from "react";
 import { CharLimitPanel } from "./components/CharLimitPanel";
 import { BulletCard } from "./components/BulletCard";
 import { PRESETS, type Bullet, type CharRange } from "./types";
-import { generateBullets, hasApiKey, rephraseBullet } from "./lib/anthropic";
+import { generateBullets, rephraseBullet } from "./lib/anthropic";
 
 const newId = () =>
   `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`;
@@ -15,8 +15,6 @@ export default function App() {
   const [generating, setGenerating] = useState(false);
   const [rephrasingId, setRephrasingId] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
-
-  const apiReady = hasApiKey();
 
   const onGenerate = async () => {
     if (!description.trim()) return;
@@ -85,11 +83,6 @@ export default function App() {
               Draft and refine constraint-bound bullet points with Claude.
             </p>
           </div>
-          {!apiReady && (
-            <span className="rounded-full border border-amber-300 bg-amber-50 px-3 py-1 text-xs text-amber-800">
-              Set VITE_ANTHROPIC_API_KEY in .env to enable generation
-            </span>
-          )}
         </div>
       </header>
 
@@ -118,7 +111,7 @@ export default function App() {
             <button
               type="button"
               onClick={onGenerate}
-              disabled={generating || !description.trim() || !apiReady}
+              disabled={generating || !description.trim()}
               className="rounded-lg bg-emerald-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-emerald-700 disabled:cursor-not-allowed disabled:bg-slate-300"
             >
               {generating ? "Generating…" : "Generate bullets"}
@@ -170,9 +163,7 @@ export default function App() {
                   text={bullet.text}
                   range={range}
                   onCopy={() => onCopy(bullet.text)}
-                  onRephrase={
-                    apiReady ? () => onRephrase(bullet) : undefined
-                  }
+                  onRephrase={() => onRephrase(bullet)}
                   onDelete={() => onDelete(bullet.id)}
                   busy={rephrasingId === bullet.id}
                 />
