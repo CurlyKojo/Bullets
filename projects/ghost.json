@@ -1,7 +1,7 @@
 {
   "id": "ghost",
   "name": "Ghost",
-  "kind": "Hardware \u00b7 AI",
+  "kind": "Hardware · AI",
   "tagline": "A 3D-printed Destiny Ghost that listens, talks back and opens like the in-game scan.",
   "accent": "#7fd6ff",
   "filament": "#e9e4da",
@@ -44,5 +44,15 @@
     "head-mount": "hardware/stl/head_mount.stl",
     "base": "hardware/stl/base.stl",
     "base-lid": "hardware/stl/base_lid.stl"
-  }
+  },
+  "lookalikes": [
+    [
+      "hero",
+      "open"
+    ],
+    [
+      "preview",
+      "preview-open"
+    ]
+  ]
 }

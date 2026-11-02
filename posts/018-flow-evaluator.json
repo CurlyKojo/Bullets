@@ -24,8 +24,7 @@
       "type": "stat",
       "prefix": "#",
       "value": 1,
-      "title": "ranked within each *category*",
-      "media": "flow:kojo"
+      "title": "ranked within each *category*"
     }
   ],
   "end": {

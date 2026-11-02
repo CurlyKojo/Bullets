@@ -4,7 +4,7 @@
   "mood": "chill",
   "hook": {
     "title": "Same face. *1.28 inch* screen.",
-    "media": "wisp:round",
+    "media": "wisp:states/idle",
     "cover": "Same face, tiny screen"
   },
   "scenes": [

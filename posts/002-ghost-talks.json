@@ -48,15 +48,20 @@
       ]
     },
     {
-      "type": "media",
-      "media": "ghost:open",
-      "title": "And it *opens* like the in-game scan",
-      "caption": "one servo pulls all 8 pieces"
+      "type": "split",
+      "media": "ghost:preview",
+      "media2": "ghost:preview-open",
+      "labels": [
+        "closed",
+        "open"
+      ],
+      "title": "It *opens* like the in-game scan",
+      "beats": 6
     }
   ],
   "end": {
     "title": "STLs + code are *free*",
-    "sub": "link in bio \u00b7 part 2 is the wiring"
+    "sub": "link in bio · part 2 is the wiring"
   },
   "hashtags": [
     "print",

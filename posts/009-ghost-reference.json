@@ -4,22 +4,22 @@
   "mood": "cinematic",
   "hook": {
     "title": "From a *reference sheet* to a printable Ghost",
-    "media": "ghost:reference",
-    "cover": "Reference sheet \u2192 real Ghost"
+    "media": "ghost:hero",
+    "cover": "Reference sheet → real Ghost"
   },
   "scenes": [
     {
       "type": "media",
       "media": "ghost:reference",
       "title": "Every *seam* matches",
-      "caption": "top: Bungie's sheet \u00b7 bottom: my generator",
+      "caption": "top: Bungie's sheet · bottom: my generator",
       "beats": 8
     },
     {
       "type": "media",
       "media": "ghost:preview",
       "title": "Front, side, *top*",
-      "caption": "diamond \u00b7 X with blunt arms \u00b7 notches"
+      "caption": "diamond · X with blunt arms · notches"
     },
     {
       "type": "media",
@@ -30,7 +30,7 @@
   ],
   "end": {
     "title": "Want the *generator*?",
-    "sub": "it's free \u00b7 link in bio"
+    "sub": "it's free · link in bio"
   },
   "hashtags": [
     "print",

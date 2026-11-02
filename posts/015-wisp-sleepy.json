@@ -4,7 +4,7 @@
   "mood": "chill",
   "hook": {
     "title": "My Pi assistant falls *asleep* if you ignore it",
-    "media": "wisp:states/sleepy",
+    "media": "wisp:states/idle",
     "cover": "It falls asleep"
   },
   "scenes": [

@@ -24,7 +24,7 @@
     },
     {
       "type": "media",
-      "media": "wisp:tour",
+      "media": "wisp:round",
       "title": "Real *sprite sheets*",
       "caption": "not a video, the actual app",
       "beats": 6

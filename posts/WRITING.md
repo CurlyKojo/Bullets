@@ -72,4 +72,7 @@ New footage: add it to the project's `assets` (path inside that project's repo),
 6. **12–20 seconds.** Four to six scenes after the hook.
 7. **Captions in plain first person.** Short paragraphs, the numbers, and end on a
    question. No "Excited to share", no "game-changer".
-8. Rotate projects. Don't queue two of the same project back to back.
+8. **Never repeat a shot inside a post.** Each scene shows something new. A clip can come
+   back only from a different moment (`start` at least 60 frames apart), and assets a
+   project lists under `lookalikes` count as the same shot. `npm run check` enforces it.
+9. Rotate projects. Don't queue two of the same project back to back.
