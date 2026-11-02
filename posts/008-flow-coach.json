@@ -11,8 +11,8 @@
     {
       "type": "type",
       "title": "This is *fine*...",
-      "before": "Helped run the squadron PT program.",
-      "after": "Ran squadron PT program for 140 Airmen; raised first-time pass rate from 81% to 96%.",
+      "before": "Helped run onboarding.",
+      "after": "Ran onboarding for 140 new hires; cut ramp-up time from 6 weeks to 3.",
       "labels": [
         "before",
         "after the coach"
@@ -33,16 +33,16 @@
       "type": "media",
       "media": "flow:kojo-wave",
       "title": "*Impact*",
-      "caption": "why the mission is better because you did it"
+      "caption": "why the team is better because you did it"
     }
   ],
   "end": {
-    "title": "Send this to your *supervisor*",
+    "title": "Send this to your *manager*",
     "sub": "{flow} · link in bio"
   },
   "hashtags": [
-    "military",
+    "career",
     "ai"
   ],
-  "caption": "\"Helped run the PT program\" tells the board nothing.\n\nThe fix is almost always the same: a number and an impact. How many people, how much money, what changed, and why the mission is better for it.\n\n{flow}'s coach checks every statement for a metric, a $ or %, a strong verb, the mission impact, and whether it fits the line. Example numbers are made up.\n\nSend this to the person who signs your EPB."
+  "caption": "\"Helped run onboarding\" tells a reviewer nothing.\n\nThe fix is almost always the same: a number and an impact. How many people, how much money, what changed, and why the team is better for it.\n\n{flow}'s coach checks every statement for a metric, a $ or %, a strong verb, the impact, and whether it fits the line. Example numbers are made up.\n\nSend this to the person who writes your review."
 }

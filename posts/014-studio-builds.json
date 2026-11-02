@@ -39,7 +39,7 @@
       "type": "media",
       "media": "flow:kojo",
       "title": "*{flow}*",
-      "caption": "AI for Air Force bullets",
+      "caption": "AI for performance writing",
       "beats": 3
     },
     {
@@ -58,5 +58,5 @@
     "software",
     "print"
   ],
-  "caption": "Four builds, one person, a lot of late nights.\n\nBurnline: a satellite simulator checked against the textbook to 1 meter.\nGhost: a 3D printed Destiny Ghost that talks.\nWisp: an animated face for my Raspberry Pi assistant.\n{flow}: an AI that writes Air Force performance statements.\n\nWhat should I build next? Best comment gets built."
+  "caption": "Four builds, one person, a lot of late nights.\n\nBurnline: a satellite simulator checked against the textbook to 1 meter.\nGhost: a 3D printed Destiny Ghost that talks.\nWisp: an animated face for my Raspberry Pi assistant.\n{flow}: an AI that writes performance and award statements.\n\nWhat should I build next? Best comment gets built."
 }

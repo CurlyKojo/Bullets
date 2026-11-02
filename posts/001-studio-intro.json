@@ -30,9 +30,9 @@
     },
     {
       "type": "type",
-      "title": "An *AI* that writes Air Force bullets",
-      "before": "ran section 6 mo while sup was deployed. cleared 300 eval/dec backlog",
-      "after": "Led 4-member section for 6 months during supervisor's deployment; cleared 300-item eval and decoration backlog.",
+      "title": "An *AI* that writes performance statements",
+      "before": "ran the team 6 mo while my manager was out. cleared 300 ticket backlog",
+      "after": "Led 4-person team for 6 months during manager's leave; cleared a 300-ticket backlog and restored on-time delivery.",
       "labels": [
         "raw notes",
         "{flow}"
@@ -52,5 +52,5 @@
     "software",
     "print"
   ],
-  "caption": "I build software and 3D print the hardware it runs in. Kojo Labs is where all of it gets documented.\n\nA talking Destiny Ghost. A satellite sim checked against the textbook to 1 meter. A little animated face for my Raspberry Pi. An AI that writes Air Force performance statements.\n\nFollow along. Every build gets broken down here, with the code and the print files."
+  "caption": "I build software and 3D print the hardware it runs in. Kojo Labs is where all of it gets documented.\n\nA talking Destiny Ghost. A satellite sim checked against the textbook to 1 meter. A little animated face for my Raspberry Pi. An AI that writes performance and award statements.\n\nFollow along. Every build gets broken down here, with the code and the print files."
 }

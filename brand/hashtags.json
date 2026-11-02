@@ -1,14 +1,50 @@
 {
   "_": "Instagram caps a post at 5 hashtags (Dec 2025). scripts/plan.mjs takes the post's own sets first, then the project's, then 'maker', and stops at 5. Niche beats huge: #3dprinting is useful, #love is not.",
-  "maker": ["#buildinpublic", "#maker", "#indiedev"],
-  "software": ["#coding", "#softwareengineering", "#programming"],
-  "print": ["#3dprinting", "#3dprinted", "#3dprint"],
-  "ghost": ["#destiny2", "#destinythegame"],
-  "burnline": ["#orbitalmechanics", "#satellites"],
-  "space": ["#space", "#astrodynamics"],
-  "pi": ["#raspberrypi", "#raspberrypi5"],
-  "animation": ["#characterdesign", "#motiondesign"],
-  "military": ["#airforce", "#usaf"],
-  "ai": ["#ai", "#aitools"],
-  "robot": ["#robotics", "#diyelectronics"]
+  "maker": [
+    "#buildinpublic",
+    "#maker",
+    "#indiedev"
+  ],
+  "software": [
+    "#coding",
+    "#softwareengineering",
+    "#programming"
+  ],
+  "print": [
+    "#3dprinting",
+    "#3dprinted",
+    "#3dprint"
+  ],
+  "ghost": [
+    "#destiny2",
+    "#destinythegame"
+  ],
+  "burnline": [
+    "#orbitalmechanics",
+    "#satellites"
+  ],
+  "space": [
+    "#space",
+    "#astrodynamics"
+  ],
+  "pi": [
+    "#raspberrypi",
+    "#raspberrypi5"
+  ],
+  "animation": [
+    "#characterdesign",
+    "#motiondesign"
+  ],
+  "ai": [
+    "#ai",
+    "#aitools"
+  ],
+  "robot": [
+    "#robotics",
+    "#diyelectronics"
+  ],
+  "career": [
+    "#careertips",
+    "#careergrowth"
+  ]
 }

@@ -2,13 +2,13 @@
   "id": "flow",
   "name": "{flow}",
   "kind": "AI software",
-  "tagline": "Turns raw accomplishments into polished Air Force performance and award statements.",
+  "tagline": "Turns raw accomplishments into polished performance and award statements.",
   "accent": "#4fbef6",
   "link": "link in bio",
   "repo": "https://github.com/CurlyKojo/flow-v2",
   "private": true,
   "facts": [
-    "Generates narrative performance statements (AF Form 1206, EPB, OPR) sized to fill an exact number of form lines",
+    "Generates narrative performance statements sized to fill an exact number of form lines",
     "Bullet Coach: per-statement tips plus a strength checklist (metric, $ or %, strong verb, mission impact, length fit)",
     "Refine: shorten, lengthen or regenerate, each driven to the exact line target",
     "Package Builder sorts statements into the right sections",
@@ -16,7 +16,7 @@
     "API key stays server-side; per-user token metering"
   ],
   "hashtags": [
-    "military",
+    "career",
     "ai"
   ],
   "assets": {

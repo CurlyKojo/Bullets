@@ -60,14 +60,16 @@ New footage: add it to the project's `assets` (path inside that project's repo),
    reviews.
 2. **Flow examples are made up** and the caption says so. Never use a real person's
    performance data.
-3. **Ghost posts** end the caption with the fan-project line (Destiny belongs to Bungie).
-4. **Hooks under 10 words.** Formulas that work:
+3. **No military references.** Never mention the Air Force, Airmen, EPBs, squadrons, bases
+   or any service branch. Flow is pitched as a performance-writing tool for anyone.
+4. **Ghost posts** end the caption with the fan-project line (Destiny belongs to Bungie).
+5. **Hooks under 10 words.** Formulas that work:
    - "I built/printed X that does Y" (the reveal)
-   - "POV: [relatable pain]" (Flow)
+   - "POV: [relatable pain]" (Flow: "your performance review is due tomorrow")
    - "How to [useful thing] in N seconds" (Burnline teaching posts)
    - "Every part of X, one by one" (satisfying)
    - "My X does Y if you Z" (Wisp's personality)
-5. **12–20 seconds.** Four to six scenes after the hook.
-6. **Captions in plain first person.** Short paragraphs, the numbers, and end on a
+6. **12–20 seconds.** Four to six scenes after the hook.
+7. **Captions in plain first person.** Short paragraphs, the numbers, and end on a
    question. No "Excited to share", no "game-changer".
-7. Rotate projects. Don't queue two of the same project back to back.
+8. Rotate projects. Don't queue two of the same project back to back.

@@ -6,7 +6,7 @@
 2. Upload the avatar, make the 7 highlights (post a story of each cover, save it to the
    highlight, delete the story).
 3. Follow 30–50 accounts in your niches (3D printing, Raspberry Pi, space, indie dev,
-   Air Force life). Instagram uses who you follow to figure out who to show you to.
+   productivity). Instagram uses who you follow to figure out who to show you to.
 4. Post the first **three** Reels on day one (001, 002, 004), then pin them. A brand new
    profile with one post converts nobody. Three gives a visitor a reason to follow.
 
@@ -27,7 +27,7 @@ One Reel a day for the first 3 weeks. That's what the 21 posts in `posts/` are f
 | | | |
 |---|---|---|
 | 001 who I am | 002 talking Ghost | 003 1-meter satellite sim |
-| 004 EPB POV | 005 Wisp's face | 006 every Ghost part |
+| 004 review POV | 005 Wisp's face | 006 every Ghost part |
 | 007 Hohmann transfer | 008 bullet coach | 009 reference sheet |
 
 Every cover has the title in the middle band, so the grid reads like a menu.

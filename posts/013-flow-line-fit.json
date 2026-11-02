@@ -11,8 +11,8 @@
     {
       "type": "type",
       "title": "Too *short*?",
-      "before": "Fixed comm issue.",
-      "after": "Diagnosed failing network switch in 30 min; restored comms for 6 units and 300 users ahead of a wing-level exercise.",
+      "before": "Fixed network issue.",
+      "after": "Diagnosed failing network switch in 30 min; restored the network for 6 teams and 300 users ahead of a company-wide launch.",
       "labels": [
         "1 line, weak",
         "fills 2 lines"
@@ -35,7 +35,7 @@
     "sub": "{flow} · link in bio"
   },
   "hashtags": [
-    "military",
+    "career",
     "ai"
   ],
   "caption": "The worst part of writing performance statements isn't the words. It's the last three characters that push you onto a new line.\n\n{flow} sizes every statement to the exact number of form lines, and Shorten / Lengthen / Regenerate all aim at that same target. Example in the video is made up.\n\nLink in bio."
