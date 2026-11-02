@@ -5,7 +5,7 @@
   "hook": {
     "title": "My Pi assistant falls *asleep* if you ignore it",
     "media": "wisp:states/sleepy",
-    "cover": "It falls asleep 😴"
+    "cover": "It falls asleep"
   },
   "scenes": [
     {

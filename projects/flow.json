@@ -1,7 +1,7 @@
 {
   "id": "flow",
   "name": "{flow}",
-  "kind": "AI app",
+  "kind": "AI software",
   "tagline": "Turns raw accomplishments into polished Air Force performance and award statements.",
   "accent": "#4fbef6",
   "link": "link in bio",
@@ -15,7 +15,10 @@
     "Award Package Evaluator scores and ranks full packages, impact first",
     "API key stays server-side; per-user token metering"
   ],
-  "hashtags": ["military", "ai"],
+  "hashtags": [
+    "military",
+    "ai"
+  ],
   "assets": {
     "kojo": "client/public/kojo.png",
     "kojo-tpose": "client/public/kojo-tpose.png",

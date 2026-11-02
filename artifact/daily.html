@@ -1,19 +1,19 @@
-<title>Kojo Builds Daily Reel</title>
+<title>Kojo Labs Daily Reel</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@500&display=swap">
 <style>
   /* Layout: the Reel on the left, everything needed to post it beside it (caption first,
      then song and downbeat); stacked on a phone. Dark-first, matching the videos. */
   :root {
-    --bg: #05070d; --raised: #0d1220; --line: #1c2538;
-    --fg: #eaf4ff; --dim: #9fb0c8; --faint: #6a7a93; --volt: #4fbef6; --gold: #e7b94c; --on-volt: #04121c;
-    --display: 'Space Grotesk', 'Inter', system-ui, sans-serif;
-    --sans: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
-    --mono: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
+    --bg: #0a0c0f; --raised: #12161c; --line: #232a33;
+    --fg: #f4f6f8; --dim: #8f99a6; --faint: #66707c; --volt: #4c8dff; --gold: #8f99a6; --on-volt: #ffffff;
+    --display: 'Geist', system-ui, sans-serif;
+    --sans: 'Geist', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    --mono: 'Geist Mono', ui-monospace, Menlo, Consolas, monospace;
     color-scheme: dark;
   }
-  @media (prefers-color-scheme: light) { :root:not([data-theme="dark"]) { --bg: #f2f6fb; --raised: #ffffff; --line: #d3dce8; --fg: #0b1220; --dim: #4a5870; --faint: #74839b; --volt: #1677b8; --gold: #9a6f0e; --on-volt: #ffffff; color-scheme: light; } }
-  :root[data-theme="light"] { --bg: #f2f6fb; --raised: #ffffff; --line: #d3dce8; --fg: #0b1220; --dim: #4a5870; --faint: #74839b; --volt: #1677b8; --gold: #9a6f0e; --on-volt: #ffffff; color-scheme: light; }
+  @media (prefers-color-scheme: light) { :root:not([data-theme="dark"]) { --bg: #f4f6f8; --raised: #ffffff; --line: #d8dde3; --fg: #0a0c0f; --dim: #4f5864; --faint: #7a838f; --volt: #2563eb; --gold: #4f5864; --on-volt: #ffffff; color-scheme: light; } }
+  :root[data-theme="light"] { --bg: #f4f6f8; --raised: #ffffff; --line: #d8dde3; --fg: #0a0c0f; --dim: #4f5864; --faint: #7a838f; --volt: #2563eb; --gold: #4f5864; --on-volt: #ffffff; color-scheme: light; }
   body { background: var(--bg); color: var(--fg); font-family: var(--sans); font-size: 15px; line-height: 1.5; }
   .wrap { max-width: 980px; margin: 0 auto; padding-block: 28px 48px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
   .eyebrow { font-family: var(--mono); color: var(--gold); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; }
@@ -39,7 +39,7 @@
   .how b { color: var(--fg); font-weight: 600; }
 </style>
 <div class="wrap">
-  <div class="eyebrow">Kojo Builds · today's Reel · {{PROJECT}}</div>
+  <div class="eyebrow">Kojo Labs · today's Reel · {{PROJECT}}</div>
   <h1><span class="date">{{DATE}}</span> · {{TITLE}}</h1>
   <div class="grid">
     <div class="player"><video id="reel" src="daily.mp4" poster="cover.jpg" controls playsinline preload="metadata"></video></div>
@@ -93,7 +93,7 @@
         })
         .then(function () { btn.disabled = false; });
     }
-    buttons[0].addEventListener("click", function () { save(buttons[0], "daily.mp4", "kojobuilds-{{DATE}}.mp4"); });
-    buttons[1].addEventListener("click", function () { save(buttons[1], "cover.jpg", "kojobuilds-{{DATE}}-cover.jpg"); });
+    buttons[0].addEventListener("click", function () { save(buttons[0], "daily.mp4", "kojolabs-{{DATE}}.mp4"); });
+    buttons[1].addEventListener("click", function () { save(buttons[1], "cover.jpg", "kojolabs-{{DATE}}-cover.jpg"); });
   })();
 </script>

@@ -45,11 +45,12 @@
     }
   ],
   "end": {
-    "title": "Follow to watch me *build* all of it"
+    "title": "Follow the *build* log",
+    "sub": "code, prints and everything in between"
   },
   "hashtags": [
     "software",
     "print"
   ],
-  "caption": "I build software and 3D print the hardware it runs in. This account is where all of it goes.\n\nA talking Destiny Ghost. A satellite sim checked against the textbook to 1 meter. A little animated face for my Raspberry Pi. An AI that writes Air Force performance statements.\n\nFollow along. Every build gets broken down here, code and prints included."
+  "caption": "I build software and 3D print the hardware it runs in. Kojo Labs is where all of it gets documented.\n\nA talking Destiny Ghost. A satellite sim checked against the textbook to 1 meter. A little animated face for my Raspberry Pi. An AI that writes Air Force performance statements.\n\nFollow along. Every build gets broken down here, with the code and the print files."
 }

@@ -1,7 +1,7 @@
 {
   "id": "ghost",
   "name": "Ghost",
-  "kind": "3D print + AI",
+  "kind": "Hardware \u00b7 AI",
   "tagline": "A 3D-printed Destiny Ghost that listens, talks back and opens like the in-game scan.",
   "accent": "#7fd6ff",
   "filament": "#e9e4da",
@@ -19,7 +19,10 @@
     "Parametric generator: every dimension is a parameter, collisions checked automatically",
     "Fan project. Destiny and the Ghost belong to Bungie."
   ],
-  "hashtags": ["print", "ghost"],
+  "hashtags": [
+    "print",
+    "ghost"
+  ],
   "assets": {
     "hero": "docs/renders/hero.png",
     "open": "docs/renders/hero_open.png",

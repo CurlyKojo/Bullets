@@ -55,10 +55,10 @@ export type ReelProps = {
 export const DEMO: ReelProps = {
   total: 150,
   bpm: 128,
-  accent: "#4fbef6",
-  project: { name: "Kojo Builds", kind: "studio", link: "link in bio" },
-  handle: "@kojobuilds",
-  brand: "Kojo Builds",
+  accent: "#4c8dff",
+  project: { name: "Kojo Labs", kind: "studio", link: "link in bio" },
+  handle: "@kojolabs",
+  brand: "Kojo Labs",
   scenes: [
     { type: "hook", from: 0, dur: 75, title: "I build *apps* and 3D print the *hardware*", media: { kind: "none", src: "" } },
     { type: "end", from: 75, dur: 75, title: "Follow for the next build", sub: "link in bio" },

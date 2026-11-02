@@ -1,16 +1,16 @@
-// Kojo Builds brand tokens. The palette comes off the Kojo mascot: near-black ink, the
-// electric blue of the lightning, and the gold of the coat trim.
-export const INK = "#05070d";
-export const INK_2 = "#0b0e14";
-export const PAPER = "#eaf4ff";
-export const DIM = "#9fb0c8";
-export const VOLT = "#4fbef6";
-export const VOLT_DEEP = "#2b5bff";
-export const GOLD = "#e7b94c";
+// Kojo Labs brand tokens. Graphite and paper with one signal blue: the look of an
+// engineering studio, quiet enough that the work is what you notice. Each project keeps
+// its own accent inside its videos so Burnline, Ghost, Wisp and Flow stay recognisable.
+export const INK = "#0a0c0f";
+export const INK_2 = "#12161c";
+export const LINE = "#232a33";
+export const PAPER = "#f4f6f8";
+export const DIM = "#8f99a6";
+export const SIGNAL = "#4c8dff";
 
-export const DISPLAY = "'Space Grotesk', 'Inter Display', system-ui, sans-serif";
-export const BODY = "'Inter', system-ui, sans-serif";
-export const MONO = "'JetBrains Mono', ui-monospace, monospace";
+export const DISPLAY = "'Geist', 'Inter', system-ui, sans-serif";
+export const BODY = "'Geist', 'Inter', system-ui, sans-serif";
+export const MONO = "'Geist Mono', ui-monospace, monospace";
 
 export const FPS = 30;
 export const W = 1080;

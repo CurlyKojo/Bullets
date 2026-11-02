@@ -1,25 +1,21 @@
 import React from "react";
-import { AbsoluteFill, Img, staticFile } from "remotion";
+import { AbsoluteFill } from "remotion";
 import "./fonts";
 import { Backdrop } from "./components/Backdrop";
+import { LogoMark, Wordmark as WordmarkText } from "./components/Logo";
 import { MediaLayer } from "./components/MediaLayer";
 import { Tag, Title } from "./components/Words";
-import { DISPLAY, GOLD, INK, MONO, PAPER, VOLT } from "./theme";
+import { DIM, DISPLAY, INK, INK_2, LINE, MONO, PAPER, SIGNAL } from "./theme";
 import type { ReelProps } from "./types";
 
-// The profile picture. Instagram shows it as a ~110 px circle, so the crop is the face
-// and the hair's lightning, not the whole figure.
-export const Avatar: React.FC<{ variant: "face" | "full" }> = ({ variant }) => (
-  <AbsoluteFill style={{ background: INK }}>
-    <AbsoluteFill style={{ background: `radial-gradient(circle at 50% 50%, ${VOLT}55 0%, ${INK} 68%)` }} />
-    <Img
-      src={staticFile("brand/kojo.png")}
-      style={
-        variant === "face"
-          ? { position: "absolute", width: 1720, height: 1720, left: -330, top: -230 }
-          : { position: "absolute", width: 1080, height: 1080, left: 0, top: 0 }
-      }
-    />
+// The profile picture: the mark alone on graphite. Instagram shows it as a ~110 px
+// circle, so it has to read at that size; the wordmark lives in the name field instead.
+export const Avatar: React.FC<{ variant: "mark" | "light" }> = ({ variant }) => (
+  <AbsoluteFill style={{ background: variant === "light" ? PAPER : INK, alignItems: "center", justifyContent: "center" }}>
+    {variant !== "light" && <AbsoluteFill style={{ background: `radial-gradient(60% 60% at 50% 45%, ${INK_2} 0%, ${INK} 100%)` }} />}
+    <div style={{ position: "relative" }}>
+      <LogoMark size={720} color={variant === "light" ? INK : PAPER} accent={SIGNAL} stroke={7} ring={false} />
+    </div>
   </AbsoluteFill>
 );
 
@@ -61,13 +57,12 @@ const ICONS: Record<string, React.ReactNode> = {
   ),
 };
 
-// Story highlight covers. Instagram crops the middle into a circle, so the icon sits dead
-// centre on the brand backdrop.
-export const Highlight: React.FC<{ icon: string; accent?: string }> = ({ icon, accent = VOLT }) => (
+// Story highlight covers. Instagram crops the middle into a circle, so a thin-line icon
+// sits dead centre on graphite, the project's accent on the icon only.
+export const Highlight: React.FC<{ icon: string; accent?: string }> = ({ icon, accent = SIGNAL }) => (
   <AbsoluteFill style={{ background: INK, alignItems: "center", justifyContent: "center" }}>
-    <AbsoluteFill style={{ background: `radial-gradient(circle at 50% 50%, ${accent}40 0%, ${INK} 40%)` }} />
-    <div style={{ width: 760, height: 760, borderRadius: "50%", border: `18px solid ${GOLD}`, display: "flex", alignItems: "center", justifyContent: "center", boxShadow: `0 0 120px ${accent}66 inset` }}>
-      <svg viewBox="0 0 100 100" width={540} height={540} fill="none" stroke={accent} strokeWidth={5} strokeLinecap="round" strokeLinejoin="round" style={{ color: accent, filter: `drop-shadow(0 0 18px ${accent})` }}>
+    <div style={{ width: 760, height: 760, borderRadius: "50%", border: `6px solid ${LINE}`, background: INK_2, display: "flex", alignItems: "center", justifyContent: "center" }}>
+      <svg viewBox="0 0 100 100" width={460} height={460} fill="none" stroke={PAPER} strokeWidth={3.6} strokeLinecap="round" strokeLinejoin="round" style={{ color: accent }}>
         {ICONS[icon] ?? ICONS.apps}
       </svg>
     </div>
@@ -81,25 +76,28 @@ export const Cover: React.FC<ReelProps> = (r) => {
   const title = (hook as { cover?: string }).cover ?? hook.title ?? r.project.name;
   return (
     <AbsoluteFill style={{ background: INK }}>
-      <Backdrop accent={r.accent} intensity={1.3} />
+      <Backdrop accent={r.accent} />
       <MediaLayer media={hook.media} accent={r.accent} dur={1} />
-      <AbsoluteFill style={{ background: "linear-gradient(180deg, rgba(5,7,13,0.2) 20%, rgba(5,7,13,0.75) 62%, rgba(5,7,13,0.9) 100%)" }} />
-      <div style={{ position: "absolute", top: 1060, left: 80, right: 80, display: "flex", flexDirection: "column", gap: 26 }}>
+      <AbsoluteFill style={{ background: "linear-gradient(180deg, rgba(10,12,15,0.15) 25%, rgba(10,12,15,0.78) 60%, rgba(10,12,15,0.94) 100%)" }} />
+      <div style={{ position: "absolute", top: 1030, left: 90, right: 90, display: "flex", flexDirection: "column", gap: 30 }}>
         <Tag name={r.project.name} kind={r.project.kind} accent={r.accent} />
-        <Title text={title} accent={r.accent} size={title.length > 34 ? 96 : 118} align="left" stagger={0} />
+        <Title text={title} accent={r.accent} size={title.length > 34 ? 92 : 112} align="left" stagger={0} delay={-20} />
       </div>
-      <div style={{ position: "absolute", top: 260, right: 80, fontFamily: MONO, fontSize: 30, color: PAPER, opacity: 0.8 }}>{r.handle}</div>
+      <div style={{ position: "absolute", top: 270, left: 90, display: "flex", alignItems: "center", gap: 18 }}>
+        <LogoMark size={64} color={PAPER} accent={r.accent} ring={false} stroke={8} />
+        <span style={{ fontFamily: MONO, fontSize: 28, letterSpacing: 3, color: PAPER, opacity: 0.85, textTransform: "uppercase" }}>Kojo Labs</span>
+      </div>
     </AbsoluteFill>
   );
 };
 
-// What the profile looks like with the first nine posts, for the launch plan.
+// Banner for the README, link pages and anywhere a wide logo is needed.
 export const Wordmark: React.FC = () => (
-  <AbsoluteFill style={{ background: INK, alignItems: "center", justifyContent: "center" }}>
-    <Backdrop accent={VOLT} intensity={1.2} />
-    <div style={{ fontFamily: DISPLAY, fontWeight: 700, fontSize: 210, letterSpacing: -8, color: PAPER }}>
-      kojo<span style={{ color: VOLT }}>.</span>builds
+  <AbsoluteFill style={{ background: INK, alignItems: "center", justifyContent: "center", flexDirection: "row", gap: 70 }}>
+    <LogoMark size={300} color={PAPER} accent={SIGNAL} />
+    <div style={{ display: "flex", flexDirection: "column", gap: 18 }}>
+      <WordmarkText size={190} color={PAPER} dim={DIM} font={DISPLAY} />
+      <div style={{ fontFamily: MONO, fontSize: 38, color: DIM, letterSpacing: 8, textTransform: "uppercase" }}>Software · Hardware · Open source</div>
     </div>
-    <div style={{ fontFamily: MONO, fontSize: 44, color: GOLD, marginTop: 10, letterSpacing: 6 }}>CODE · PRINT · SHIP</div>
   </AbsoluteFill>
 );

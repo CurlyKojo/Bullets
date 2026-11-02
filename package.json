@@ -1,8 +1,8 @@
 {
-  "name": "kojo-builds-studio",
+  "name": "kojo-labs-studio",
   "version": "1.0.0",
   "private": true,
-  "description": "The Kojo Builds content studio: data-driven Instagram Reels for every software project and 3D print.",
+  "description": "The Kojo Labs content studio: data-driven Instagram Reels for every software project and 3D print.",
   "type": "module",
   "scripts": {
     "sync": "node scripts/sync.mjs",

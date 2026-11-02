@@ -1,9 +1,9 @@
 ---
 name: reels
-description: Make, change or schedule Kojo Builds Instagram Reels: render today's or a specific post, write new posts for the queue, change how a scene looks, add footage from a project repo, refresh the brand kit (avatar, highlight covers), or post to Instagram. Use for anything touching posts/, projects/, src/, scripts/, brand/ or out/ in this repo, and whenever the user says video, reel, post, clip, caption, hook, cover, highlight, profile picture or Instagram, even without naming a file.
+description: Make, change or schedule Kojo Labs Instagram Reels: render today's or a specific post, write new posts for the queue, change how a scene looks, add footage from a project repo, refresh the brand kit (avatar, highlight covers), or post to Instagram. Use for anything touching posts/, projects/, src/, scripts/, brand/ or out/ in this repo, and whenever the user says video, reel, post, clip, caption, hook, cover, highlight, profile picture or Instagram, even without naming a file.
 ---
 
-# Kojo Builds Reels
+# Kojo Labs Reels
 
 This repo is a Remotion project that turns a short JSON script into a beat-cut vertical
 Reel. Read `README.md` for the map. The writing rules are in `posts/WRITING.md`, the

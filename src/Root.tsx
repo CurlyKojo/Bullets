@@ -18,7 +18,7 @@ export const Root: React.FC = () => (
       calculateMetadata={({ props }) => ({ durationInFrames: (props as ReelProps).total })}
     />
     <Still id="Cover" component={Cover} width={W} height={H} defaultProps={DEMO} />
-    <Still id="Avatar" component={Avatar} width={1080} height={1080} defaultProps={{ variant: "face" as const }} />
+    <Still id="Avatar" component={Avatar} width={1080} height={1080} defaultProps={{ variant: "mark" as const }} />
     <Still id="Highlight" component={Highlight} width={W} height={H} defaultProps={{ icon: "apps" }} />
     <Still id="Wordmark" component={Wordmark} width={1920} height={1080} />
   </>

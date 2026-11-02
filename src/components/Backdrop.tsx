@@ -2,37 +2,31 @@ import React from "react";
 import { AbsoluteFill, useCurrentFrame } from "remotion";
 import { INK, INK_2 } from "../theme";
 
-// Ink background with a slow-drifting dot grid and a glow in the accent colour. Used under
-// every scene so nothing is ever flat black.
+// Graphite with a faint engineering grid that drifts slowly, and a soft pool of the
+// project's accent behind the subject. Present, never loud.
 export const Backdrop: React.FC<{ accent: string; intensity?: number }> = ({ accent, intensity = 1 }) => {
   const f = useCurrentFrame();
-  const drift = (f * 0.6) % 48;
+  const drift = (f * 0.4) % 60;
   return (
-    <AbsoluteFill style={{ background: `radial-gradient(120% 70% at 50% 35%, ${INK_2} 0%, ${INK} 70%)` }}>
+    <AbsoluteFill style={{ background: `linear-gradient(180deg, ${INK_2} 0%, ${INK} 60%)` }}>
       <AbsoluteFill
         style={{
-          backgroundImage: `radial-gradient(${accent}33 1.6px, transparent 1.8px)`,
-          backgroundSize: "48px 48px",
+          backgroundImage: "linear-gradient(rgba(255,255,255,0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.045) 1px, transparent 1px)",
+          backgroundSize: "60px 60px",
           backgroundPosition: `0px ${drift}px`,
-          opacity: 0.55 * intensity,
-          maskImage: "radial-gradient(80% 60% at 50% 40%, black 30%, transparent 85%)",
+          maskImage: "radial-gradient(75% 55% at 50% 42%, black 25%, transparent 85%)",
         }}
       />
-      <AbsoluteFill
-        style={{
-          background: `radial-gradient(50% 30% at 50% ${38 + Math.sin(f / 40) * 3}%, ${accent}2e 0%, transparent 70%)`,
-          opacity: intensity,
-        }}
-      />
+      <AbsoluteFill style={{ background: `radial-gradient(45% 26% at 50% 45%, ${accent}1f 0%, transparent 70%)`, opacity: intensity }} />
     </AbsoluteFill>
   );
 };
 
-// Darkens the top and bottom so white words read over any footage.
+// Darkens the top and bottom so words read over any footage.
 export const Scrim: React.FC<{ strength?: number }> = ({ strength = 1 }) => (
   <AbsoluteFill
     style={{
-      background: `linear-gradient(180deg, rgba(5,7,13,${0.75 * strength}) 0%, rgba(5,7,13,${0.15 * strength}) 32%, rgba(5,7,13,${0.1 * strength}) 55%, rgba(5,7,13,${0.85 * strength}) 100%)`,
+      background: `linear-gradient(180deg, rgba(10,12,15,${0.82 * strength}) 0%, rgba(10,12,15,${0.2 * strength}) 34%, rgba(10,12,15,${0.08 * strength}) 55%, rgba(10,12,15,${0.85 * strength}) 100%)`,
     }}
   />
 );

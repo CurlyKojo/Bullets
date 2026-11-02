@@ -1,10 +1,11 @@
 import React from "react";
-import { AbsoluteFill, Img, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
+import { AbsoluteFill, interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
 import { Backdrop, Scrim } from "../components/Backdrop";
 import { MediaLayer } from "../components/MediaLayer";
 import { StlGrid } from "../components/Stl";
 import { Caption, Tag, Title } from "../components/Words";
-import { BODY, DISPLAY, DIM, GOLD, INK, MONO, PAPER, SAFE } from "../theme";
+import { BODY, DISPLAY, DIM, INK, LINE, MONO, PAPER, SAFE } from "../theme";
+import { LogoMark, Wordmark } from "../components/Logo";
 import type { ReelProps, Scene } from "../types";
 
 type P = { s: Scene; r: ReelProps };
@@ -43,11 +44,11 @@ const CaptionBlock: React.FC<{ text?: string; y?: number }> = ({ text, y = 1150 
 export const Hook: React.FC<P> = ({ s, r }) => {
   const f = useCurrentFrame();
   const { fps } = useVideoConfig();
-  const punch = spring({ frame: f, fps, config: { damping: 12, stiffness: 160 } });
+  const punch = spring({ frame: f, fps, config: { damping: 200, stiffness: 60 } });
   return (
     <AbsoluteFill>
       <Backdrop accent={r.accent} />
-      <AbsoluteFill style={{ transform: `scale(${1.12 - 0.12 * punch})` }}>
+      <AbsoluteFill style={{ transform: `scale(${1.06 - 0.06 * punch})` }}>
         <MediaLayer media={s.media} accent={r.accent} dur={s.dur} />
       </AbsoluteFill>
       <Scrim />
@@ -78,7 +79,7 @@ export const Stat: React.FC<P> = ({ s, r }) => {
   const eased = 1 - Math.pow(1 - t, 3);
   const n = (end * eased).toFixed(s.decimals ?? 0);
   const { fps } = useVideoConfig();
-  const pop = spring({ frame: f, fps, config: { damping: 11, stiffness: 200 } });
+  const pop = spring({ frame: f, fps, config: { damping: 200, stiffness: 90 } });
   return (
     <AbsoluteFill>
       <Backdrop accent={r.accent} />
@@ -88,19 +89,18 @@ export const Stat: React.FC<P> = ({ s, r }) => {
         <div
           style={{
             fontFamily: DISPLAY,
-            fontWeight: 700,
+            fontWeight: 600,
             fontSize: 300,
             lineHeight: 0.9,
-            letterSpacing: -12,
-            color: r.accent,
-            textShadow: `0 0 80px ${r.accent}66`,
-            transform: `scale(${0.7 + 0.3 * pop})`,
+            letterSpacing: -14,
+            color: PAPER,
+            opacity: Math.min(1, pop * 1.5),
             fontVariantNumeric: "tabular-nums",
           }}
         >
           {s.prefix}
           {n}
-          <span style={{ fontSize: 130, letterSpacing: -4, marginLeft: 10, color: PAPER }}>{s.unit}</span>
+          <span style={{ fontSize: 120, letterSpacing: -4, marginLeft: 12, color: r.accent }}>{s.unit}</span>
         </div>
         {s.title && (
           <div style={{ marginTop: 40 }}>
@@ -128,16 +128,16 @@ export const TypeScene: React.FC<P> = ({ s, r }) => {
   const caret = Math.floor(f / 8) % 2 === 0;
   const card: React.CSSProperties = {
     background: "rgba(11,14,20,0.92)",
-    border: `2px solid ${r.accent}55`,
-    borderRadius: 28,
+    border: `1.5px solid ${LINE}`,
+    borderRadius: 20,
     padding: "34px 38px",
-    boxShadow: `0 30px 80px rgba(0,0,0,0.5), 0 0 60px ${r.accent}22`,
+    boxShadow: "0 30px 80px rgba(0,0,0,0.45)",
     width: SAFE.right - SAFE.left,
   };
   const label: React.CSSProperties = { fontFamily: MONO, fontSize: 26, letterSpacing: 3, color: DIM, marginBottom: 16, textTransform: "uppercase" };
   return (
     <AbsoluteFill>
-      <Backdrop accent={r.accent} intensity={1.3} />
+      <Backdrop accent={r.accent} />
       <MediaLayer media={s.media} accent={r.accent} dur={s.dur} dim={0.7} />
       {s.title && <WordsBlock s={{ ...s, sub: undefined }} accent={r.accent} size={76} top={SAFE.top - 20} />}
       <div style={{ position: "absolute", top: 560, left: SAFE.left, display: "flex", flexDirection: "column", gap: 34 }}>
@@ -166,7 +166,7 @@ export const TypeScene: React.FC<P> = ({ s, r }) => {
           )}
         </div>
       </div>
-      <AbsoluteFill style={{ background: r.accent, opacity: flash * 0.55, mixBlendMode: "screen" }} />
+      <AbsoluteFill style={{ background: r.accent, opacity: flash * 0.18, mixBlendMode: "screen" }} />
       <CaptionBlock text={s.caption} y={1230} />
     </AbsoluteFill>
   );
@@ -197,10 +197,10 @@ export const Split: React.FC<P> = ({ s, r }) => {
           {s.labels?.[1]}
         </div>
       </div>
-      <div style={{ position: "absolute", top: half - 3, left: 0, width: `${wipe * 100}%`, height: 6, background: r.accent, boxShadow: `0 0 30px ${r.accent}` }} />
+      <div style={{ position: "absolute", top: half - 2, left: 0, width: `${wipe * 100}%`, height: 4, background: r.accent }} />
       {s.title && (
         <div style={{ position: "absolute", top: half - 70, left: 0, right: 0, display: "flex", justifyContent: "center" }}>
-          <div style={{ background: INK, padding: "14px 30px", borderRadius: 20, border: `2px solid ${r.accent}` }}>
+          <div style={{ background: INK, padding: "14px 30px", borderRadius: 14, border: `1.5px solid ${LINE}` }}>
             <Title text={s.title} accent={r.accent} size={64} />
           </div>
         </div>
@@ -229,30 +229,25 @@ export const Grid: React.FC<P> = ({ s, r }) => (
   </AbsoluteFill>
 );
 
-// The end card loops cleanly back into the hook: same backdrop, the mascot, the handle.
+// The end card: the mark, the name, the handle, one line of call to action. It sits on the
+// same backdrop as the hook so the Reel loops cleanly.
 export const End: React.FC<P> = ({ s, r }) => {
   const f = useCurrentFrame();
-  const { fps } = useVideoConfig();
-  const pop = spring({ frame: f, fps, config: { damping: 12, stiffness: 170 } });
-  const ring = interpolate(f % 40, [0, 40], [0, 1]);
+  const draw = interpolate(f, [0, 14], [0, 1], { extrapolateRight: "clamp", easing: (t) => 1 - Math.pow(1 - t, 3) });
   return (
     <AbsoluteFill>
-      <Backdrop accent={r.accent} intensity={1.4} />
-      <div style={{ position: "absolute", top: 330, left: 0, right: 0, display: "flex", flexDirection: "column", alignItems: "center", gap: 36 }}>
-        <div style={{ position: "relative", width: 360, height: 360, transform: `scale(${pop})` }}>
-          <div style={{ position: "absolute", inset: -30 * ring, borderRadius: "50%", border: `4px solid ${r.accent}`, opacity: 1 - ring }} />
-          <div style={{ position: "absolute", inset: 0, borderRadius: "50%", overflow: "hidden", border: `6px solid ${GOLD}`, boxShadow: `0 0 70px ${r.accent}88` }}>
-            <Img src={staticFile("brand/kojo.png")} style={{ width: "100%", height: "100%", objectFit: "cover", transform: "scale(1.55) translateY(10%)" }} />
-          </div>
+      <Backdrop accent={r.accent} intensity={0.6} />
+      <div style={{ position: "absolute", top: 380, left: 0, right: 0, display: "flex", flexDirection: "column", alignItems: "center", gap: 34 }}>
+        <div style={{ opacity: draw, transform: `translateY(${(1 - draw) * 20}px)` }}>
+          <LogoMark size={250} color={PAPER} accent={r.accent} />
         </div>
-        <div style={{ fontFamily: DISPLAY, fontWeight: 700, fontSize: 92, color: PAPER, letterSpacing: -3 }}>{r.brand}</div>
-        <div style={{ fontFamily: MONO, fontSize: 40, color: r.accent, marginTop: -20 }}>{r.handle}</div>
-        {s.title && (
-          <div style={{ marginTop: 30 }}>
-            <Title text={s.title} accent={r.accent} size={70} delay={4} />
-          </div>
-        )}
-        {s.sub && <div style={{ fontFamily: BODY, fontWeight: 600, fontSize: 40, color: DIM, marginTop: -6, textAlign: "center", maxWidth: 820 }}>{s.sub}</div>}
+        <div style={{ opacity: draw }}>
+          <Wordmark size={96} color={PAPER} dim={DIM} font={DISPLAY} />
+        </div>
+        <div style={{ fontFamily: MONO, fontSize: 34, letterSpacing: 2, color: DIM, marginTop: -18, opacity: draw }}>{r.handle}</div>
+        <div style={{ width: 120, height: 2, background: LINE, margin: "10px 0" }} />
+        {s.title && <Title text={s.title} accent={r.accent} size={66} delay={6} />}
+        {s.sub && <div style={{ fontFamily: BODY, fontWeight: 400, fontSize: 36, color: DIM, marginTop: -10, textAlign: "center", maxWidth: 820 }}>{s.sub}</div>}
       </div>
     </AbsoluteFill>
   );

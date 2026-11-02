@@ -2,9 +2,8 @@ import { continueRender, delayRender, staticFile } from "remotion";
 
 // Bundled woff2 files so every render looks the same regardless of what the machine has.
 const faces: [string, string, string][] = [
-  ["Space Grotesk", "fonts/SpaceGrotesk-Bold.woff2", "300 700"],
-  ["Inter", "fonts/Inter.woff2", "100 900"],
-  ["JetBrains Mono", "fonts/JetBrainsMono.woff2", "100 800"],
+  ["Geist", "fonts/Geist.woff2", "100 900"],
+  ["Geist Mono", "fonts/GeistMono.woff2", "100 900"],
 ];
 
 if (typeof document !== "undefined") {

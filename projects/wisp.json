@@ -1,7 +1,7 @@
 {
   "id": "wisp",
   "name": "Wisp",
-  "kind": "animation + Pi",
+  "kind": "Embedded \u00b7 Animation",
   "tagline": "A small light that knows your stuff: the face of a Raspberry Pi voice assistant.",
   "accent": "#5fe8d0",
   "link": "wisp-two-tau.vercel.app",
@@ -13,9 +13,22 @@
     "Also runs on a 1.28 inch round display",
     "Playable in a browser, running the real sprite sheets"
   ],
-  "hashtags": ["pi", "animation"],
+  "hashtags": [
+    "pi",
+    "animation"
+  ],
   "assets": {
-    "states": { "tool": "wisp", "states": ["idle", "listening", "thinking", "speaking", "happy", "sleepy"] },
+    "states": {
+      "tool": "wisp",
+      "states": [
+        "idle",
+        "listening",
+        "thinking",
+        "speaking",
+        "happy",
+        "sleepy"
+      ]
+    },
     "round": "docs/demo-round.gif",
     "tour": "docs/demo.gif",
     "front": "assets/png/transparent/wisp-1000x1200.png",

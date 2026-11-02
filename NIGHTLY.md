@@ -11,10 +11,10 @@ post it.
    `CurlyKojo/Orbit-Simulation-` and `CurlyKojo/Flow-V2` (both private; the footage
    comes from them). Ghost and Wisp are public.
 2. On claude.ai/code start a new session on this repo, branch `main`. Call it
-   "Kojo Builds daily". Leave it open; the task fires into this same session every day.
+   "Kojo Labs daily". Leave it open; the task fires into this same session every day.
 3. Paste this as the first message:
 
-   > Create a scheduled task bound to this session named "Kojo Builds daily Reel",
+   > Create a scheduled task bound to this session named "Kojo Labs daily Reel",
    > cron `CRON_TZ=America/Los_Angeles 41 15 * * *`, no notifications, whose prompt is the
    > whole contents of NIGHTLY.md's "The prompt" section, verbatim. Don't run it now.
 
@@ -25,7 +25,7 @@ post it.
 
 ## The prompt
 
-Daily Kojo Builds Reel. Keep tokens low: run the scripts, read their reports, don't open video frames unless a script fails.
+Daily Kojo Labs Reel. Keep tokens low: run the scripts, read their reports, don't open video frames unless a script fails.
 
 1. Get current: git fetch origin main and git checkout -B main origin/main. If node_modules is missing, run npm ci. Make sure the project repos are attached to this session (add_repo CurlyKojo/Orbit-Simulation- and CurlyKojo/Flow-V2 if a clone fails), then run `node scripts/sync.mjs`. A project that fails to sync is fine as long as today's post doesn't use it; say so in the report.
 
@@ -35,7 +35,7 @@ Daily Kojo Builds Reel. Keep tokens low: run the scripts, read their reports, do
 
 4. Commit posts/state.json and any new posts as "Daily Reel: <post id>" with the attribution lines and push to main. No pull request. If the push is rejected, push a branch named daily/<date> and say so.
 
-5. Hand it over through the download page. Read daily-artifact.json for its url. With the Artifact tool: `read` that url (once per session is enough), `list` with scope "files" and that url, then `publish` with that url, file_path out/latest/page.html, and files {"daily.mp4": {"from": "out/latest/reel.mp4", "contentType": "video/mp4"}, "cover.jpg": "out/latest/cover.jpg"}; no icon and no capabilities, so the page keeps its download capability. If the publish is refused with the live version, publish again from the same files. If daily-artifact.json has no url or the artifact can't be written, publish a new artifact instead: file_path out/latest/page.html, the same files, icon "video", capabilities {"downloads": true}, description "Today's Kojo Builds Reel with its caption and song, ready to post"; then write {"url": "<its url>"} to daily-artifact.json, commit it as "Daily Reel: download page", push to main, and say in the report that the page is new.
+5. Hand it over through the download page. Read daily-artifact.json for its url. With the Artifact tool: `read` that url (once per session is enough), `list` with scope "files" and that url, then `publish` with that url, file_path out/latest/page.html, and files {"daily.mp4": {"from": "out/latest/reel.mp4", "contentType": "video/mp4"}, "cover.jpg": "out/latest/cover.jpg"}; no icon and no capabilities, so the page keeps its download capability. If the publish is refused with the live version, publish again from the same files. If daily-artifact.json has no url or the artifact can't be written, publish a new artifact instead: file_path out/latest/page.html, the same files, icon "video", capabilities {"downloads": true}, description "Today's Kojo Labs Reel with its caption and song, ready to post"; then write {"url": "<its url>"} to daily-artifact.json, commit it as "Daily Reel: download page", push to main, and say in the report that the page is new.
 
 6. Only if IG_ACCESS_TOKEN and IG_USER_ID are set in this environment: run `node scripts/publish-instagram.mjs` and include the media id in the report.
 

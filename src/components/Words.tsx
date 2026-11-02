@@ -1,6 +1,6 @@
 import React from "react";
-import { interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
-import { BODY, DISPLAY, INK, MONO, PAPER } from "../theme";
+import { Easing, interpolate, useCurrentFrame } from "remotion";
+import { BODY, DISPLAY, MONO, PAPER } from "../theme";
 
 // Splits "I gave my *Raspberry Pi* a face" into words, marking everything between a pair
 // of stars as accent. A highlight can span several words.
@@ -16,8 +16,10 @@ const tokens = (text: string) => {
   });
 };
 
-// The headline. Words pop in one after another on a short stagger, which reads as
-// "fast" without being unreadable, then hold still.
+const ease = Easing.bezier(0.16, 1, 0.3, 1);
+
+// The headline. Each word rises a short distance and fades in on a tight stagger: fast
+// enough for a Reel, composed enough to look designed rather than bouncy.
 export const Title: React.FC<{
   text: string;
   accent: string;
@@ -26,34 +28,33 @@ export const Title: React.FC<{
   stagger?: number;
   align?: "left" | "center";
   maxWidth?: number;
-}> = ({ text, accent, size = 104, delay = 0, stagger = 2.5, align = "center", maxWidth = 900 }) => {
+}> = ({ text, accent, size = 100, delay = 0, stagger = 2, align = "center", maxWidth = 900 }) => {
   const f = useCurrentFrame();
-  const { fps } = useVideoConfig();
   return (
     <div
       style={{
         fontFamily: DISPLAY,
-        fontWeight: 700,
+        fontWeight: 600,
         fontSize: size,
-        lineHeight: 1.02,
-        letterSpacing: -size * 0.03,
+        lineHeight: 1.04,
+        letterSpacing: -size * 0.035,
         color: PAPER,
         textAlign: align,
         maxWidth,
         textWrap: "balance",
-        textShadow: "0 0 28px rgba(5,7,13,0.95), 0 4px 18px rgba(5,7,13,0.9), 0 2px 3px rgba(0,0,0,0.8)",
+        textShadow: "0 2px 24px rgba(10,12,15,0.85), 0 1px 3px rgba(10,12,15,0.7)",
       }}
     >
       {tokens(text).map((t, i) => {
-        const s = spring({ frame: f - delay - i * stagger, fps, config: { damping: 14, stiffness: 220, mass: 0.6 } });
+        const p = interpolate(f - delay - i * stagger, [0, 12], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: ease });
         return (
           <span
             key={i}
             style={{
               display: "inline-block",
-              marginRight: size * 0.22,
-              transform: `translateY(${(1 - s) * size * 0.5}px) scale(${0.85 + 0.15 * s})`,
-              opacity: Math.min(1, s * 1.4),
+              marginRight: size * 0.24,
+              transform: `translateY(${(1 - p) * size * 0.32}px)`,
+              opacity: p,
               color: t.hot ? accent : PAPER,
             }}
           >
@@ -65,28 +66,28 @@ export const Title: React.FC<{
   );
 };
 
-// The white rounded chip under the title, the way native Reels captions look.
+// Caption line under the title: a dark glass chip with a hairline border.
 export const Caption: React.FC<{ text: string; delay?: number }> = ({ text, delay = 6 }) => {
   const f = useCurrentFrame();
-  const { fps } = useVideoConfig();
-  const s = spring({ frame: f - delay, fps, config: { damping: 16, stiffness: 180 } });
+  const p = interpolate(f - delay, [0, 12], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: ease });
   return (
     <div
       style={{
         display: "inline-block",
         fontFamily: BODY,
-        fontWeight: 650,
-        fontSize: 44,
-        lineHeight: 1.25,
-        color: INK,
-        background: PAPER,
-        padding: "14px 26px",
-        borderRadius: 18,
+        fontWeight: 500,
+        fontSize: 40,
+        lineHeight: 1.3,
+        color: PAPER,
+        background: "rgba(10,12,15,0.72)",
+        border: "1.5px solid rgba(255,255,255,0.14)",
+        backdropFilter: "blur(14px)",
+        padding: "16px 28px",
+        borderRadius: 14,
         maxWidth: 820,
         textAlign: "center",
-        boxShadow: "0 10px 40px rgba(0,0,0,0.45)",
-        transform: `translateY(${(1 - s) * 30}px)`,
-        opacity: s,
+        transform: `translateY(${(1 - p) * 18}px)`,
+        opacity: p,
       }}
     >
       {text}
@@ -94,28 +95,15 @@ export const Caption: React.FC<{ text: string; delay?: number }> = ({ text, dela
   );
 };
 
-// Small mono label: "GHOST · 3D PRINT". Tells a cold viewer what they're looking at.
+// Project label: "GHOST — HARDWARE · AI". Tells a cold viewer what they're looking at.
 export const Tag: React.FC<{ name: string; kind: string; accent: string }> = ({ name, kind, accent }) => {
   const f = useCurrentFrame();
-  const o = interpolate(f, [0, 8], [0, 1], { extrapolateRight: "clamp" });
+  const p = interpolate(f, [0, 10], [0, 1], { extrapolateRight: "clamp", easing: ease });
   return (
-    <div
-      style={{
-        fontFamily: MONO,
-        fontWeight: 700,
-        fontSize: 30,
-        letterSpacing: 3,
-        textTransform: "uppercase",
-        color: PAPER,
-        opacity: o,
-        display: "flex",
-        alignItems: "center",
-        gap: 14,
-      }}
-    >
-      <span style={{ width: 14, height: 14, borderRadius: 7, background: accent, boxShadow: `0 0 18px ${accent}` }} />
+    <div style={{ fontFamily: MONO, fontWeight: 500, fontSize: 26, letterSpacing: 4, textTransform: "uppercase", color: PAPER, opacity: p, display: "flex", alignItems: "center", gap: 16 }}>
+      <span style={{ width: 36 * p, height: 3, background: accent }} />
       {name}
-      <span style={{ opacity: 0.55 }}>· {kind}</span>
+      <span style={{ opacity: 0.5 }}>/ {kind}</span>
     </div>
   );
 };
