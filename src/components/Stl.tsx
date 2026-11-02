@@ -76,7 +76,10 @@ export const StlTurntable: React.FC<{ src: string; color?: string; accent: strin
     <ThreeCanvas width={width} height={height} camera={{ position: [0, 0.35, 2.3], fov: 35 }}>
       <Lights accent={accent} />
       {geoms && (
-        <group rotation={[0.28, angle, 0]} scale={scale * 1.05} position={[0, 0.05, 0]}>
+        // A 9:16 frame is narrow: at this camera the view is ~0.82 units wide, so a unit-size
+        // part is scaled to fill about three quarters of the width, and sits a little low so
+        // the title above stays clear.
+        <group rotation={[0.28, angle, 0]} scale={scale * 0.6 * Math.min(1, (width / height) / 0.5625)} position={[0, -0.12, 0]}>
           <mesh geometry={geoms[0]} material={mat} />
         </group>
       )}
