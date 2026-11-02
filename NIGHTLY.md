@@ -5,6 +5,12 @@ your project repos, renders the next Reel in the queue, writes more posts when t
 runs low, commits, and republishes the download page. You open the page, save the video,
 post it.
 
+## Status
+
+Running since 2026-11-02: the scheduled task "Kojo Labs daily Reel" fires at 3:41 PM
+Pacific every day into the session the studio was built in. The steps below are for
+setting it up again from another account or session.
+
 ## Set it up (about five minutes)
 
 1. Make sure the Claude GitHub app covers this repo with push rights, plus read access to
@@ -25,9 +31,9 @@ post it.
 
 ## The prompt
 
-Daily Kojo Labs Reel. Keep tokens low: run the scripts, read their reports, don't open video frames unless a script fails.
+Daily Kojo Labs Reel. Work in /home/user/Bullets (cd there first; it is the CurlyKojo/Bullets repo). Keep tokens low: run the scripts, read their reports, don't open video frames unless a script fails.
 
-1. Get current: git fetch origin main and git checkout -B main origin/main. If node_modules is missing, run npm ci. Make sure the project repos are attached to this session (add_repo CurlyKojo/Orbit-Simulation- and CurlyKojo/Flow-V2 if a clone fails), then run `node scripts/sync.mjs`. A project that fails to sync is fine as long as today's post doesn't use it; say so in the report.
+1. Get current: git fetch origin main and git checkout -B main origin/main. If node_modules is missing, run npm ci. Make sure the project repos are attached to this session (add_repo CurlyKojo/Orbit-Simulation- and CurlyKojo/Flow-V2 if a clone fails), then run `node scripts/sync.mjs`. A project that fails to sync is fine as long as today's post doesn't use it; say so in the report. Never push anything to the project repos.
 
 2. Keep the queue full: run `node scripts/daily.mjs --dry`. If it says QUEUE EMPTY or LOW, write 7 new posts first, following posts/WRITING.md exactly: number them after the highest existing file, rotate projects, use only facts from projects/*.json and the project repos (Burnline's newest docs/devlog.md entry in .cache/repos/burnline is a good source of fresh, true material; so are recent commit messages), and reuse the hook formulas. Run `npm run check` until it passes.
 
