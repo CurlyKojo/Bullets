@@ -7,7 +7,8 @@ import { projects, readJson } from "./lib.mjs";
 const all = projects();
 // Two shots that would read as the same picture: the same asset (a video counts as new
 // footage only if it starts at least 2 s apart), or two assets the project lists as
-// lookalikes. Split scenes are exempt; comparing two near-identical images is their job.
+// lookalikes. The two halves of a split may be lookalikes (comparing them is the point),
+// but neither may appear anywhere else in the post.
 const shots = (p) => {
   const out = [];
   const add = (ref, where) => {
@@ -20,8 +21,8 @@ const shots = (p) => {
   };
   add(p.hook?.media, "hook");
   (p.scenes ?? []).forEach((s, i) => {
-    if (s.type === "split") return;
     add(s.media, `scene ${i + 1}`);
+    if (s.type === "split") add(s.media2, `scene ${i + 1}`);
   });
   return out;
 };
@@ -29,6 +30,7 @@ const repeats = (p) => {
   const list = shots(p);
   const found = [];
   list.forEach((a, i) => list.slice(i + 1).forEach((b) => {
+    if (a.where === b.where) return; // the two halves of one split
     if (a.id === b.id && Math.abs(a.start - b.start) < 60) found.push(`${a.where} and ${b.where} show the same shot (${a.id})`);
   }));
   return found;
