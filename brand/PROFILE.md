@@ -19,20 +19,17 @@ The Name field is indexed by Instagram search. "Kojo Labs" alone is clean; addin
 "Code + 3D Printing" helps people find you by topic. The handle lives in
 `brand/brand.json`; change it there and the next render picks it up.
 
-## Bio (107 of 150 characters)
+## Bio (128 of 150 characters)
 
 ```
-I'm Kojo 👋 I build apps, sims and 3D-printed things.
-Here's the build log + the AI tricks I use every day ↓
+Kojo · Developer & maker
+I build AI tools, simulations and 3D-printed hardware.
+Practical AI, coding + prompt-engineering tips ↓
 ```
 
-First person, your name first, then the two reasons to follow: the projects and the
-tips. Calmer alternative without the emoji:
-
-```
-I'm Kojo. I make software and the hardware it lives in.
-Sharing everything I build + what I've learned using AI ↓
-```
+Line one is who you are, line two is what you build, line three is why to follow.
+"Developer" stays true whatever the day job is; swap in "Software engineer" if that's
+the title.
 
 ## Profile picture
 
