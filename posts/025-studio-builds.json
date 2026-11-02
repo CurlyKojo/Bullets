@@ -1,14 +1,14 @@
 {
-  "id": "014-studio-builds",
+  "id": "025-studio-builds",
   "project": "studio",
   "mood": "hype",
   "hook": {
-    "title": "Everything I've built this *year*",
+    "title": "Everything I'm building right *now*",
     "media": {
       "ref": "burnline:globe-chase",
       "start": 0
     },
-    "cover": "Everything I built this year"
+    "cover": "Everything I'm building"
   },
   "scenes": [
     {
@@ -25,14 +25,14 @@
       "type": "media",
       "media": "ghost:open",
       "title": "*Ghost*",
-      "caption": "printed voice companion",
+      "caption": "voice companion, designed, printing next",
       "beats": 3
     },
     {
       "type": "media",
       "media": "wisp:states/happy",
       "title": "*Wisp*",
-      "caption": "a face for my Pi",
+      "caption": "a face for a Pi assistant",
       "beats": 3
     },
     {
@@ -58,5 +58,5 @@
     "software",
     "print"
   ],
-  "caption": "Four builds, one person, a lot of late nights.\n\nBurnline: a satellite simulator checked against the textbook to 1 meter.\nGhost: a 3D printed Destiny Ghost that talks.\nWisp: an animated face for my Raspberry Pi assistant.\n{flow}: an AI that writes performance and award statements.\n\nWhat should I build next? Best comment gets built."
+  "caption": "Four projects, one person, a lot of late nights.\n\nBurnline: a satellite simulator checked against the textbook to 1 meter.\nGhost: a talking Destiny Ghost, designed and about to be printed.\nWisp: an animated face for a Raspberry Pi voice assistant.\n{flow}: an AI that writes performance and award statements.\n\nWhat should I build next? Best comment gets built."
 }

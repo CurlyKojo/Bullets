@@ -26,6 +26,25 @@ const shots = (p) => {
   });
   return out;
 };
+// Every word a viewer will see or read, for the claims check.
+const texts = (p) => {
+  const out = [p.caption ?? ""];
+  for (const s of [p.hook ?? {}, ...(p.scenes ?? []), p.end ?? {}]) for (const k of ["title", "sub", "caption", "cover", "body"]) if (s[k]) out.push(s[k]);
+  return out.join("\n").toLowerCase().replace(/\*/g, "");
+};
+// A project's "avoid" list holds claims it hasn't earned yet (the Ghost isn't printed).
+// They're checked on the project's own posts and on any post that names the project.
+const claims = (p) => {
+  const t = texts(p);
+  const found = [];
+  for (const proj of Object.values(all)) {
+    if (!proj.avoid?.length) continue;
+    // Studio posts talk about every project, so they're held to every project's list.
+    if (p.project !== proj.id && p.project !== "studio" && !t.includes(proj.name.toLowerCase())) continue;
+    for (const phrase of proj.avoid) if (t.includes(phrase)) found.push(`claims "${phrase}" about ${proj.name}: ${proj.status ?? "not true yet"}`);
+  }
+  return found;
+};
 const repeats = (p) => {
   const list = shots(p);
   const found = [];
@@ -49,6 +68,7 @@ for (const p of listPosts()) {
   if (p.caption && p.caption.length > 2000) problems.push(`caption is ${p.caption.length} chars (Instagram allows 2,200 including hashtags)`);
   if ((p.caption?.match(/#\w+/g) ?? []).length) problems.push("put hashtags in the hashtags field, not the caption");
   problems.push(...repeats(p));
+  problems.push(...claims(p));
   try {
     const plan = buildProps(p, pickSong(p, "2026-01-01"), brand);
     if (plan.seconds < 6) problems.push(`only ${plan.seconds.toFixed(1)} s`);

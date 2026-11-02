@@ -1,0 +1,45 @@
+{
+  "id": "030-code-reproduce-first",
+  "project": "tips",
+  "kind": "Coding tip",
+  "accent": "#5fe3a1",
+  "mood": "dark",
+  "hook": {
+    "title": "Don't fix a bug you can't *reproduce*",
+    "cover": "Reproduce it first"
+  },
+  "scenes": [
+    {
+      "type": "tip",
+      "index": "Step 1",
+      "title": "Make it happen *on purpose*",
+      "body": "Find the exact steps that trigger it. Then you'll know when it's really gone."
+    },
+    {
+      "type": "tip",
+      "index": "Step 2",
+      "title": "Write a *test* for it",
+      "body": "One that fails now and passes after the fix. The bug can't sneak back."
+    },
+    {
+      "type": "type",
+      "labels": [
+        "the test",
+        "the proof"
+      ],
+      "before": "def test_signup_without_email():\n    resp = signup({\"name\": \"Kojo\"})\n    assert resp.status == 400",
+      "after": "before the fix:  FAILED\nafter the fix:   PASSED",
+      "mono": true,
+      "beats": 12,
+      "title": "The test that *proves* it"
+    }
+  ],
+  "end": {
+    "title": "Follow for more *code* tips",
+    "sub": "follow for daily AI + code tips"
+  },
+  "hashtags": [
+    "codingtips"
+  ],
+  "caption": "\"I think I fixed it\" isn't a fix.\n\nFirst make the bug happen on purpose. Then write a test that fails because of it. Fix the code until the test passes. Now you know it's fixed, and if it ever comes back, the test catches it before your users do."
+}

@@ -1,11 +1,11 @@
 {
-  "id": "005-wisp-face",
+  "id": "007-wisp-face",
   "project": "wisp",
   "mood": "chill",
   "hook": {
-    "title": "I gave my *Raspberry Pi* a face",
+    "title": "Voice assistants need a *face*. So I made one.",
     "media": "wisp:states/idle",
-    "cover": "I gave my Pi a face"
+    "cover": "Voice assistants need a face"
   },
   "scenes": [
     {
@@ -47,5 +47,5 @@
     "pi",
     "animation"
   ],
-  "caption": "Every voice assistant is a speaker with a light on it. I wanted mine to have a face.\n\nThis is Wisp. Six states: idle, listening, thinking, speaking, happy, sleepy. Runs fullscreen on a 5\" screen on a Raspberry Pi 5 at 30 fps, and every state is a real seamless loop.\n\nYou can play with it in your browser, link in bio. Which state is your favorite?"
+  "caption": "Every voice assistant is a speaker with a light on it. I wanted mine to have a face.\n\nThis is Wisp. Six states: idle, listening, thinking, speaking, happy, sleepy. Built to run fullscreen on a 5\" screen on a Raspberry Pi 5 at 30 fps, and every state is a real seamless loop.\n\nYou can play with it in your browser, link in bio. Which state is your favorite?"
 }

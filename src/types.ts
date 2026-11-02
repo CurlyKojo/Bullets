@@ -15,7 +15,7 @@ export type Media = {
   zoom?: "in" | "out";
 };
 
-export type SceneType = "hook" | "media" | "stat" | "type" | "split" | "grid" | "end";
+export type SceneType = "hook" | "media" | "stat" | "type" | "split" | "grid" | "tip" | "end";
 
 export type Scene = {
   type: SceneType;
@@ -40,6 +40,11 @@ export type Scene = {
   before?: string;
   after?: string;
   meter?: { used: number; limit: number; label?: string };
+  /** type: render the result in monospace too (code, prompts). */
+  mono?: boolean;
+  /** tip: the small label above the title ("TIP 1 OF 3") and the line under it. */
+  index?: string;
+  body?: string;
 };
 
 export type ReelProps = {

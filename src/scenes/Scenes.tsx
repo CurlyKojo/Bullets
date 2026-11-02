@@ -55,7 +55,13 @@ export const Hook: React.FC<P> = ({ s, r }) => {
       <div style={{ position: "absolute", top: SAFE.top - 40, left: SAFE.left }}>
         <Tag name={r.project.name} kind={r.project.kind} accent={r.accent} />
       </div>
-      <WordsBlock s={s} accent={r.accent} size={s.title && s.title.length > 46 ? 92 : 112} top={SAFE.top + 50} />
+      {s.media && s.media.kind !== "none" ? (
+        <WordsBlock s={s} accent={r.accent} size={s.title && s.title.length > 46 ? 92 : 112} top={SAFE.top + 50} />
+      ) : (
+        // Text-only hook (tips): bigger words, sitting in the upper-middle of the frame
+        // where the eye lands first, with the sub line as the promise.
+        <WordsBlock s={s} accent={r.accent} size={s.title && s.title.length > 40 ? 104 : 124} top={520} />
+      )}
       <CaptionBlock text={s.caption} />
     </AbsoluteFill>
   );
@@ -143,14 +149,26 @@ export const TypeScene: React.FC<P> = ({ s, r }) => {
       <div style={{ position: "absolute", top: 560, left: SAFE.left, display: "flex", flexDirection: "column", gap: 34 }}>
         <div style={card}>
           <div style={label}>{s.labels?.[0] ?? "what you wrote"}</div>
-          <div style={{ fontFamily: MONO, fontSize: 38, lineHeight: 1.35, color: PAPER, minHeight: 104 }}>
+          <div style={{ fontFamily: MONO, fontSize: before.length > 120 ? 30 : before.length < 60 ? 44 : 38, lineHeight: 1.35, color: PAPER, minHeight: 104, whiteSpace: "pre-wrap" }}>
             {shown}
             {f < flipAt && <span style={{ opacity: caret ? 1 : 0, color: r.accent }}>▍</span>}
           </div>
         </div>
         <div style={{ ...card, opacity: f >= flipAt ? 1 : 0.25, borderColor: f >= flipAt ? r.accent : `${r.accent}33` }}>
           <div style={{ ...label, color: r.accent }}>{s.labels?.[1] ?? "what comes out"}</div>
-          <div style={{ fontFamily: BODY, fontWeight: 600, fontSize: 40, lineHeight: 1.35, color: PAPER, minHeight: 160 }}>{after.slice(0, afterChars)}</div>
+          <div
+            style={{
+              fontFamily: s.mono ? MONO : BODY,
+              fontWeight: s.mono ? 400 : 600,
+              fontSize: after.length > 150 ? (s.mono ? 30 : 34) : s.mono ? 37 : 40,
+              lineHeight: 1.35,
+              color: PAPER,
+              minHeight: 160,
+              whiteSpace: "pre-wrap",
+            }}
+          >
+            {after.slice(0, afterChars)}
+          </div>
           {s.meter && (
             <div style={{ marginTop: 22 }}>
               <div style={{ display: "flex", justifyContent: "space-between", fontFamily: MONO, fontSize: 26, color: DIM }}>
@@ -253,6 +271,31 @@ export const End: React.FC<P> = ({ s, r }) => {
   );
 };
 
+// One tip: a small label ("TIP 2 OF 3"), the rule in big words, one plain line of why.
+// Sits on the backdrop (or dimmed footage) so the words are the whole picture.
+export const Tip: React.FC<P> = ({ s, r }) => {
+  const f = useCurrentFrame();
+  const label = interpolate(f, [0, 10], [0, 1], { extrapolateRight: "clamp" });
+  const body = interpolate(f, [14, 26], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  return (
+    <AbsoluteFill>
+      <Backdrop accent={r.accent} />
+      <MediaLayer media={s.media} accent={r.accent} dur={s.dur} dim={0.78} />
+      <div style={{ position: "absolute", top: 470, left: SAFE.left, width: SAFE.right - SAFE.left, display: "flex", flexDirection: "column", gap: 36 }}>
+        {s.index && (
+          <div style={{ fontFamily: MONO, fontSize: 30, letterSpacing: 5, textTransform: "uppercase", color: r.accent, opacity: label }}>{s.index}</div>
+        )}
+        {s.title && <Title text={s.title} accent={r.accent} size={s.title.length > 36 ? 84 : 100} align="left" delay={4} />}
+        {s.body && (
+          <div style={{ fontFamily: BODY, fontWeight: 400, fontSize: 44, lineHeight: 1.35, color: DIM, maxWidth: 860, opacity: body, transform: `translateY(${(1 - body) * 14}px)` }}>
+            {s.body}
+          </div>
+        )}
+      </div>
+    </AbsoluteFill>
+  );
+};
+
 export const SCENES: Record<Scene["type"], React.FC<P>> = {
   hook: Hook,
   media: MediaScene,
@@ -260,5 +303,6 @@ export const SCENES: Record<Scene["type"], React.FC<P>> = {
   type: TypeScene,
   split: Split,
   grid: Grid,
+  tip: Tip,
   end: End,
 };

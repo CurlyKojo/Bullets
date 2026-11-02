@@ -1,16 +1,16 @@
 {
   "id": "wisp",
   "name": "Wisp",
-  "kind": "Embedded \u00b7 Animation",
+  "kind": "Embedded · Animation",
   "tagline": "A small light that knows your stuff: the face of a Raspberry Pi voice assistant.",
   "accent": "#5fe8d0",
   "link": "wisp-two-tau.vercel.app",
   "repo": "https://github.com/CurlyKojo/wisp-",
   "facts": [
     "Six states: idle, listening, thinking, speaking, happy, sleepy",
-    "Runs fullscreen on a 5 inch 800x480 panel at 30 fps on a Raspberry Pi 5",
+    "Built to run fullscreen on a 5 inch 800x480 panel at 30 fps on a Raspberry Pi 5",
     "Every state is a real seamless loop",
-    "Also runs on a 1.28 inch round display",
+    "Has a layout for a 1.28 inch round display",
     "Playable in a browser, running the real sprite sheets"
   ],
   "hashtags": [
@@ -33,5 +33,12 @@
     "tour": "docs/demo.gif",
     "front": "assets/png/transparent/wisp-1000x1200.png",
     "icon": "assets/png/app-icon/app-icon-1024.png"
-  }
+  },
+  "status": "The animation software is finished: all six states run in the desktop app and in the browser demo. Don't claim it's running on a physical Pi assistant.",
+  "avoid": [
+    "my raspberry pi",
+    "my pi assistant",
+    "my pi a face",
+    "on my desk"
+  ]
 }

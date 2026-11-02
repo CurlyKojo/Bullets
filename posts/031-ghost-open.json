@@ -1,9 +1,9 @@
 {
-  "id": "017-ghost-open",
+  "id": "031-ghost-open",
   "project": "ghost",
   "mood": "hype",
   "hook": {
-    "title": "*One* servo opens all eight pieces",
+    "title": "*One* servo, eight shell pieces. Here's the design.",
     "media": "ghost:spool",
     "cover": "One servo, eight pieces"
   },
@@ -41,5 +41,5 @@
     "robot",
     "ghost"
   ],
-  "caption": "The scan animation was the whole reason I built this.\n\nEach of the 8 shell pieces rides a spring-loaded pin in the core. Eight tendons meet at a ring on the eye axis, and a Bowden cable runs to a servo in the base. The servo winds a spool and the shell pulls shut. Let go and the springs push it open.\n\n180 mm closed, 200 mm open. Files are free, link in bio."
+  "caption": "The scan animation is the whole reason I'm building this.\n\nEach of the 8 shell pieces is designed to ride a spring-loaded pin in the core. Eight tendons meet at a ring on the eye axis, and a Bowden cable runs to a servo in the base. The servo winds a spool and pulls the shell shut. Let go and the springs push it open.\n\n180 mm closed, 200 mm open. Files are free, link in bio. The first print is next.\n\nFan project. Destiny and the Ghost belong to Bungie."
 }

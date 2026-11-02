@@ -1,0 +1,46 @@
+{
+  "id": "022-prompt-ask-for-format",
+  "project": "tips",
+  "kind": "Prompt tip",
+  "accent": "#4c8dff",
+  "mood": "playful",
+  "hook": {
+    "title": "Tell the AI *what shape* you want back",
+    "cover": "Ask for the format"
+  },
+  "scenes": [
+    {
+      "type": "type",
+      "labels": [
+        "a wall of text",
+        "something usable"
+      ],
+      "before": "summarize this meeting",
+      "after": "Summarize this meeting as a table:\ntask | owner | due date\nThen one line on anything still undecided.",
+      "mono": true,
+      "beats": 12,
+      "title": "Same notes. *Usable*."
+    },
+    {
+      "type": "tip",
+      "index": "Rule 1",
+      "title": "Name the *format*",
+      "body": "Table, checklist, JSON, 3 bullets. It'll match it."
+    },
+    {
+      "type": "tip",
+      "index": "Rule 2",
+      "title": "List the *fields*",
+      "body": "If you know the columns you need, say them. No more reformatting."
+    }
+  ],
+  "end": {
+    "title": "Save this *one*",
+    "sub": "follow for daily AI + code tips"
+  },
+  "hashtags": [
+    "prompting",
+    "aitips"
+  ],
+  "caption": "If you don't say what shape you want, you get a wall of text.\n\nName the format (table, checklist, JSON, 3 bullets) and, if you know them, the exact fields. \"Table: task | owner | due date\" turns a meeting summary into something you can actually use."
+}

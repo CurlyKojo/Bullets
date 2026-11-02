@@ -1,9 +1,9 @@
 {
-  "id": "015-wisp-sleepy",
+  "id": "027-wisp-sleepy",
   "project": "wisp",
   "mood": "chill",
   "hook": {
-    "title": "My Pi assistant falls *asleep* if you ignore it",
+    "title": "Ignore it for 10 minutes and it *falls asleep*",
     "media": "wisp:states/idle",
     "cover": "It falls asleep"
   },

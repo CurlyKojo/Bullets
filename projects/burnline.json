@@ -32,5 +32,9 @@
     "inspector": "video/public/clips/inspector.mp4",
     "ui": "photo/UI example.png",
     "glyph": "assets/brand/burnline-glyph.svg"
-  }
+  },
+  "status": "Live at orbit-simulation.vercel.app. The C++ engine and the verification gate run in CI. The Unreal plugin is written but has never been compiled, so the Unreal side is a design, not a running build.",
+  "avoid": [
+    "unreal build"
+  ]
 }

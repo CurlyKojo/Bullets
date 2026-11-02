@@ -1,0 +1,46 @@
+{
+  "id": "020-ai-learn-dont-copy",
+  "project": "tips",
+  "kind": "AI tip",
+  "accent": "#b18cff",
+  "mood": "cinematic",
+  "hook": {
+    "title": "Use AI to *learn* code, not just write it",
+    "cover": "Use AI to learn, not just copy"
+  },
+  "scenes": [
+    {
+      "type": "type",
+      "labels": [
+        "copy, paste, pray",
+        "actually learn it"
+      ],
+      "before": "write me a function that removes duplicates from a list",
+      "after": "Write a function that removes duplicates from a list and keeps the order. Then explain each line like I'm new to Python, and tell me one way it could break.",
+      "mono": true,
+      "beats": 14,
+      "title": "Copy vs *learn*"
+    },
+    {
+      "type": "tip",
+      "index": "The habit",
+      "title": "Ask *why*, not just what",
+      "body": "Code you understand is code you can fix at 2am."
+    },
+    {
+      "type": "tip",
+      "index": "The upgrade",
+      "title": "Ask how it could *break*",
+      "body": "Fastest way to find the edge cases you didn't think of."
+    }
+  ],
+  "end": {
+    "title": "Save this for your next *project*",
+    "sub": "follow for daily AI + code tips"
+  },
+  "hashtags": [
+    "aitips",
+    "codingtips"
+  ],
+  "caption": "If you only ever paste what AI writes, you're stuck the moment it breaks.\n\nAdd two things to the prompt: \"explain each line\" and \"tell me one way it could break\". You get the code, you learn why it works, and you find the edge cases before they find you."
+}

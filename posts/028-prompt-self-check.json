@@ -1,0 +1,46 @@
+{
+  "id": "028-prompt-self-check",
+  "project": "tips",
+  "kind": "Prompt tip",
+  "accent": "#4c8dff",
+  "mood": "cinematic",
+  "hook": {
+    "title": "Make the AI *check its own work*",
+    "cover": "Make AI check itself"
+  },
+  "scenes": [
+    {
+      "type": "type",
+      "labels": [
+        "one pass",
+        "built-in review"
+      ],
+      "before": "Write a cover letter for this job.",
+      "after": "Write a cover letter for this job.\nThen check it against the 3 requirements in the posting and fix anything that misses one.",
+      "mono": true,
+      "beats": 12,
+      "title": "Add a *review* step"
+    },
+    {
+      "type": "tip",
+      "index": "Rule 1",
+      "title": "Give it a *checklist*",
+      "body": "Requirements, a rubric, a style guide. Something concrete to check against."
+    },
+    {
+      "type": "tip",
+      "index": "Rule 2",
+      "title": "Ask what it *guessed*",
+      "body": "\"List anything you weren't sure about.\" The weak spots show up fast."
+    }
+  ],
+  "end": {
+    "title": "Save this *one*",
+    "sub": "follow for daily AI + code tips"
+  },
+  "hashtags": [
+    "prompting",
+    "aitips"
+  ],
+  "caption": "First drafts from AI are first drafts. Build the review into the prompt.\n\nGive it something concrete to check against (the job's requirements, a rubric, a style guide) and tell it to fix anything that misses. Then ask what it guessed at. You'll know exactly what to double-check."
+}

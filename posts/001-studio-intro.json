@@ -11,8 +11,8 @@
     {
       "type": "media",
       "media": "ghost:hero",
-      "title": "A *Ghost* that talks back",
-      "caption": "3D printed · Raspberry Pi · Claude"
+      "title": "A talking *Ghost*, in the works",
+      "caption": "3D printable · Raspberry Pi · Claude"
     },
     {
       "type": "media",
@@ -26,7 +26,7 @@
     {
       "type": "media",
       "media": "wisp:states/happy",
-      "title": "A *face* for my Pi"
+      "title": "A *face* for a Pi assistant"
     },
     {
       "type": "type",
@@ -52,5 +52,5 @@
     "software",
     "print"
   ],
-  "caption": "I build software and 3D print the hardware it runs in. Kojo Labs is where all of it gets documented.\n\nA talking Destiny Ghost. A satellite sim checked against the textbook to 1 meter. A little animated face for my Raspberry Pi. An AI that writes performance and award statements.\n\nFollow along. Every build gets broken down here, with the code and the print files."
+  "caption": "I build software and 3D print the hardware it runs in. Kojo Labs is where all of it gets documented.\n\nA talking Destiny Ghost (designed, printing next). A satellite sim checked against the textbook to 1 meter. An animated face for a Raspberry Pi assistant. An AI that writes performance and award statements.\n\nFollow along. Every build gets broken down here, with the code and the print files."
 }

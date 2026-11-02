@@ -1,0 +1,47 @@
+{
+  "id": "010-prompt-show-dont-describe",
+  "project": "tips",
+  "kind": "Prompt tip",
+  "accent": "#4c8dff",
+  "mood": "chill",
+  "hook": {
+    "title": "One example beats ten *adjectives*",
+    "sub": "the fastest way to get the style you want",
+    "cover": "Show it, don't describe it"
+  },
+  "scenes": [
+    {
+      "type": "type",
+      "labels": [
+        "describing it",
+        "showing it"
+      ],
+      "before": "write a catchy, fun, punchy, modern product description for my desk lamp",
+      "after": "Here are two product descriptions I like:\n1. [paste]\n2. [paste]\nWrite one for my desk lamp in the same style and length.",
+      "mono": true,
+      "beats": 14,
+      "title": "Describe it vs *show* it"
+    },
+    {
+      "type": "tip",
+      "index": "Why it works",
+      "title": "Adjectives are *vague*",
+      "body": "\"Punchy\" means something different to everyone. Including the AI."
+    },
+    {
+      "type": "tip",
+      "index": "Why it works",
+      "title": "Examples are *specific*",
+      "body": "Length, tone, rhythm, structure. It copies all of it at once."
+    }
+  ],
+  "end": {
+    "title": "Try it on your next *prompt*",
+    "sub": "follow for daily AI + code tips"
+  },
+  "hashtags": [
+    "prompting",
+    "aitips"
+  ],
+  "caption": "Stacking adjectives (\"catchy, fun, punchy, modern\") is the slowest way to get the style you want.\n\nPaste one or two examples you like and say \"same style and length\". The AI picks up tone, rhythm and structure from the examples in a way no adjective can describe.\n\nWorks for emails, captions, code style, anything."
+}

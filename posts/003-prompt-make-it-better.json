@@ -1,0 +1,53 @@
+{
+  "id": "003-prompt-make-it-better",
+  "project": "tips",
+  "kind": "Prompt tip",
+  "accent": "#4c8dff",
+  "mood": "chill",
+  "hook": {
+    "title": "Stop asking AI to *make it better*",
+    "sub": "do this instead",
+    "cover": "Stop saying \"make it better\""
+  },
+  "scenes": [
+    {
+      "type": "type",
+      "labels": [
+        "what most people type",
+        "what actually works"
+      ],
+      "before": "make this email better",
+      "after": "Rewrite this email to a client who missed a deadline. Goal: get a new date without sounding annoyed. Under 120 words. Keep my sign-off.",
+      "mono": true,
+      "beats": 14,
+      "title": "Same ask. *Better* prompt."
+    },
+    {
+      "type": "tip",
+      "index": "Rule 1 of 3",
+      "title": "Say who it's *for*",
+      "body": "A client, your boss, a 10-year-old. The audience changes everything."
+    },
+    {
+      "type": "tip",
+      "index": "Rule 2 of 3",
+      "title": "Say what *good* means",
+      "body": "Get a new date. Don't sound annoyed. Now it has a target."
+    },
+    {
+      "type": "tip",
+      "index": "Rule 3 of 3",
+      "title": "Give it a *limit*",
+      "body": "Under 120 words. 3 bullets. One paragraph. Limits force focus."
+    }
+  ],
+  "end": {
+    "title": "Save this for your next *prompt*",
+    "sub": "follow for daily AI + code tips"
+  },
+  "hashtags": [
+    "prompting",
+    "aitips"
+  ],
+  "caption": "\"Make it better\" is the most common prompt there is, and it almost never works. The AI has to guess what better means.\n\nThree things fix it:\n1. Who it's for\n2. What good looks like\n3. A limit (length, format, number of points)\n\nTry it on the next thing you'd normally just ask it to improve. Save this so you have it."
+}

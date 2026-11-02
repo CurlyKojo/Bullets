@@ -1,0 +1,45 @@
+{
+  "id": "024-code-commits",
+  "project": "tips",
+  "kind": "Coding tip",
+  "accent": "#5fe3a1",
+  "mood": "chill",
+  "hook": {
+    "title": "Your commit messages are a *diary*. Write better ones.",
+    "cover": "Write better commits"
+  },
+  "scenes": [
+    {
+      "type": "type",
+      "labels": [
+        "future you: ???",
+        "future you: got it"
+      ],
+      "before": "git commit -m \"stuff\"\ngit commit -m \"fix\"\ngit commit -m \"more fixes\"",
+      "after": "git commit -m \"Fix login redirect after password reset\"\ngit commit -m \"Add rate limit to signup endpoint\"",
+      "mono": true,
+      "beats": 12,
+      "title": "Your git log, *fixed*"
+    },
+    {
+      "type": "tip",
+      "index": "Rule 1",
+      "title": "One change per *commit*",
+      "body": "Small commits are easy to review and easy to undo."
+    },
+    {
+      "type": "tip",
+      "index": "Rule 2",
+      "title": "Say what it *does*",
+      "body": "Start with a verb: Fix, Add, Remove. The log should read like a changelog."
+    }
+  ],
+  "end": {
+    "title": "Follow for more *code* tips",
+    "sub": "follow for daily AI + code tips"
+  },
+  "hashtags": [
+    "codingtips"
+  ],
+  "caption": "\"fix\" and \"stuff\" are fine until you need to find which commit broke something.\n\nTwo rules:\n1. One change per commit\n2. Start the message with a verb and say what it does\n\nYour git log turns into a changelog, and undoing one bad change stops being scary."
+}

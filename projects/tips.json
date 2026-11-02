@@ -1,0 +1,15 @@
+{
+  "id": "tips",
+  "name": "Kojo Labs",
+  "kind": "Tips",
+  "tagline": "AI, coding and prompt-engineering tips from someone who ships with them every day.",
+  "accent": "#4c8dff",
+  "link": "link in bio",
+  "repo": null,
+  "status": "Advice, not a project. Every tip must be accurate and something a viewer can use today.",
+  "facts": [],
+  "hashtags": [
+    "aitips"
+  ],
+  "assets": {}
+}

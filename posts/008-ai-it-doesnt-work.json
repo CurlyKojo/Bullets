@@ -1,0 +1,52 @@
+{
+  "id": "008-ai-it-doesnt-work",
+  "project": "tips",
+  "kind": "AI tip",
+  "accent": "#b18cff",
+  "mood": "playful",
+  "hook": {
+    "title": "*\"It doesn't work\"* is why AI can't fix your code",
+    "cover": "Why AI can't fix your code"
+  },
+  "scenes": [
+    {
+      "type": "type",
+      "labels": [
+        "what you send",
+        "what gets you a fix"
+      ],
+      "before": "my code doesnt work can you fix it",
+      "after": "Here's the function, the full error, and what I expected:\n[code]\n[error]\nExpected a list of users. Got KeyError: 'email'. What's wrong?",
+      "mono": true,
+      "beats": 14,
+      "title": "Same bug. *Better* question."
+    },
+    {
+      "type": "tip",
+      "index": "1 of 3",
+      "title": "Paste the *real* error",
+      "body": "Not your summary of it. The exact text, every line."
+    },
+    {
+      "type": "tip",
+      "index": "2 of 3",
+      "title": "Show the *code* it came from",
+      "body": "The function, not the whole project. Enough to see the bug."
+    },
+    {
+      "type": "tip",
+      "index": "3 of 3",
+      "title": "Say what you *expected*",
+      "body": "\"Expected X, got Y\" turns a guess into a diagnosis."
+    }
+  ],
+  "end": {
+    "title": "Save this for your next *bug*",
+    "sub": "follow for daily AI + code tips"
+  },
+  "hashtags": [
+    "aitips",
+    "codingtips"
+  ],
+  "caption": "AI is great at debugging. It's terrible at reading your mind.\n\n\"It doesn't work\" gives it nothing. Give it three things instead:\n1. The exact error, every line\n2. The code it came from\n3. What you expected vs what happened\n\nYou'll get a real fix on the first try way more often."
+}

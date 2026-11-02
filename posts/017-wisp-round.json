@@ -1,5 +1,5 @@
 {
-  "id": "010-wisp-round",
+  "id": "017-wisp-round",
   "project": "wisp",
   "mood": "chill",
   "hook": {
@@ -36,5 +36,5 @@
     "pi",
     "animation"
   ],
-  "caption": "Wisp runs on a 5\" 800×480 panel. It also runs on a 1.28\" round display the size of a coin.\n\nSame animation code. The round version gets its own layout so the eyes stay centered.\n\nBig or tiny? Comment which one you'd put on your desk."
+  "caption": "Wisp is built for a 5\" 800×480 panel. It also has a layout for a 1.28\" round display the size of a coin.\n\nSame animation code. The round version gets its own layout so the eyes stay centered.\n\nBig or tiny? Comment which one you'd put on your desk."
 }

@@ -1,0 +1,46 @@
+{
+  "id": "018-code-guard-clauses",
+  "project": "tips",
+  "kind": "Coding tip",
+  "accent": "#5fe3a1",
+  "mood": "dark",
+  "hook": {
+    "title": "Your nested ifs are *hurting* you",
+    "sub": "flip them",
+    "cover": "Flatten your ifs"
+  },
+  "scenes": [
+    {
+      "type": "type",
+      "labels": [
+        "three levels deep",
+        "guard clauses"
+      ],
+      "before": "def ship(order):\n    if order:\n        if order.paid:\n            if order.in_stock:\n                send(order)",
+      "after": "def ship(order):\n    if not order: return\n    if not order.paid: return\n    if not order.in_stock: return\n    send(order)",
+      "mono": true,
+      "beats": 14,
+      "title": "Same logic. *Flat*."
+    },
+    {
+      "type": "tip",
+      "index": "The pattern",
+      "title": "Handle the *exits* first",
+      "body": "Return early on the bad cases. The happy path ends up flat at the bottom."
+    },
+    {
+      "type": "tip",
+      "index": "Why",
+      "title": "*Fewer* levels, fewer bugs",
+      "body": "Every indent is one more thing to hold in your head."
+    }
+  ],
+  "end": {
+    "title": "Follow for more *code* tips",
+    "sub": "follow for daily AI + code tips"
+  },
+  "hashtags": [
+    "codingtips"
+  ],
+  "caption": "Same logic, way easier to read.\n\nInstead of nesting every condition, check the cases that should stop early and return. They're called guard clauses. The main thing the function does ends up flat at the bottom, where you can actually see it.\n\nWorks in any language."
+}

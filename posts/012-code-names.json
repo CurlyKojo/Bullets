@@ -1,0 +1,46 @@
+{
+  "id": "012-code-names",
+  "project": "tips",
+  "kind": "Coding tip",
+  "accent": "#5fe3a1",
+  "mood": "chill",
+  "hook": {
+    "title": "This one habit makes your code *readable*",
+    "sub": "name things for what they mean",
+    "cover": "Name it for what it means"
+  },
+  "scenes": [
+    {
+      "type": "type",
+      "labels": [
+        "works, but what is it?",
+        "reads like a sentence"
+      ],
+      "before": "d = t * 86400\nif d > 604800:\n    x()",
+      "after": "seconds = days * SECONDS_PER_DAY\nif seconds > ONE_WEEK:\n    send_reminder()",
+      "mono": true,
+      "beats": 14,
+      "title": "Same code. *Readable*."
+    },
+    {
+      "type": "tip",
+      "index": "Rule 1",
+      "title": "No *magic numbers*",
+      "body": "86400 means nothing. SECONDS_PER_DAY explains itself."
+    },
+    {
+      "type": "tip",
+      "index": "Rule 2",
+      "title": "Name what it *does*",
+      "body": "send_reminder() tells you what happens. x() tells you nothing."
+    }
+  ],
+  "end": {
+    "title": "Your future self will *thank* you",
+    "sub": "follow for daily AI + code tips"
+  },
+  "hashtags": [
+    "codingtips"
+  ],
+  "caption": "Both versions do the exact same thing. Only one of them makes sense six months from now.\n\nTwo rules:\n1. Give numbers a name (SECONDS_PER_DAY, not 86400)\n2. Name functions and variables for what they mean, not what type they are\n\nCode gets read way more than it gets written."
+}

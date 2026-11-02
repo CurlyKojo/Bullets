@@ -1,0 +1,39 @@
+{
+  "id": "026-ai-fresh-chat",
+  "project": "tips",
+  "kind": "AI tip",
+  "accent": "#b18cff",
+  "mood": "dark",
+  "hook": {
+    "title": "When the AI keeps getting it wrong, *do this*",
+    "cover": "When AI keeps getting it wrong"
+  },
+  "scenes": [
+    {
+      "type": "tip",
+      "index": "The move",
+      "title": "Start a *new* chat",
+      "body": "Long chats pile up wrong turns, and it keeps building on them."
+    },
+    {
+      "type": "tip",
+      "index": "But first",
+      "title": "Bring a *summary*",
+      "body": "Ask it to sum up the goal, what works and what failed. Paste that into the new chat."
+    },
+    {
+      "type": "tip",
+      "index": "Why it works",
+      "title": "*Clean* context, better answers",
+      "body": "It sees the problem fresh, not its own last five failed attempts."
+    }
+  ],
+  "end": {
+    "title": "Save this for the next time it *loops*",
+    "sub": "follow for daily AI + code tips"
+  },
+  "hashtags": [
+    "aitips"
+  ],
+  "caption": "If the AI keeps suggesting the same broken fix, more messages usually won't help. Every wrong attempt is still sitting in the conversation.\n\nAsk it to summarize the goal, what works and what's failed. Start a new chat and paste the summary. Fresh context, and it stops repeating itself."
+}

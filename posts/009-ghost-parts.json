@@ -1,11 +1,10 @@
 {
-  "id": "006-ghost-parts",
   "project": "ghost",
   "mood": "hype",
   "hook": {
-    "title": "Every part of a *talking* robot, one by one",
+    "title": "Every part of the *Ghost* I'm about to print",
     "media": "ghost:parts",
-    "cover": "Every part, one by one"
+    "cover": "Every part, before the print"
   },
   "scenes": [
     {
@@ -19,35 +18,35 @@
       "type": "media",
       "media": "ghost:core-front",
       "title": "The *core*",
-      "caption": "the eye lives in here",
+      "caption": "where the eye will sit",
       "beats": 4
     },
     {
       "type": "media",
       "media": "ghost:spider-ring",
       "title": "The *spider ring*",
-      "caption": "8 tendons meet here",
+      "caption": "8 tendons will meet here",
       "beats": 4
     },
     {
       "type": "media",
       "media": "ghost:spool",
       "title": "The *spool*",
-      "caption": "one servo winds it and the shell opens",
+      "caption": "one servo winds it to close the shell",
       "beats": 4
     },
     {
       "type": "media",
       "media": "ghost:base",
       "title": "The *base*",
-      "caption": "pan + tilt live down here",
+      "caption": "pan and tilt servos go here",
       "beats": 4
     },
     {
       "type": "stat",
       "prefix": "$",
       "value": 165,
-      "title": "in parts, total",
+      "title": "estimated parts *cost*",
       "media": "ghost:open"
     }
   ],
@@ -60,5 +59,6 @@
     "robot",
     "ghost"
   ],
-  "caption": "Every part of the Ghost, spinning.\n\n8 shell pieces, each on a spring-loaded pin. 8 tendons meet at the spider ring, and a Bowden cable to a servo winds the spool to pull them all shut. Pan and tilt servos in the base.\n\nAbout $165 in parts all in. The generator is parametric, so every dimension is a number you can change, and it checks the parts for collisions before it writes the STLs.\n\nFree files, link in bio."
+  "caption": "Every part of the Ghost, spinning, before any of it hits the printer.\n\n8 shell pieces, each designed to ride a spring-loaded pin. 8 tendons meet at the spider ring, and a servo winds the spool to pull the shell shut. Pan and tilt servos live in the base.\n\nEstimated $165 in parts. The generator is parametric, so every dimension is a number you can change, and it checks the parts for collisions before it writes the STLs.\n\nFiles are free, link in bio. Printing starts soon.\n\nFan project. Destiny and the Ghost belong to Bungie.",
+  "id": "009-ghost-parts"
 }

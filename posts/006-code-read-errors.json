@@ -1,0 +1,46 @@
+{
+  "id": "006-code-read-errors",
+  "project": "tips",
+  "kind": "Coding tip",
+  "accent": "#5fe3a1",
+  "mood": "dark",
+  "hook": {
+    "title": "You're reading error messages *wrong*",
+    "sub": "the answer is at the bottom",
+    "cover": "Read the error. All of it."
+  },
+  "scenes": [
+    {
+      "type": "type",
+      "labels": [
+        "the wall of red",
+        "what it's telling you"
+      ],
+      "before": "Traceback (most recent call last):\n  File \"app.py\", line 31, in <module>\n    signup(form)\n  File \"signup.py\", line 14, in signup\n    send_welcome(user[\"email\"])\nKeyError: 'email'",
+      "after": "Last line = what broke: no 'email' key.\nLine above = where: signup.py, line 14.\nFix: check what the form actually sends.",
+      "mono": true,
+      "beats": 16,
+      "title": "What it's *actually* saying"
+    },
+    {
+      "type": "tip",
+      "index": "The habit",
+      "title": "Read it *bottom up*",
+      "body": "In Python the last line is the error. Everything above it is the path that got there."
+    },
+    {
+      "type": "tip",
+      "index": "Bonus",
+      "title": "Search the *last line* only",
+      "body": "Paste the error type and message. Your file paths just add noise."
+    }
+  ],
+  "end": {
+    "title": "Follow for more *code* tips",
+    "sub": "follow for daily AI + code tips"
+  },
+  "hashtags": [
+    "codingtips"
+  ],
+  "caption": "Most people see a wall of red and start reading from the top. In a Python traceback, the answer is at the bottom.\n\nLast line: what went wrong (here, a KeyError: the dict has no 'email' key).\nThe line above it: exactly where (signup.py, line 14).\n\nRead bottom up and most errors explain themselves. Save this for the next time your terminal turns red."
+}

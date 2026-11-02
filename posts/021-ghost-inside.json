@@ -1,0 +1,46 @@
+{
+  "project": "ghost",
+  "mood": "dark",
+  "hook": {
+    "title": "What's going *inside* my Ghost build",
+    "media": "ghost:turnaround",
+    "cover": "What's going inside"
+  },
+  "scenes": [
+    {
+      "type": "media",
+      "media": "ghost:core-back",
+      "title": "*Raspberry Pi 4*",
+      "caption": "the brain, planned for the core"
+    },
+    {
+      "type": "media",
+      "media": "ghost:eye-bezel",
+      "title": "A round *LCD* eye",
+      "caption": "1.28 inch, it'll change with the mood"
+    },
+    {
+      "type": "media",
+      "media": "ghost:eyes",
+      "title": "*Emotion* tags",
+      "caption": "[happy] [curious] [worried] will drive the eye, lights and body"
+    },
+    {
+      "type": "media",
+      "media": "ghost:head-mount",
+      "title": "Offline *wake word*",
+      "caption": "\"Hey Ghost\" never leaves the Pi"
+    }
+  ],
+  "end": {
+    "title": "Follow for the *first print*",
+    "sub": "part 3 is the voice"
+  },
+  "hashtags": [
+    "robot",
+    "pi",
+    "ghost"
+  ],
+  "caption": "The plan for what goes inside the Ghost: a Raspberry Pi 4, a round 1.28\" LCD for the eye, an I2S mic and amp, a 16-LED ring and three servos.\n\nThe software is already written. Wake word and speech-to-text run offline on the Pi. The personality is Claude, and it writes little emotion tags into its replies, [happy], [curious], [worried], that will change the eye, the light colour and how it moves.\n\nPrinting comes next. Follow to see it come together.\n\nFan project. Destiny and the Ghost belong to Bungie.",
+  "id": "021-ghost-inside"
+}
