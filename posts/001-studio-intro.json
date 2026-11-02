@@ -1,0 +1,55 @@
+{
+  "id": "001-studio-intro",
+  "project": "studio",
+  "mood": "hype",
+  "hook": {
+    "title": "I write the *code* and 3D print the *body* it lives in",
+    "media": "ghost:open",
+    "cover": "Code it. Print it. Ship it."
+  },
+  "scenes": [
+    {
+      "type": "media",
+      "media": "ghost:hero",
+      "title": "A *Ghost* that talks back",
+      "caption": "3D printed · Raspberry Pi · Claude"
+    },
+    {
+      "type": "media",
+      "media": {
+        "ref": "burnline:wide",
+        "start": 30
+      },
+      "title": "A *satellite* simulator",
+      "caption": "accurate to 1 meter"
+    },
+    {
+      "type": "media",
+      "media": "wisp:states/happy",
+      "title": "A *face* for my Pi"
+    },
+    {
+      "type": "type",
+      "title": "An *AI* that writes Air Force bullets",
+      "before": "ran section 6 mo while sup was deployed. cleared 300 eval/dec backlog",
+      "after": "Led 4-member section for 6 months during supervisor's deployment; cleared 300-item eval and decoration backlog.",
+      "labels": [
+        "raw notes",
+        "{flow}"
+      ],
+      "meter": {
+        "used": 2,
+        "limit": 2
+      },
+      "beats": 10
+    }
+  ],
+  "end": {
+    "title": "Follow to watch me *build* all of it"
+  },
+  "hashtags": [
+    "software",
+    "print"
+  ],
+  "caption": "I build software and 3D print the hardware it runs in. This account is where all of it goes.\n\nA talking Destiny Ghost. A satellite sim checked against the textbook to 1 meter. A little animated face for my Raspberry Pi. An AI that writes Air Force performance statements.\n\nFollow along. Every build gets broken down here, code and prints included."
+}

@@ -1,0 +1,51 @@
+{
+  "id": "005-wisp-face",
+  "project": "wisp",
+  "mood": "chill",
+  "hook": {
+    "title": "I gave my *Raspberry Pi* a face",
+    "media": "wisp:states/idle",
+    "cover": "I gave my Pi a face"
+  },
+  "scenes": [
+    {
+      "type": "media",
+      "media": "wisp:states/listening",
+      "title": "It *listens*",
+      "beats": 4
+    },
+    {
+      "type": "media",
+      "media": "wisp:states/thinking",
+      "title": "It *thinks*",
+      "beats": 4
+    },
+    {
+      "type": "media",
+      "media": "wisp:states/speaking",
+      "title": "It *talks*",
+      "beats": 4
+    },
+    {
+      "type": "media",
+      "media": "wisp:states/happy",
+      "title": "It's *happy* when the job's done",
+      "beats": 4
+    },
+    {
+      "type": "media",
+      "media": "wisp:states/sleepy",
+      "title": "Ignore it 10 min and it *falls asleep*",
+      "beats": 6
+    }
+  ],
+  "end": {
+    "title": "Meet *Wisp*",
+    "sub": "play with it in your browser · link in bio"
+  },
+  "hashtags": [
+    "pi",
+    "animation"
+  ],
+  "caption": "Every voice assistant is a speaker with a light on it. I wanted mine to have a face.\n\nThis is Wisp. Six states: idle, listening, thinking, speaking, happy, sleepy. Runs fullscreen on a 5\" screen on a Raspberry Pi 5 at 30 fps, and every state is a real seamless loop.\n\nYou can play with it in your browser, link in bio. Which state is your favorite?"
+}

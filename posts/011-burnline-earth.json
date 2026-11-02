@@ -1,0 +1,52 @@
+{
+  "id": "011-burnline-earth",
+  "project": "burnline",
+  "mood": "cinematic",
+  "hook": {
+    "title": "I built my own *Earth* instead of using Cesium",
+    "media": {
+      "ref": "burnline:globe-iss",
+      "start": 0
+    },
+    "cover": "I built my own Earth"
+  },
+  "scenes": [
+    {
+      "type": "media",
+      "media": {
+        "ref": "burnline:wide",
+        "start": 90
+      },
+      "title": "Every dot is a *real* satellite",
+      "caption": "pulled from the public catalog"
+    },
+    {
+      "type": "media",
+      "media": {
+        "ref": "burnline:groundtrack",
+        "start": 10
+      },
+      "title": "Ground *tracks*",
+      "caption": "where it passes over, orbit by orbit"
+    },
+    {
+      "type": "media",
+      "media": {
+        "ref": "burnline:catalog",
+        "start": 30
+      },
+      "title": "Runs in your *browser*",
+      "caption": "SGP4 compiled to WebAssembly"
+    }
+  ],
+  "end": {
+    "title": "Follow for *part 2*",
+    "sub": "Burnline · orbit-simulation.vercel.app"
+  },
+  "hashtags": [
+    "space",
+    "burnline",
+    "software"
+  ],
+  "caption": "The easy move was Cesium. I wanted to understand every number on screen, so I wrote the Earth model myself.\n\nEvery dot is a real satellite from the public catalog. The SGP4 propagator is compiled to WebAssembly, so the whole thing runs in your browser.\n\nWhat satellite should I follow in the next video?"
+}

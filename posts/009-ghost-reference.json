@@ -1,0 +1,41 @@
+{
+  "id": "009-ghost-reference",
+  "project": "ghost",
+  "mood": "cinematic",
+  "hook": {
+    "title": "From a *reference sheet* to a printable Ghost",
+    "media": "ghost:reference",
+    "cover": "Reference sheet \u2192 real Ghost"
+  },
+  "scenes": [
+    {
+      "type": "media",
+      "media": "ghost:reference",
+      "title": "Every *seam* matches",
+      "caption": "top: Bungie's sheet \u00b7 bottom: my generator",
+      "beats": 8
+    },
+    {
+      "type": "media",
+      "media": "ghost:preview",
+      "title": "Front, side, *top*",
+      "caption": "diamond \u00b7 X with blunt arms \u00b7 notches"
+    },
+    {
+      "type": "media",
+      "media": "ghost:turnaround",
+      "title": "All *code*, no CAD",
+      "caption": "a parametric Python generator writes every STL"
+    }
+  ],
+  "end": {
+    "title": "Want the *generator*?",
+    "sub": "it's free \u00b7 link in bio"
+  },
+  "hashtags": [
+    "print",
+    "ghost",
+    "software"
+  ],
+  "caption": "No CAD for this one. The whole shell comes out of a Python script.\n\nI matched it to the Bungie reference sheet view by view: the diamond with X seams from the front, the X with blunt arm ends from the side, the central diamond and notches from the top.\n\nEvery dimension is a parameter, so you can print a 95% Ghost with one flag, and the generator checks nothing collides before it writes the files.\n\nFan project. Destiny belongs to Bungie."
+}

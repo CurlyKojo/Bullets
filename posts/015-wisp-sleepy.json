@@ -1,0 +1,33 @@
+{
+  "id": "015-wisp-sleepy",
+  "project": "wisp",
+  "mood": "chill",
+  "hook": {
+    "title": "My Pi assistant falls *asleep* if you ignore it",
+    "media": "wisp:states/sleepy",
+    "cover": "It falls asleep 😴"
+  },
+  "scenes": [
+    {
+      "type": "media",
+      "media": "wisp:states/sleepy",
+      "title": "*10* minutes of nothing...",
+      "beats": 8
+    },
+    {
+      "type": "media",
+      "media": "wisp:states/happy",
+      "title": "Say its name and it's *back*",
+      "beats": 6
+    }
+  ],
+  "end": {
+    "title": "Would you *wake* it up?",
+    "sub": "Wisp · link in bio"
+  },
+  "hashtags": [
+    "pi",
+    "animation"
+  ],
+  "caption": "Leave Wisp alone for 10 minutes and it nods off.\n\nTiny detail, but it's the kind of thing that makes a gadget feel alive. Say the wake word and it snaps right back.\n\nWould you wake it up or let it sleep?"
+}

@@ -1,0 +1,67 @@
+{
+  "id": "002-ghost-talks",
+  "project": "ghost",
+  "mood": "hype",
+  "hook": {
+    "title": "I 3D printed a *Ghost* that actually talks back",
+    "media": "ghost:hero",
+    "cover": "I printed a Ghost that talks"
+  },
+  "scenes": [
+    {
+      "type": "media",
+      "media": "ghost:reference",
+      "title": "Built off the *reference sheet*",
+      "caption": "same 8 pieces, view by view",
+      "beats": 6
+    },
+    {
+      "type": "stat",
+      "value": 32,
+      "unit": "h",
+      "title": "of *printing*",
+      "media": "ghost:parts"
+    },
+    {
+      "type": "stat",
+      "value": 500,
+      "unit": "g",
+      "title": "of filament",
+      "media": "ghost:preview"
+    },
+    {
+      "type": "grid",
+      "title": "*12* parts",
+      "items": [
+        "ghost:fin",
+        "ghost:core-front",
+        "ghost:core-back",
+        "ghost:eye-bezel",
+        "ghost:spider-ring",
+        "ghost:spool",
+        "ghost:slider-pin",
+        "ghost:servo-mount",
+        "ghost:arm",
+        "ghost:head-mount",
+        "ghost:base",
+        "ghost:base-lid"
+      ]
+    },
+    {
+      "type": "media",
+      "media": "ghost:open",
+      "title": "And it *opens* like the in-game scan",
+      "caption": "one servo pulls all 8 pieces"
+    }
+  ],
+  "end": {
+    "title": "STLs + code are *free*",
+    "sub": "link in bio \u00b7 part 2 is the wiring"
+  },
+  "hashtags": [
+    "print",
+    "ghost",
+    "robot"
+  ],
+  "caption": "I wanted a Ghost on my desk that actually talks. So I printed one.\n\n12 parts, about 500 g of filament, about 32 hours on the printer. Raspberry Pi 4 inside, a round 1.28\" screen for the eye, a 16-LED ring and three servos. Say \"Hey Ghost\" and it answers in character.\n\nThe shell is built straight off the Bungie reference sheet and it spreads open like the in-game scan.\n\nSTLs and code are free, link in bio.\n\nFan project. Destiny and the Ghost belong to Bungie."
+}

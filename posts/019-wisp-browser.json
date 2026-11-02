@@ -1,0 +1,42 @@
+{
+  "id": "019-wisp-browser",
+  "project": "wisp",
+  "mood": "playful",
+  "hook": {
+    "title": "You can *play* with this in your browser",
+    "media": "wisp:tour",
+    "cover": "Play with it in your browser"
+  },
+  "scenes": [
+    {
+      "type": "media",
+      "media": "wisp:states/listening",
+      "title": "Press *1–6*",
+      "caption": "switch states live",
+      "beats": 6
+    },
+    {
+      "type": "media",
+      "media": "wisp:states/speaking",
+      "title": "Press *M*",
+      "caption": "fake the mouth moving",
+      "beats": 6
+    },
+    {
+      "type": "media",
+      "media": "wisp:tour",
+      "title": "Real *sprite sheets*",
+      "caption": "not a video, the actual app",
+      "beats": 6
+    }
+  ],
+  "end": {
+    "title": "Link in *bio*",
+    "sub": "Wisp · wisp-two-tau.vercel.app"
+  },
+  "hashtags": [
+    "animation",
+    "pi"
+  ],
+  "caption": "Wisp's web page runs the real exported sprite sheets, the same frames the Raspberry Pi plays.\n\nKeys 1-6 switch states, M fakes the mouth, B forces a blink.\n\nGo break it. Link in bio."
+}

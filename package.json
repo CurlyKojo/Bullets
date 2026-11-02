@@ -1,0 +1,29 @@
+{
+  "name": "kojo-builds-studio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "The Kojo Builds content studio: data-driven Instagram Reels for every software project and 3D print.",
+  "type": "module",
+  "scripts": {
+    "sync": "node scripts/sync.mjs",
+    "daily": "node scripts/daily.mjs",
+    "render": "node scripts/render.mjs",
+    "preview": "remotion studio src/index.ts",
+    "brand": "node scripts/brand.mjs",
+    "check": "tsc --noEmit -p . && node scripts/lint-posts.mjs"
+  },
+  "dependencies": {
+    "@react-three/fiber": "^9.3.0",
+    "@remotion/cli": "4.0.539",
+    "@remotion/three": "4.0.539",
+    "react": "19.1.1",
+    "react-dom": "19.1.1",
+    "remotion": "4.0.539",
+    "three": "0.179.1"
+  },
+  "devDependencies": {
+    "@types/react": "19.1.10",
+    "@types/three": "0.179.0",
+    "typescript": "5.9.2"
+  }
+}

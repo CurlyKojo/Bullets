@@ -1,0 +1,99 @@
+<title>Kojo Builds Daily Reel</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+  /* Layout: the Reel on the left, everything needed to post it beside it (caption first,
+     then song and downbeat); stacked on a phone. Dark-first, matching the videos. */
+  :root {
+    --bg: #05070d; --raised: #0d1220; --line: #1c2538;
+    --fg: #eaf4ff; --dim: #9fb0c8; --faint: #6a7a93; --volt: #4fbef6; --gold: #e7b94c; --on-volt: #04121c;
+    --display: 'Space Grotesk', 'Inter', system-ui, sans-serif;
+    --sans: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    --mono: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
+    color-scheme: dark;
+  }
+  @media (prefers-color-scheme: light) { :root:not([data-theme="dark"]) { --bg: #f2f6fb; --raised: #ffffff; --line: #d3dce8; --fg: #0b1220; --dim: #4a5870; --faint: #74839b; --volt: #1677b8; --gold: #9a6f0e; --on-volt: #ffffff; color-scheme: light; } }
+  :root[data-theme="light"] { --bg: #f2f6fb; --raised: #ffffff; --line: #d3dce8; --fg: #0b1220; --dim: #4a5870; --faint: #74839b; --volt: #1677b8; --gold: #9a6f0e; --on-volt: #ffffff; color-scheme: light; }
+  body { background: var(--bg); color: var(--fg); font-family: var(--sans); font-size: 15px; line-height: 1.5; }
+  .wrap { max-width: 980px; margin: 0 auto; padding-block: 28px 48px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+  .eyebrow { font-family: var(--mono); color: var(--gold); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; }
+  h1 { font-family: var(--display); font-size: clamp(24px, 4vw, 36px); font-weight: 700; letter-spacing: -0.02em; line-height: 1.12; margin: 8px 0 0; text-wrap: balance; }
+  .date { color: var(--volt); font-variant-numeric: tabular-nums; }
+  .grid { display: grid; grid-template-columns: minmax(0, 300px) minmax(0, 1fr); gap: 28px; margin-top: 24px; align-items: start; }
+  @media (max-width: 680px) { .grid { grid-template-columns: 1fr; } }
+  .player { background: #000; border-radius: 16px; overflow: hidden; aspect-ratio: 9 / 16; max-width: 100%; border: 1px solid var(--line); }
+  .player video { width: 100%; height: 100%; display: block; object-fit: contain; background: #000; }
+  .side { display: grid; gap: 18px; min-width: 0; }
+  .k { color: var(--faint); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; margin-bottom: 6px; }
+  .caption { white-space: pre-wrap; background: var(--raised); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; font-size: 14px; max-height: 300px; overflow: auto; }
+  .row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+  .mono { font-family: var(--mono); font-variant-numeric: tabular-nums; color: var(--volt); }
+  .facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; }
+  .fact { border-top: 1px solid var(--line); padding-top: 10px; min-width: 0; }
+  button { font: inherit; font-weight: 600; background: var(--volt); color: var(--on-volt); border: 0; border-radius: 10px; padding: 11px 18px; cursor: pointer; }
+  button.ghost { background: transparent; color: var(--fg); border: 1px solid var(--line); }
+  button:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+  button[disabled] { opacity: 0.55; cursor: default; }
+  .note { color: var(--dim); font-size: 13px; }
+  .how { margin-top: 28px; padding: 16px 18px; border: 1px solid var(--line); border-radius: 12px; color: var(--dim); font-size: 14px; }
+  .how b { color: var(--fg); font-weight: 600; }
+</style>
+<div class="wrap">
+  <div class="eyebrow">Kojo Builds · today's Reel · {{PROJECT}}</div>
+  <h1><span class="date">{{DATE}}</span> · {{TITLE}}</h1>
+  <div class="grid">
+    <div class="player"><video id="reel" src="daily.mp4" poster="cover.jpg" controls playsinline preload="metadata"></video></div>
+    <div class="side">
+      <div>
+        <div class="k">Caption</div>
+        <div class="caption" id="caption">{{CAPTION}}</div>
+        <div class="row" style="margin-top:10px"><button id="copy" type="button" class="ghost">Copy caption</button><span class="note" id="copied"></span></div>
+      </div>
+      <div class="facts">
+        <div class="fact"><div class="k">Song</div><div><strong>{{SONG}}</strong><div class="note">{{BPM}} BPM. Add it in Instagram when you post.</div></div></div>
+        <div class="fact"><div class="k">Downbeat</div><div>First big hit at <span class="mono">{{DOWNBEAT}} s</span>, the first cut.</div></div>
+        <div class="fact"><div class="k">File</div><div><span class="mono">{{SECONDS}} s · 1080×1920</span><div class="note">{{POST}}</div></div></div>
+      </div>
+      <div>
+        <div class="row"><button id="save" type="button">Save the MP4</button><button id="savecover" type="button" class="ghost">Save the cover</button></div>
+        <div class="note" id="status" style="margin-top:8px">Saves to this device.</div>
+      </div>
+    </div>
+  </div>
+  <div class="how">Rebuilt every night from the next post in the queue. <b>Yesterday's Reel is replaced</b>, so save today's before posting. When posting: pick the cover from camera roll (cover.jpg), add the song, start it at the downbeat, paste the caption.</div>
+</div>
+<script>
+  (function () {
+    var status = document.getElementById("status");
+    var copy = document.getElementById("copy"), copied = document.getElementById("copied"), cap = document.getElementById("caption");
+    copy.addEventListener("click", function () {
+      var text = cap.textContent;
+      var sel = function () { var r = document.createRange(); r.selectNodeContents(cap); var s = window.getSelection(); s.removeAllRanges(); s.addRange(r); copied.textContent = "Selected. Copy it with your keyboard or long-press."; };
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(function () { copied.textContent = "Copied."; }, sel); else sel();
+    });
+    var dl = null;
+    var buttons = [document.getElementById("save"), document.getElementById("savecover")];
+    if (window.claude && window.claude.use) {
+      window.claude.use("downloads").then(function (d) {
+        dl = d;
+        if (!dl) { buttons.forEach(function (b) { b.hidden = true; }); status.textContent = "Saving isn't available in this view. Open the page in claude.ai to save the files."; }
+      });
+    } else {
+      buttons.forEach(function (b) { b.hidden = true; }); status.textContent = "Open this page in claude.ai to save the files.";
+    }
+    function save(btn, path, filename) {
+      if (!dl) return;
+      btn.disabled = true; status.textContent = "Fetching " + path + "…";
+      fetch(path).then(function (r) { if (!r.ok) throw new Error("fetch " + r.status); return r.blob(); })
+        .then(function (blob) { status.textContent = "Confirm the save."; return dl.save({ filename: filename, data: blob }); })
+        .then(function () { status.textContent = "Saved " + filename + "."; })
+        .catch(function (e) {
+          var code = e && e.code;
+          status.textContent = code === "declined" ? "Not saved." : code === "rate_limited" ? "A save is already open. Finish it, then try again." : "Couldn't save (" + (code || e.message) + "). Reload and try again.";
+        })
+        .then(function () { btn.disabled = false; });
+    }
+    buttons[0].addEventListener("click", function () { save(buttons[0], "daily.mp4", "kojobuilds-{{DATE}}.mp4"); });
+    buttons[1].addEventListener("click", function () { save(buttons[1], "cover.jpg", "kojobuilds-{{DATE}}-cover.jpg"); });
+  })();
+</script>

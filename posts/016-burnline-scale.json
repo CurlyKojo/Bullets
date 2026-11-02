@@ -1,0 +1,55 @@
+{
+  "id": "016-burnline-scale",
+  "project": "burnline",
+  "mood": "cinematic",
+  "hook": {
+    "title": "Real scale. One unit = one *centimetre*.",
+    "media": {
+      "ref": "burnline:wide",
+      "start": 120
+    },
+    "cover": "Real 1:1 scale"
+  },
+  "scenes": [
+    {
+      "type": "stat",
+      "value": 637.8,
+      "decimals": 1,
+      "unit": "M",
+      "title": "units to Earth's *surface*",
+      "media": {
+        "ref": "burnline:globe-iss",
+        "start": 60
+      }
+    },
+    {
+      "type": "stat",
+      "value": 4.2,
+      "decimals": 1,
+      "unit": "B",
+      "title": "units out to *GEO*",
+      "media": {
+        "ref": "burnline:globe-chase",
+        "start": 90
+      }
+    },
+    {
+      "type": "media",
+      "media": {
+        "ref": "burnline:inspector",
+        "start": 0
+      },
+      "title": "Precise to *4.8 nm*",
+      "caption": "double-precision coordinates, even out at GEO"
+    }
+  ],
+  "end": {
+    "title": "Follow for the *build*",
+    "sub": "Burnline"
+  },
+  "hashtags": [
+    "space",
+    "burnline"
+  ],
+  "caption": "No scale model. In Burnline's Unreal build, one unit is one centimetre, so Earth's radius is 637,800,000 units and GEO sits 4.2 billion units out.\n\nThat used to be a terrible idea: 32-bit floats only resolve about 2.6 m out at GEO, which is bigger than my whole 1 m accuracy budget. UE5's double-precision coordinates resolve 4.8 nanometres at the same distance.\n\nNerdy? Yes. Follow anyway."
+}

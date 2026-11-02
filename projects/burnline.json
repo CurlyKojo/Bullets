@@ -1,0 +1,33 @@
+{
+  "id": "burnline",
+  "name": "Burnline",
+  "kind": "software",
+  "tagline": "A satellite tracking simulator, physics straight from the textbooks.",
+  "accent": "#ff8a2b",
+  "link": "orbit-simulation.vercel.app",
+  "repo": "https://github.com/CurlyKojo/orbit-simulation-",
+  "private": true,
+  "facts": [
+    "C++17 engine, no game-engine dependencies",
+    "Every propagation cross-checked against Vallado's own code: 1 m position, 1 mm/s velocity",
+    "Maneuver planner: Hohmann, bi-elliptic, plane change, phasing, checked against the book's printed delta-v",
+    "Own Earth model, no Cesium",
+    "NumPy mirror of every engine function held to the C++ at 1e-9",
+    "SGP4 compiled to WebAssembly so it runs in the browser",
+    "Unreal at real-world 1:1 scale: one unit is one centimetre"
+  ],
+  "hashtags": ["burnline", "space"],
+  "assets": {
+    "wide": "video/public/clips/wide.mp4",
+    "globe-iss": "video/public/clips/globe-iss.mp4",
+    "globe-chase": "video/public/clips/globe-chase.mp4",
+    "groundtrack": "video/public/clips/groundtrack.mp4",
+    "planner": "video/public/clips/planner.mp4",
+    "mission": "video/public/clips/mission.mp4",
+    "modes": "video/public/clips/modes.mp4",
+    "catalog": "video/public/clips/catalog.mp4",
+    "inspector": "video/public/clips/inspector.mp4",
+    "ui": "photo/UI example.png",
+    "glyph": "assets/brand/burnline-glyph.svg"
+  }
+}

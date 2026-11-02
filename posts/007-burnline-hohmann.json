@@ -1,0 +1,60 @@
+{
+  "id": "007-burnline-hohmann",
+  "project": "burnline",
+  "mood": "cinematic",
+  "hook": {
+    "title": "How to change orbits using the *least fuel* possible",
+    "media": {
+      "ref": "burnline:planner",
+      "start": 0
+    },
+    "cover": "Change orbits, least fuel"
+  },
+  "scenes": [
+    {
+      "type": "media",
+      "media": {
+        "ref": "burnline:mission",
+        "start": 20
+      },
+      "title": "Burn *1*",
+      "caption": "speed up: stretch the orbit into an ellipse"
+    },
+    {
+      "type": "media",
+      "media": {
+        "ref": "burnline:globe-chase",
+        "start": 40
+      },
+      "title": "*Coast*",
+      "caption": "half an orbit out to the high point"
+    },
+    {
+      "type": "media",
+      "media": {
+        "ref": "burnline:planner",
+        "start": 120
+      },
+      "title": "Burn *2*",
+      "caption": "speed up again: round it out at the new height"
+    },
+    {
+      "type": "media",
+      "media": {
+        "ref": "burnline:modes",
+        "start": 30
+      },
+      "title": "That's a *Hohmann* transfer",
+      "caption": "Burnline plans it, plus bi-elliptic, plane change and phasing"
+    }
+  ],
+  "end": {
+    "title": "Follow for more *orbit* stuff",
+    "sub": "Burnline · orbit-simulation.vercel.app"
+  },
+  "hashtags": [
+    "space",
+    "burnline"
+  ],
+  "caption": "The cheapest way between two circular orbits (most of the time) is two burns.\n\nBurn once to stretch your orbit into an ellipse that touches the new height. Coast half an orbit. Burn again at the top to make it circular.\n\nThat's a Hohmann transfer, from 1925, and it's still how it's done. Burnline's planner does Hohmann, bi-elliptic, plane changes and phasing, and every delta-v is checked against the textbook's printed numbers.\n\nWant the bi-elliptic one next? It beats Hohmann in one specific case."
+}

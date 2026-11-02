@@ -1,0 +1,40 @@
+{
+  "id": "018-flow-evaluator",
+  "project": "flow",
+  "mood": "dark",
+  "hook": {
+    "title": "I built an AI that *ranks* award packages",
+    "media": "flow:kojo-tpose",
+    "cover": "AI that ranks award packages"
+  },
+  "scenes": [
+    {
+      "type": "media",
+      "media": "flow:kojo",
+      "title": "Upload the *package*",
+      "caption": "PDF, Word, image or text"
+    },
+    {
+      "type": "media",
+      "media": "flow:kojo-wave",
+      "title": "Scored *impact-first*",
+      "caption": "against the wing awards rubric"
+    },
+    {
+      "type": "stat",
+      "prefix": "#",
+      "value": 1,
+      "title": "ranked within each *category*",
+      "media": "flow:kojo"
+    }
+  ],
+  "end": {
+    "title": "Know where you *stand*",
+    "sub": "{flow} · link in bio"
+  },
+  "hashtags": [
+    "military",
+    "ai"
+  ],
+  "caption": "Before your package goes to the board, wouldn't you want to know how it ranks?\n\n{flow}'s Award Package Evaluator takes PDF, Word, image or text packages, scores them impact-first against the wing awards rubric, sorts them into categories and ranks them.\n\nLink in bio."
+}

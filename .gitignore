@@ -1,0 +1,6 @@
+node_modules/
+out/
+.cache/
+public/assets/
+.env
+*.log

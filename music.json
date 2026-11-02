@@ -1,0 +1,19 @@
+{
+  "_": "Suggested tracks. The Reel ships with a silent audio track; add the song in Instagram at post time so it counts as a trending sound, starting the song so its first downbeat lands on the report's 'downbeat' second (the first cut). Every cut sits on this BPM's grid. Clean versions only. Tempos are the commonly listed ones; check Tunebat or SongBPM before swapping in something new.",
+  "tracks": [
+    { "artist": "Martin Garrix", "title": "Animals", "bpm": 128, "mood": "hype" },
+    { "artist": "Swedish House Mafia", "title": "Greyhound", "bpm": 128, "mood": "hype" },
+    { "artist": "Hardwell", "title": "Spaceman", "bpm": 128, "mood": "hype" },
+    { "artist": "Imagine Dragons", "title": "Believer", "bpm": 125, "mood": "hype" },
+    { "artist": "deadmau5", "title": "Strobe", "bpm": 128, "mood": "cinematic", "note": "use the build into the drop" },
+    { "artist": "Porter Robinson", "title": "Language", "bpm": 128, "mood": "cinematic" },
+    { "artist": "Avicii", "title": "Levels", "bpm": 126, "mood": "cinematic" },
+    { "artist": "Night Tapes", "title": "drifting", "bpm": 126, "mood": "chill" },
+    { "artist": "Bicep", "title": "Glue", "bpm": 130, "mood": "chill" },
+    { "artist": "Daft Punk", "title": "Harder, Better, Faster, Stronger", "bpm": 123, "mood": "playful" },
+    { "artist": "Kylie Minogue", "title": "Padam Padam", "bpm": 128, "mood": "playful" },
+    { "artist": "NF", "title": "Clouds", "bpm": 128, "mood": "dark" },
+    { "artist": "David Kushner", "title": "Daylight", "bpm": 130, "mood": "dark" },
+    { "artist": "Billie Eilish", "title": "bury a friend", "bpm": 120, "mood": "dark" }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "id": "008-flow-coach",
+  "project": "flow",
+  "mood": "playful",
+  "hook": {
+    "title": "Your bullet is missing *one* thing",
+    "media": "flow:kojo",
+    "cover": "Your bullet is missing one thing"
+  },
+  "scenes": [
+    {
+      "type": "type",
+      "title": "This is *fine*...",
+      "before": "Helped run the squadron PT program.",
+      "after": "Ran squadron PT program for 140 Airmen; raised first-time pass rate from 81% to 96%.",
+      "labels": [
+        "before",
+        "after the coach"
+      ],
+      "meter": {
+        "used": 1,
+        "limit": 1
+      },
+      "beats": 12
+    },
+    {
+      "type": "media",
+      "media": "flow:kojo-tpose",
+      "title": "*Numbers*",
+      "caption": "how many people · how much money · what % changed"
+    },
+    {
+      "type": "media",
+      "media": "flow:kojo-wave",
+      "title": "*Impact*",
+      "caption": "why the mission is better because you did it"
+    }
+  ],
+  "end": {
+    "title": "Send this to your *supervisor*",
+    "sub": "{flow} · link in bio"
+  },
+  "hashtags": [
+    "military",
+    "ai"
+  ],
+  "caption": "\"Helped run the PT program\" tells the board nothing.\n\nThe fix is almost always the same: a number and an impact. How many people, how much money, what changed, and why the mission is better for it.\n\n{flow}'s coach checks every statement for a metric, a $ or %, a strong verb, the mission impact, and whether it fits the line. Example numbers are made up.\n\nSend this to the person who signs your EPB."
+}

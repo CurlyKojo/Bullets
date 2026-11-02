@@ -1,0 +1,42 @@
+{
+  "id": "021-studio-why",
+  "project": "studio",
+  "mood": "cinematic",
+  "hook": {
+    "title": "Why I *build* in public",
+    "media": "ghost:hero",
+    "cover": "Why I build in public"
+  },
+  "scenes": [
+    {
+      "type": "media",
+      "media": {
+        "ref": "burnline:planner",
+        "start": 60
+      },
+      "title": "Every *mistake* is content",
+      "beats": 4
+    },
+    {
+      "type": "media",
+      "media": "ghost:fin",
+      "title": "Every *file* is free",
+      "beats": 4
+    },
+    {
+      "type": "media",
+      "media": "wisp:states/thinking",
+      "title": "Every build makes the *next* one better",
+      "beats": 6
+    }
+  ],
+  "end": {
+    "title": "Build *with* me",
+    "sub": "follow · code · print · ship"
+  },
+  "hashtags": [
+    "software",
+    "print"
+  ],
+  "caption": "I post everything: the code, the STLs, the parts that didn't work.\n\nPartly because someone else is stuck on the same problem. Partly because shipping in public keeps me honest.\n\nIf you're building something too, drop it in the comments. I'll check out every one."
+}

@@ -1,0 +1,63 @@
+{
+  "id": "003-burnline-1m",
+  "project": "burnline",
+  "mood": "cinematic",
+  "hook": {
+    "title": "My satellite sim is accurate to *1 meter*. Here's how I know.",
+    "media": {
+      "ref": "burnline:wide",
+      "start": 0
+    },
+    "cover": "Accurate to 1 meter"
+  },
+  "scenes": [
+    {
+      "type": "media",
+      "media": {
+        "ref": "burnline:globe-iss",
+        "start": 20
+      },
+      "title": "Every orbit gets *checked*",
+      "caption": "against Vallado's own reference code"
+    },
+    {
+      "type": "stat",
+      "value": 1,
+      "unit": "m",
+      "title": "max *position* error",
+      "media": {
+        "ref": "burnline:groundtrack",
+        "start": 40
+      }
+    },
+    {
+      "type": "stat",
+      "value": 1,
+      "unit": "mm/s",
+      "title": "max *velocity* error",
+      "media": {
+        "ref": "burnline:inspector",
+        "start": 40
+      }
+    },
+    {
+      "type": "media",
+      "media": {
+        "ref": "burnline:planner",
+        "start": 10
+      },
+      "title": "If it misses, the build *fails*",
+      "caption": "CI blocks the merge. No exceptions."
+    }
+  ],
+  "end": {
+    "title": "Follow for the *physics*",
+    "sub": "Burnline · orbit-simulation.vercel.app"
+  },
+  "hashtags": [
+    "burnline",
+    "space",
+    "software"
+  ],
+  "caption": "Most orbit visualizers look right. I wanted mine to BE right.\n\nEvery propagation in Burnline gets cross-checked against Vallado's own code (the textbook most of the industry learned from). If a satellite drifts more than 1 meter in position or 1 mm/s in velocity, the build fails and nothing merges.\n\nC++17 engine, physics straight from Bate/Mueller/White and Vallado. No Cesium, my own Earth model.\n\nWhat should I add next?"
+}

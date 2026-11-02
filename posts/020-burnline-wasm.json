@@ -1,0 +1,52 @@
+{
+  "id": "020-burnline-wasm",
+  "project": "burnline",
+  "mood": "dark",
+  "hook": {
+    "title": "Tracking the *ISS* live, in a browser tab",
+    "media": {
+      "ref": "burnline:globe-iss",
+      "start": 30
+    },
+    "cover": "Tracking the ISS live"
+  },
+  "scenes": [
+    {
+      "type": "media",
+      "media": {
+        "ref": "burnline:globe-chase",
+        "start": 0
+      },
+      "title": "*SGP4* in WebAssembly",
+      "caption": "the same model real trackers use"
+    },
+    {
+      "type": "media",
+      "media": {
+        "ref": "burnline:groundtrack",
+        "start": 60
+      },
+      "title": "Passes the *gate*",
+      "caption": "checked in CI on every push"
+    },
+    {
+      "type": "media",
+      "media": {
+        "ref": "burnline:inspector",
+        "start": 80
+      },
+      "title": "Click any *satellite*",
+      "caption": "its orbit, its elements, its next pass"
+    }
+  ],
+  "end": {
+    "title": "Try it",
+    "sub": "orbit-simulation.vercel.app"
+  },
+  "hashtags": [
+    "space",
+    "burnline",
+    "software"
+  ],
+  "caption": "That's the ISS, tracked live with SGP4, the same propagation model real satellite trackers use, compiled to WebAssembly and running in the browser.\n\nIt has to pass the same verification gate as the C++ engine on every push.\n\nWhat should I track next?"
+}

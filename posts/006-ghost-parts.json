@@ -1,0 +1,64 @@
+{
+  "id": "006-ghost-parts",
+  "project": "ghost",
+  "mood": "hype",
+  "hook": {
+    "title": "Every part of a *talking* robot, one by one",
+    "media": "ghost:fin",
+    "cover": "Every part, one by one"
+  },
+  "scenes": [
+    {
+      "type": "media",
+      "media": "ghost:fin",
+      "title": "Shell piece *×8*",
+      "caption": "the diamond with the X seams",
+      "beats": 4
+    },
+    {
+      "type": "media",
+      "media": "ghost:core-front",
+      "title": "The *core*",
+      "caption": "the eye lives in here",
+      "beats": 4
+    },
+    {
+      "type": "media",
+      "media": "ghost:spider-ring",
+      "title": "The *spider ring*",
+      "caption": "8 tendons meet here",
+      "beats": 4
+    },
+    {
+      "type": "media",
+      "media": "ghost:spool",
+      "title": "The *spool*",
+      "caption": "one servo winds it and the shell opens",
+      "beats": 4
+    },
+    {
+      "type": "media",
+      "media": "ghost:base",
+      "title": "The *base*",
+      "caption": "pan + tilt live down here",
+      "beats": 4
+    },
+    {
+      "type": "stat",
+      "prefix": "$",
+      "value": 165,
+      "title": "in parts, total",
+      "media": "ghost:open"
+    }
+  ],
+  "end": {
+    "title": "Save this for your *next* print",
+    "sub": "all 12 STLs free · link in bio"
+  },
+  "hashtags": [
+    "print",
+    "robot",
+    "ghost"
+  ],
+  "caption": "Every part of the Ghost, spinning.\n\n8 shell pieces, each on a spring-loaded pin. 8 tendons meet at the spider ring, and a Bowden cable to a servo winds the spool to pull them all shut. Pan and tilt servos in the base.\n\nAbout $165 in parts all in. The generator is parametric, so every dimension is a number you can change, and it checks the parts for collisions before it writes the STLs.\n\nFree files, link in bio."
+}

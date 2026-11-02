@@ -1,0 +1,42 @@
+{
+  "id": "013-flow-line-fit",
+  "project": "flow",
+  "mood": "playful",
+  "hook": {
+    "title": "It fills the *exact* number of lines. Not one more.",
+    "media": "flow:kojo-wave",
+    "cover": "Exactly 2 lines. Every time."
+  },
+  "scenes": [
+    {
+      "type": "type",
+      "title": "Too *short*?",
+      "before": "Fixed comm issue.",
+      "after": "Diagnosed failing network switch in 30 min; restored comms for 6 units and 300 users ahead of a wing-level exercise.",
+      "labels": [
+        "1 line, weak",
+        "fills 2 lines"
+      ],
+      "meter": {
+        "used": 2,
+        "limit": 2
+      },
+      "beats": 12
+    },
+    {
+      "type": "media",
+      "media": "flow:kojo",
+      "title": "*Shorten*. *Lengthen*. Regenerate.",
+      "caption": "each one aimed at the exact line target"
+    }
+  ],
+  "end": {
+    "title": "Never fight the *form* again",
+    "sub": "{flow} · link in bio"
+  },
+  "hashtags": [
+    "military",
+    "ai"
+  ],
+  "caption": "The worst part of writing performance statements isn't the words. It's the last three characters that push you onto a new line.\n\n{flow} sizes every statement to the exact number of form lines, and Shorten / Lengthen / Regenerate all aim at that same target. Example in the video is made up.\n\nLink in bio."
+}

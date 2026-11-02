@@ -1,0 +1,48 @@
+{
+  "id": "004-flow-pov",
+  "project": "flow",
+  "mood": "playful",
+  "hook": {
+    "title": "POV: your *EPB* is due tomorrow and you have nothing written",
+    "media": "flow:kojo-wave",
+    "cover": "EPB due tomorrow?"
+  },
+  "scenes": [
+    {
+      "type": "type",
+      "title": "Dump your *notes*",
+      "before": "did the base cleanup thing. like 85 ppl showed up. saved money on contract",
+      "after": "Organized 85 volunteers for base-wide cleanup; removed 4 tons of debris and saved $12K in contract costs.",
+      "labels": [
+        "what you remember",
+        "what {flow} writes"
+      ],
+      "meter": {
+        "used": 1,
+        "limit": 1
+      },
+      "beats": 12
+    },
+    {
+      "type": "media",
+      "media": "flow:kojo",
+      "title": "Sized to the *exact* line count",
+      "caption": "no more cutting words at 2am"
+    },
+    {
+      "type": "media",
+      "media": "flow:kojo-tpose",
+      "title": "Then it *coaches* you",
+      "caption": "\"add the $ figure\" · \"quantify the scope\""
+    }
+  ],
+  "end": {
+    "title": "Built for *Airmen*",
+    "sub": "{flow} · link in bio"
+  },
+  "hashtags": [
+    "military",
+    "ai"
+  ],
+  "caption": "Writing your own EPB at midnight is a rite of passage. It doesn't have to be.\n\nI built {flow}. Dump your raw notes in, get narrative statements back sized to the exact number of form lines. Then the coach tells you what's missing: the dollar figure, the scope, the mission impact.\n\nExample numbers in the video are made up. Your accomplishments are the real ones.\n\nLink in bio. Tag the person who always writes theirs last minute."
+}

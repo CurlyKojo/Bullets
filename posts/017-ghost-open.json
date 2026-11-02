@@ -1,0 +1,45 @@
+{
+  "id": "017-ghost-open",
+  "project": "ghost",
+  "mood": "hype",
+  "hook": {
+    "title": "*One* servo opens all eight pieces",
+    "media": "ghost:spool",
+    "cover": "One servo, eight pieces"
+  },
+  "scenes": [
+    {
+      "type": "split",
+      "media": "ghost:preview",
+      "media2": "ghost:preview-open",
+      "labels": [
+        "closed · 180 mm",
+        "open · 200 mm"
+      ],
+      "title": "*Closed* vs *open*",
+      "beats": 8
+    },
+    {
+      "type": "media",
+      "media": "ghost:slider-pin",
+      "title": "Spring-loaded *pins*",
+      "caption": "each shell piece rides one"
+    },
+    {
+      "type": "media",
+      "media": "ghost:spider-ring",
+      "title": "8 tendons, 1 *ring*",
+      "caption": "a Bowden cable runs to the servo"
+    }
+  ],
+  "end": {
+    "title": "Save it. *Print* it.",
+    "sub": "STLs free · link in bio"
+  },
+  "hashtags": [
+    "print",
+    "robot",
+    "ghost"
+  ],
+  "caption": "The scan animation was the whole reason I built this.\n\nEach of the 8 shell pieces rides a spring-loaded pin in the core. Eight tendons meet at a ring on the eye axis, and a Bowden cable runs to a servo in the base. The servo winds a spool and the shell pulls shut. Let go and the springs push it open.\n\n180 mm closed, 200 mm open. Files are free, link in bio."
+}
