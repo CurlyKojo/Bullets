@@ -66,8 +66,8 @@ const ICONS: Record<string, React.ReactNode> = {
 export const Highlight: React.FC<{ icon: string; accent?: string }> = ({ icon, accent = VOLT }) => (
   <AbsoluteFill style={{ background: INK, alignItems: "center", justifyContent: "center" }}>
     <AbsoluteFill style={{ background: `radial-gradient(circle at 50% 50%, ${accent}40 0%, ${INK} 40%)` }} />
-    <div style={{ width: 760, height: 760, borderRadius: "50%", border: `10px solid ${GOLD}`, display: "flex", alignItems: "center", justifyContent: "center", boxShadow: `0 0 120px ${accent}66 inset` }}>
-      <svg viewBox="0 0 100 100" width={420} height={420} fill="none" stroke={accent} strokeWidth={5} strokeLinecap="round" strokeLinejoin="round" style={{ color: accent, filter: `drop-shadow(0 0 18px ${accent})` }}>
+    <div style={{ width: 760, height: 760, borderRadius: "50%", border: `18px solid ${GOLD}`, display: "flex", alignItems: "center", justifyContent: "center", boxShadow: `0 0 120px ${accent}66 inset` }}>
+      <svg viewBox="0 0 100 100" width={540} height={540} fill="none" stroke={accent} strokeWidth={5} strokeLinecap="round" strokeLinejoin="round" style={{ color: accent, filter: `drop-shadow(0 0 18px ${accent})` }}>
         {ICONS[icon] ?? ICONS.apps}
       </svg>
     </div>

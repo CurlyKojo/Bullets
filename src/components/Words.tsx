@@ -2,12 +2,19 @@ import React from "react";
 import { interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
 import { BODY, DISPLAY, INK, MONO, PAPER } from "../theme";
 
-// Splits "I printed a *Ghost*" into words, marking the starred ones as accent.
-const tokens = (text: string) =>
-  text.split(/\s+/).filter(Boolean).map((w) => {
-    const hot = /^\*.*\*[.,!?:;]*$/.test(w);
-    return { word: hot ? w.replace(/\*/g, "") : w, hot };
+// Splits "I gave my *Raspberry Pi* a face" into words, marking everything between a pair
+// of stars as accent. A highlight can span several words.
+const tokens = (text: string) => {
+  let hot = false;
+  return text.split(/\s+/).filter(Boolean).map((w) => {
+    const opens = w.startsWith("*");
+    const closes = /\*[.,!?:;]*$/.test(w) && (w.length > 1 || !opens);
+    const isHot = hot || opens;
+    if (opens && !closes) hot = true;
+    if (closes && !(opens && w === "*")) hot = false;
+    return { word: w.replace(/\*/g, ""), hot: isHot };
   });
+};
 
 // The headline. Words pop in one after another on a short stagger, which reads as
 // "fast" without being unreadable, then hold still.
@@ -34,7 +41,7 @@ export const Title: React.FC<{
         textAlign: align,
         maxWidth,
         textWrap: "balance",
-        textShadow: "0 6px 30px rgba(0,0,0,0.65), 0 2px 4px rgba(0,0,0,0.6)",
+        textShadow: "0 0 28px rgba(5,7,13,0.95), 0 4px 18px rgba(5,7,13,0.9), 0 2px 3px rgba(0,0,0,0.8)",
       }}
     >
       {tokens(text).map((t, i) => {

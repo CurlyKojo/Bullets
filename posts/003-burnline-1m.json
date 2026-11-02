@@ -47,17 +47,17 @@
         "start": 10
       },
       "title": "If it misses, the build *fails*",
-      "caption": "CI blocks the merge. No exceptions."
+      "caption": "the verification gate in CI goes red"
     }
   ],
   "end": {
     "title": "Follow for the *physics*",
-    "sub": "Burnline · orbit-simulation.vercel.app"
+    "sub": "Burnline \u00b7 orbit-simulation.vercel.app"
   },
   "hashtags": [
     "burnline",
     "space",
     "software"
   ],
-  "caption": "Most orbit visualizers look right. I wanted mine to BE right.\n\nEvery propagation in Burnline gets cross-checked against Vallado's own code (the textbook most of the industry learned from). If a satellite drifts more than 1 meter in position or 1 mm/s in velocity, the build fails and nothing merges.\n\nC++17 engine, physics straight from Bate/Mueller/White and Vallado. No Cesium, my own Earth model.\n\nWhat should I add next?"
+  "caption": "Most orbit visualizers look right. I wanted mine to BE right.\n\nEvery propagation in Burnline gets cross-checked against Vallado's own code (the textbook most of the industry learned from). If a satellite drifts more than 1 meter in position or 1 mm/s in velocity, the verification gate in CI fails. It doesn't count until it passes.\n\nC++17 engine, physics straight from Bate/Mueller/White and Vallado. No Cesium, my own Earth model.\n\nWhat should I add next?"
 }

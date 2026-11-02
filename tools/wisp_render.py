@@ -58,7 +58,7 @@ for state in args.states:
     for _ in range(loops):
         for fr in frames:
             c = canvas.copy()
-            c.paste(fr.convert("RGB"), ((W - size[0]) // 2, int(H * 0.50 - size[1] / 2)))
+            c.paste(fr.convert("RGB"), ((W - size[0]) // 2, int(H * 0.58 - size[1] / 2)))
             enc.stdin.write(c.tobytes())
     enc.stdin.close()
     enc.wait()

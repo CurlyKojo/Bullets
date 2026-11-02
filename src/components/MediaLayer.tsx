@@ -54,7 +54,7 @@ export const MediaLayer: React.FC<{ media?: Media; accent: string; dur: number; 
             width: "100%",
             height: "100%",
             objectFit: fit,
-            transform: `scale(${zoom}) translateY(${fit === "contain" ? -height * 0.02 : 0}px)`,
+            transform: `scale(${zoom}) translateY(${fit === "contain" ? height * 0.06 : 0}px)`,
           }}
         />
       </>
