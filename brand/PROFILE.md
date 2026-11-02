@@ -11,7 +11,7 @@ GitHub (CurlyKojo). "Labs" also gives you room: every project is an experiment t
 | Field | Value |
 |---|---|
 | Username | `@kojolabs.dev` (`@kojolabs` and `@kojo.labs` were taken) |
-| Name | `Kojo Labs` (optionally `Kojo Labs · Code + 3D Printing`, 30 of 30, for search) |
+| Name | `Kojo Labs · AI + Code Tips` (26 characters, searchable), or plain `Kojo Labs` |
 | Category | Engineer (or Science, Technology & Engineering) |
 | Account type | **Creator**, not Business. Business accounts lose most of the Reels music library. |
 
@@ -19,13 +19,17 @@ The Name field is indexed by Instagram search. "Kojo Labs" alone is clean; addin
 "Code + 3D Printing" helps people find you by topic. The handle lives in
 `brand/brand.json`; change it there and the next render picks it up.
 
-## Bio (136 of 150 characters)
+## Bio (109 of 150 characters)
 
 ```
-Independent studio for software and hardware.
-Satellite simulation · AI tools · 3D-printed robotics
-Every build documented. Files free ↓
+Software + hardware, built in public.
+Satellite sim · AI tools · 3D printing
+Daily AI, coding + prompt tips ↓
 ```
+
+Line one is what the account is, line two is the portfolio, line three is the reason to
+follow for someone who found you through a tip. Nothing in it claims a build that isn't
+finished.
 
 ## Profile picture
 
@@ -69,7 +73,8 @@ project's accent on one detail.
 | Burnline | `highlight-burnline.png` | satellite clips, the devlog Reel |
 | Wisp | `highlight-wisp.png` | Wisp states, the round display |
 | Flow | `highlight-flow.png` | before/after statements, feature releases |
-| In progress | `highlight-wip.png` | whatever's on the bench this week |
+| In progress | `highlight-wip.png` | whatever's on the bench this week, the Ghost build |
+| Tips | `highlight-apps.png` | your best prompt, coding and AI tip Reels, so new visitors binge them |
 
 ## Pinned posts (pin 3)
 
