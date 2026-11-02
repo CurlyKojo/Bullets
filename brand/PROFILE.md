@@ -10,14 +10,14 @@ GitHub (CurlyKojo). "Labs" also gives you room: every project is an experiment t
 
 | Field | Value |
 |---|---|
-| Username | `@kojolabs`. If taken, in order: `@kojo.labs`, `@kojolabs.dev`, `@kojolabs.studio` |
-| Name (30 of 30, searchable) | `Kojo Labs · Code + 3D Printing` |
+| Username | `@kojolabs.dev` (`@kojolabs` and `@kojo.labs` were taken) |
+| Name | `Kojo Labs` (optionally `Kojo Labs · Code + 3D Printing`, 30 of 30, for search) |
 | Category | Engineer (or Science, Technology & Engineering) |
 | Account type | **Creator**, not Business. Business accounts lose most of the Reels music library. |
 
-The Name field is indexed by Instagram search, which is why it carries "Code" and
-"3D Printing" and not a slogan. If your handle isn't `@kojolabs`, change `handle` in
-`brand/brand.json` and the next render picks it up.
+The Name field is indexed by Instagram search. "Kojo Labs" alone is clean; adding
+"Code + 3D Printing" helps people find you by topic. The handle lives in
+`brand/brand.json`; change it there and the next render picks it up.
 
 ## Bio (136 of 150 characters)
 

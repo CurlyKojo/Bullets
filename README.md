@@ -1,6 +1,6 @@
 # Kojo Labs studio
 
-The content engine behind **Kojo Labs** (`@kojolabs`), the Instagram account for
+The content engine behind **Kojo Labs** (`@kojolabs.dev`), the Instagram account for
 everything I build: software, 3D prints, and the hardware they run on.
 
 Write a post as a few lines of JSON, and this repo turns it into a finished vertical Reel:

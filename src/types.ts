@@ -57,7 +57,7 @@ export const DEMO: ReelProps = {
   bpm: 128,
   accent: "#4c8dff",
   project: { name: "Kojo Labs", kind: "studio", link: "link in bio" },
-  handle: "@kojolabs",
+  handle: "@kojolabs.dev",
   brand: "Kojo Labs",
   scenes: [
     { type: "hook", from: 0, dur: 75, title: "I build *apps* and 3D print the *hardware*", media: { kind: "none", src: "" } },
