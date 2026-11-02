@@ -23,6 +23,7 @@ const highlights = {
   wisp: "#5fe8d0",
   flow: "#4fbef6",
   wip: "#4c8dff",
+  tips: "#4c8dff",
 };
 for (const [icon, accent] of Object.entries(highlights)) still("Highlight", `highlight-${icon}.png`, { icon, accent });
 still("Wordmark", "wordmark.png");

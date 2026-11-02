@@ -74,7 +74,7 @@ project's accent on one detail.
 | Wisp | `highlight-wisp.png` | Wisp states, the round display |
 | Flow | `highlight-flow.png` | before/after statements, feature releases |
 | In progress | `highlight-wip.png` | whatever's on the bench this week, the Ghost build |
-| Tips | `highlight-apps.png` | your best prompt, coding and AI tip Reels, so new visitors binge them |
+| Tips | `highlight-tips.png` | your best prompt, coding and AI tip Reels, so new visitors binge them |
 
 ## Pinned posts (pin 3)
 

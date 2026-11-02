@@ -49,6 +49,13 @@ const ICONS: Record<string, React.ReactNode> = {
     </>
   ),
   flow: <path d="M58 10 L26 56 L48 56 L40 90 L74 42 L52 42 Z" />,
+  tips: (
+    <>
+      <path d="M50 14 C34 14 24 26 24 40 C24 50 30 56 36 62 C39 65 40 68 40 72 L60 72 C60 68 61 65 64 62 C70 56 76 50 76 40 C76 26 66 14 50 14 Z" />
+      <path d="M41 80 L59 80 M44 88 L56 88" />
+      <circle cx="50" cy="40" r="4" fill="currentColor" />
+    </>
+  ),
   wip: (
     <>
       <circle cx="50" cy="50" r="34" />
