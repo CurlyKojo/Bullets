@@ -45,7 +45,7 @@ shape.
 
 | Title | URL |
 |---|---|
-| {flow}: AI for performance and award statements | your Flow production URL |
+| {flow}: AI for performance and award statements | https://flow-v2-alpha.vercel.app |
 | Burnline: satellite simulation | https://orbit-simulation.vercel.app |
 | Wisp: live demo | https://wisp-two-tau.vercel.app |
 | Ghost: open-source files | https://github.com/CurlyKojo/Ghost-from-Destiny- |
