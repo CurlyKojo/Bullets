@@ -30,10 +30,11 @@
       "caption": "no more cutting words at 2am"
     },
     {
-      "type": "media",
-      "media": "flow:kojo-tpose",
+      "type": "tip",
+      "index": "Step 3",
       "title": "Then it *coaches* you",
-      "caption": "\"add the $ figure\" · \"quantify the scope\""
+      "body": "\"Add the $ figure.\" \"Quantify the scope.\" It tells you what's missing.",
+      "beats": 6
     }
   ],
   "end": {

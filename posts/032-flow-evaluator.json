@@ -4,7 +4,7 @@
   "mood": "dark",
   "hook": {
     "title": "I built an AI that *ranks* award packages",
-    "media": "flow:kojo-tpose",
+    "media": "flow:kojo-wave",
     "cover": "AI that ranks award packages"
   },
   "scenes": [
@@ -15,10 +15,11 @@
       "caption": "PDF, Word, image or text"
     },
     {
-      "type": "media",
-      "media": "flow:kojo-wave",
+      "type": "tip",
+      "index": "How it scores",
       "title": "Scored *impact-first*",
-      "caption": "against the awards rubric"
+      "body": "Against the awards rubric, then ranked within each category.",
+      "beats": 6
     },
     {
       "type": "stat",

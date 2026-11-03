@@ -24,16 +24,18 @@
       "beats": 12
     },
     {
-      "type": "media",
-      "media": "flow:kojo-tpose",
-      "title": "*Numbers*",
-      "caption": "how many people · how much money · what % changed"
+      "type": "tip",
+      "index": "Fix 1",
+      "title": "Add *numbers*",
+      "body": "How many people, how much money, what % changed.",
+      "beats": 6
     },
     {
-      "type": "media",
-      "media": "flow:kojo-wave",
-      "title": "*Impact*",
-      "caption": "why the team is better because you did it"
+      "type": "tip",
+      "index": "Fix 2",
+      "title": "Add the *impact*",
+      "body": "Why the team is better because you did it.",
+      "beats": 6
     }
   ],
   "end": {

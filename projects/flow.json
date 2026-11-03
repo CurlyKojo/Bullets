@@ -21,7 +21,6 @@
   ],
   "assets": {
     "kojo": "client/public/kojo.png",
-    "kojo-tpose": "client/public/kojo-tpose.png",
     "kojo-wave": "client/public/kojo-wave.mp4"
   },
   "status": "Live web app.",
