@@ -1,0 +1,62 @@
+<template>
+  <style>
+    @font-face { font-family: "Geist"; src: url("assets/fonts/Geist.woff2") format("woff2"); font-weight: 100 900; }
+    @font-face { font-family: "Geist Mono"; src: url("assets/fonts/GeistMono.woff2") format("woff2"); font-weight: 100 900; }
+    #root { position: absolute; inset: 0; overflow: hidden; background: transparent; }
+    #wisp-cam { position: absolute; inset: 0; transform-origin: 50% 50%; }
+
+    
+    #wisp-bg { position: absolute; inset: 0; background: #0a0c0f; overflow: hidden; }
+    #wisp-grid { position: absolute; inset: 0; opacity: 0.35;
+      background-image: linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+      background-size: 72px 72px;
+      mask-image: radial-gradient(ellipse 70% 55% at 50% 45%, #000 30%, transparent 75%);
+      -webkit-mask-image: radial-gradient(ellipse 70% 55% at 50% 45%, #000 30%, transparent 75%); }
+    .wisp-glow { position: absolute; width: 900px; height: 900px; border-radius: 50%; filter: blur(80px); }
+    #wisp-glow-a { left: -260px; top: 240px; background: #5fe8d0; opacity: 0.22; }
+    #wisp-glow-b { left: 460px; top: 980px; background: #5fe8d0; opacity: 0.12; }
+    #wisp-media { position: absolute; left: 180px; top: 430px; width: 720px; height: 720px; border-radius: 44px; overflow: hidden;
+      box-shadow: 0 40px 90px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.07); background: #000; }
+    #wisp-video { position: absolute; left: 0; top: 0; width: 720px; height: 720px; object-fit: cover; }
+    
+    #wisp-copy { position: absolute; left: 80px; right: 140px; top: 270px; }
+    #wisp-title { font: 600 128px/1.02 "Geist", sans-serif; letter-spacing: -0.035em; color: #f4f6f8; margin: 0;
+      text-shadow: 0 4px 30px rgba(0,0,0,0.45); }
+    .wisp-w { display: inline-block; transform-origin: 50% 70%; }
+    #wisp-cap { position: absolute; left: 80px; right: 140px; top: 1196px; margin: 0;
+      font: 500 44px/1.24 "Geist", sans-serif; letter-spacing: -0.01em; color: #f4f6f8;
+      text-shadow: 0 2px 14px rgba(0,0,0,0.7), 0 0 2px rgba(0,0,0,0.6); text-wrap: balance; }
+    #wisp-cap { top: 1222px; }
+  </style>
+  <div id="root" data-composition-id="wisp" data-width="1080" data-height="1920">
+    <div id="wisp-cam">
+      <div id="wisp-bg">
+        <div id="wisp-grid"></div>
+        <div id="wisp-glow-a" class="wisp-glow"></div>
+        <div id="wisp-glow-b" class="wisp-glow"></div>
+      </div>
+      <div id="wisp-media">
+        <video id="wisp-video" class="clip" data-start="0" data-duration="2.166" data-media-start="0" data-track-index="0" src="assets/wisp-happy.mp4" muted playsinline></video>
+      </div>
+      <div id="wisp-copy"><h1 id="wisp-title"><span class="wisp-w" style="color:#5fe8d0">Wisp</span></h1></div>
+      <p id="wisp-cap">an animated face for a voice assistant</p>
+    </div>
+  </div>
+  <script>
+    (function () {
+    var tl = gsap.timeline({ paused: true });
+    
+    tl.fromTo("#wisp-glow-a", { x: 0, y: 0 }, { x: 140, y: -90, duration: 2.166, ease: "sine.inOut" }, 0);
+    tl.fromTo("#wisp-glow-b", { x: 0, y: 0 }, { x: -120, y: 70, duration: 2.166, ease: "sine.inOut" }, 0);
+    tl.fromTo("#wisp-media", { y: 40, rotation: -1.2 }, { y: -20, rotation: 0.8, duration: 2.166, ease: "sine.inOut" }, 0);
+    tl.fromTo(".wisp-w", { opacity: 0, scale: 1.35, filter: "blur(6px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.34, ease: "expo.out", stagger: 0.167 }, 0.2);
+    tl.fromTo("#wisp-cap", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.2, ease: "power2.out" }, 0.3);
+    tl.fromTo("#wisp-cam", { opacity: 0, filter: "blur(10px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.3, ease: "power2.out" }, 0);
+    tl.to("#wisp-cam", { scale: 1.5, opacity: 0, filter: "blur(12px)", duration: 0.3, ease: "power3.in" }, 1.866);
+    // Keep the timeline exactly as long as the scene's slot.
+    tl.set({}, {}, 2.166);
+    window.__timelines = window.__timelines || {};
+    window.__timelines["wisp"] = tl;
+    })();
+  </script>
+</template>

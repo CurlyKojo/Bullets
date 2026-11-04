@@ -1,0 +1,46 @@
+<template>
+  <style>
+    @font-face { font-family: "Geist"; src: url("assets/fonts/Geist.woff2") format("woff2"); font-weight: 100 900; }
+    @font-face { font-family: "Geist Mono"; src: url("assets/fonts/GeistMono.woff2") format("woff2"); font-weight: 100 900; }
+    #root { position: absolute; inset: 0; overflow: hidden; background: transparent; }
+    #burnline-cam { position: absolute; inset: 0; transform-origin: 50% 50%; }
+
+    #burnline-media { position: absolute; inset: 0; transform-origin: 50% 50%; }
+    #burnline-video { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; object-fit: cover; }
+    #burnline-scrim { position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(10,12,15,0.8) 0%, rgba(10,12,15,0.25) 26%, rgba(10,12,15,0) 40%, rgba(10,12,15,0) 52%, rgba(10,12,15,0.7) 66%, rgba(10,12,15,0.7) 72%, rgba(10,12,15,0) 88%); }
+    
+    #burnline-copy { position: absolute; left: 80px; right: 140px; top: 270px; }
+    #burnline-title { font: 600 128px/1.02 "Geist", sans-serif; letter-spacing: -0.035em; color: #f4f6f8; margin: 0;
+      text-shadow: 0 4px 30px rgba(0,0,0,0.45); }
+    .burnline-w { display: inline-block; transform-origin: 50% 70%; }
+    #burnline-cap { position: absolute; left: 80px; right: 140px; top: 1196px; margin: 0;
+      font: 500 44px/1.24 "Geist", sans-serif; letter-spacing: -0.01em; color: #f4f6f8;
+      text-shadow: 0 2px 14px rgba(0,0,0,0.7), 0 0 2px rgba(0,0,0,0.6); text-wrap: balance; }
+  </style>
+  <div id="root" data-composition-id="burnline" data-width="1080" data-height="1920">
+    <div id="burnline-cam">
+      <div id="burnline-media">
+        <video id="burnline-video" class="clip" data-start="0" data-duration="2.05" data-media-start="2" data-track-index="0" src="assets/burnline-globe.mp4" muted playsinline></video>
+      </div>
+      <div id="burnline-scrim"></div>
+      <div id="burnline-copy"><h1 id="burnline-title"><span class="burnline-w" style="color:#ff8a2b">Burnline</span></h1></div>
+      <p id="burnline-cap">a satellite sim built with a friend, accurate to 1 meter</p>
+    </div>
+  </div>
+  <script>
+    (function () {
+    var tl = gsap.timeline({ paused: true });
+    
+    tl.fromTo("#burnline-media", { scale: 1.0 }, { scale: 1.07, duration: 2.05, ease: "none" }, 0);
+    tl.fromTo(".burnline-w", { opacity: 0, scale: 1.35, filter: "blur(6px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.34, ease: "expo.out", stagger: 0.167 }, 0.05);
+    tl.fromTo("#burnline-cap", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.2, ease: "power2.out" }, 0.15);
+    // enters on a hard cut under the light leak (t=0)
+    tl.to("#burnline-cam", { x: -1080, filter: "blur(14px)", duration: 0.3, ease: "power3.in" }, 1.75);
+    // Keep the timeline exactly as long as the scene's slot.
+    tl.set({}, {}, 2.05);
+    window.__timelines = window.__timelines || {};
+    window.__timelines["burnline"] = tl;
+    })();
+  </script>
+</template>
