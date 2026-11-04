@@ -47,7 +47,11 @@ npx remotion still src/index.ts Reel out/check.png --props=out/002-ghost-talks/p
   and contact shadows on STLs (`src/components/Stl.tsx`, drei), odometer numbers
   (`src/components/Rolling.tsx`), syntax colours from Shiki at plan time (`highlight()` in
   `scripts/plan.mjs`, set `lang` on a type scene) and the CSS grain gradient behind
-  text-led scenes (`src/components/Grain.tsx`).
+  text-led scenes (`src/components/Grain.tsx`). Text-led scenes also get a 3D object
+  (`src/components/Objects3D.tsx`): a chat bubble for prompt tips, `</>` brackets for
+  coding tips, a neural network for AI tips, the 3D logo on every end card, and drifting
+  particles behind before/after cards. Chosen from the post's `kind`. All built from
+  primitives in code, so nothing to download and no licensed models.
 - Don't add @react-three/postprocessing: its EffectComposer draws nothing under
   Remotion's frame-by-frame rendering. Don't put a WebGL shader behind whole scenes: in
   software WebGL it made renders 2-4x slower. Both were tried.

@@ -51,7 +51,7 @@ const useGeometries = (srcs: string[]) => {
 // download, so it renders the same offline), a key and fill, a rim in the project's
 // accent, and a contact shadow to ground the part. (A postprocessing pass was tried and
 // dropped: its composer doesn't draw under Remotion's frame-by-frame rendering.)
-const Studio: React.FC<{ accent: string; shadowY?: number; shadows?: boolean }> = ({ accent, shadowY = -0.55, shadows = true }) => (
+export const Studio: React.FC<{ accent: string; shadowY?: number; shadows?: boolean }> = ({ accent, shadowY = -0.55, shadows = true }) => (
   <>
     <Environment resolution={256} frames={1}>
       <Lightformer form="rect" intensity={2.2} position={[0, 3, 2]} scale={[6, 2, 1]} />
