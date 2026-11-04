@@ -11,19 +11,16 @@
   "scenes": [
     {
       "type": "tip",
-      "index": "The move",
       "title": "Start a *new* chat",
       "body": "Long chats pile up wrong turns, and it keeps building on them."
     },
     {
       "type": "tip",
-      "index": "But first",
       "title": "Bring a *summary*",
       "body": "Ask it to sum up the goal, what works and what failed. Paste that into the new chat."
     },
     {
       "type": "tip",
-      "index": "Why it works",
       "title": "*Clean* context, better answers",
       "body": "It sees the problem fresh, not its own last five failed attempts."
     }

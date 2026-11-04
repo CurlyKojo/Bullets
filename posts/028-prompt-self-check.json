@@ -23,13 +23,11 @@
     },
     {
       "type": "tip",
-      "index": "Rule 1",
       "title": "Give it a *checklist*",
       "body": "Requirements, a rubric, a style guide. Something concrete to check against."
     },
     {
       "type": "tip",
-      "index": "Rule 2",
       "title": "Ask what it *guessed*",
       "body": "\"List anything you weren't sure about.\" The weak spots show up fast."
     }

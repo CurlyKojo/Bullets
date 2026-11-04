@@ -25,14 +25,12 @@
     },
     {
       "type": "tip",
-      "index": "Fix 1",
       "title": "Add *numbers*",
       "body": "How many people, how much money, what % changed.",
       "beats": 6
     },
     {
       "type": "tip",
-      "index": "Fix 2",
       "title": "Add the *impact*",
       "body": "Why the team is better because you did it.",
       "beats": 6

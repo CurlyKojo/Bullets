@@ -23,13 +23,11 @@
     },
     {
       "type": "tip",
-      "index": "Rule 1",
       "title": "Name the *format*",
       "body": "Table, checklist, JSON, 3 bullets. It'll match it."
     },
     {
       "type": "tip",
-      "index": "Rule 2",
       "title": "List the *fields*",
       "body": "If you know the columns you need, say them. No more reformatting."
     }

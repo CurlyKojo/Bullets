@@ -26,13 +26,11 @@
     },
     {
       "type": "tip",
-      "index": "The habit",
       "title": "Read it *bottom up*",
       "body": "In Python the last line is the error. Everything above it is the path that got there."
     },
     {
       "type": "tip",
-      "index": "Bonus",
       "title": "Search the *last line* only",
       "body": "Paste the error type and message. Your file paths just add noise."
     }

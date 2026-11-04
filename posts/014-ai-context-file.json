@@ -11,7 +11,6 @@
   "scenes": [
     {
       "type": "tip",
-      "index": "The trick",
       "title": "Keep a *context file* in your repo",
       "body": "What the project is, how it's built, the rules. Claude Code reads CLAUDE.md on its own."
     },
@@ -29,7 +28,6 @@
     },
     {
       "type": "tip",
-      "index": "The habit",
       "title": "Update it when you *correct* it",
       "body": "Fix the same AI mistake twice? Add one line to the file."
     }

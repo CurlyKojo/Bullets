@@ -2,17 +2,11 @@ import React from "react";
 import { linearTiming, type TransitionPresentation, TransitionSeries } from "@remotion/transitions";
 import { fade } from "@remotion/transitions/fade";
 import { slide } from "@remotion/transitions/slide";
-import { AbsoluteFill, useCurrentFrame } from "remotion";
+import { AbsoluteFill } from "remotion";
 import "./fonts";
 import { lightLeak } from "./components/LightLeak";
 import { SCENES } from "./scenes/Scenes";
 import type { ReelProps, Scene } from "./types";
-
-// The retention bar along the very top edge.
-const Progress: React.FC<{ total: number; accent: string }> = ({ total, accent }) => {
-  const f = useCurrentFrame();
-  return <div style={{ position: "absolute", top: 0, left: 0, height: 5, width: `${(f / total) * 100}%`, background: accent }} />;
-};
 
 // How each cut moves. The cut out of the hook is where the song's first big hit lands,
 // so it gets the light leak; the end card fades in; everything else is a quick slide that
@@ -48,7 +42,6 @@ export const Reel: React.FC<ReelProps> = (props) => {
           );
         })}
       </TransitionSeries>
-      <Progress total={total} accent={accent} />
     </AbsoluteFill>
   );
 };

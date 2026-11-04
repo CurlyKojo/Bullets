@@ -11,13 +11,11 @@
   "scenes": [
     {
       "type": "tip",
-      "index": "Step 1",
       "title": "Make it happen *on purpose*",
       "body": "Find the exact steps that trigger it. Then you'll know when it's really gone."
     },
     {
       "type": "tip",
-      "index": "Step 2",
       "title": "Write a *test* for it",
       "body": "One that fails now and passes after the fix. The bug can't sneak back."
     },

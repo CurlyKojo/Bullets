@@ -54,6 +54,9 @@ npx remotion still src/index.ts Reel out/check.png --props=out/002-ghost-talks/p
   primitives in code, so nothing to download and no licensed models. Tip scenes and
   text-only hooks also float three Fluent 3D emoji around the object
   (`src/components/Props.tsx`, images in `public/emoji/`, MIT, licence alongside).
+- Craft rules from motionmaxxing (posts/VIRAL.md): no progress bar, tags, kickers or
+  counters; words settle from oversize 5 frames apart; end card is mark + wordmark, 3 beats.
+  daily.mjs fails a render whose ending freezes for over 1.4 s or that has blank frames.
 - Speed, measured: frames are captured as JPEG 95 (~25% faster than PNG); a film-grain
   overlay cost ~20% per frame and was dropped; pre-rendering the 3D objects into cached
   clips saved nothing (the 3D isn't the slow part), so they're drawn live. A tip Reel

@@ -23,13 +23,11 @@
     },
     {
       "type": "tip",
-      "index": "The habit",
       "title": "Ask *why*, not just what",
       "body": "Code you understand is code you can fix at 2am."
     },
     {
       "type": "tip",
-      "index": "The upgrade",
       "title": "Ask how it could *break*",
       "body": "Fastest way to find the edge cases you didn't think of."
     }

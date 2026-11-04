@@ -18,8 +18,9 @@ const tokens = (text: string) => {
 
 const ease = Easing.bezier(0.16, 1, 0.3, 1);
 
-// The headline. Each word rises a short distance and fades in on a tight stagger: fast
-// enough for a Reel, composed enough to look designed rather than bouncy.
+// The headline. Each word arrives by settling down from slightly oversize, decelerating:
+// most of the travel in the first few frames, then a long tail, no bounce. Words land
+// 5 frames apart (3 in hooks), the rhythm of someone saying them.
 export const Title: React.FC<{
   text: string;
   accent: string;
@@ -28,7 +29,7 @@ export const Title: React.FC<{
   stagger?: number;
   align?: "left" | "center";
   maxWidth?: number;
-}> = ({ text, accent, size = 100, delay = 0, stagger = 2, align = "center", maxWidth = 900 }) => {
+}> = ({ text, accent, size = 100, delay = 0, stagger = 5, align = "center", maxWidth = 900 }) => {
   const f = useCurrentFrame();
   return (
     <div
@@ -46,15 +47,15 @@ export const Title: React.FC<{
       }}
     >
       {tokens(text).map((t, i) => {
-        const p = interpolate(f - delay - i * stagger, [0, 12], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: ease });
+        const p = interpolate(f - delay - i * stagger, [0, 10], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: ease });
         return (
           <span
             key={i}
             style={{
               display: "inline-block",
               marginRight: size * 0.24,
-              transform: `translateY(${(1 - p) * size * 0.32}px)`,
-              opacity: p,
+              transform: `translateY(${(1 - p) * size * 0.12}px) scale(${1 + (1 - p) * 0.35})`,
+              opacity: Math.min(1, p * 2),
               color: t.hot ? accent : PAPER,
             }}
           >

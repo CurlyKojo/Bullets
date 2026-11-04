@@ -68,7 +68,8 @@ step. Nothing in between that doesn't serve that line.
 - `cover`: shorter title for the grid thumbnail. Optional, falls back to the hook.
 - `next: true`: jumps the queue (the daily run picks it before anything else).
 - `beats` on any scene overrides its length. Defaults: media 4, stat 4, type 12, split 6,
-  grid 8, tip 8, end 6. The hook sizes itself to its word count.
+  grid 8, tip 8, end 3. The end card shows only the 3D mark and wordmark; its title and sub
+  aren't drawn, so put the ask in the caption. The hook sizes itself to its word count.
 - `hashtags`: names of sets in `brand/hashtags.json` (or literal `#tags`). Five total, max.
   Never put hashtags inside `caption`.
 
@@ -91,7 +92,7 @@ New footage: add it to the project's `assets` (path inside that project's repo),
 | `media` | the default: footage, a render, a spinning STL | `media`, `title`, `sub`, `caption` (a subtitle line set right under the title, no box) |
 | `stat` | one big number counting up | `value`, `decimals`, `prefix`, `unit`, `title`, `media` (dimmed behind) |
 | `type` | raw input → polished output: Flow demos, bad prompt → good prompt, messy code → clean code | `before`, `after`, `labels: [in, out]`, `mono: true` for code and prompts, `lang` (python, shellscript, markdown...) for syntax colours, or `beforeLang` / `afterLang` when the two halves differ ("text" = none), `meter: {used, limit}` |
-| `tip` | one rule in big words with a line of why, with a 3D object below it that matches the tip kind | `index` ("Rule 1 of 3"), `title`, `body`, optional `media` (dimmed, replaces the 3D) |
+| `tip` | one rule in big words with a line of why, with a 3D object below it that matches the tip kind | `title`, `body`, optional `media` (dimmed, replaces the 3D). No kicker label or "1 of 3" counter |
 | `split` | before/after, closed/open, CAD/print | `media`, `media2`, `labels: [top, bottom]`, `title` |
 | `grid` | every part of a print at once | `items: [stl refs]`, `title` |
 

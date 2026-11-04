@@ -12,6 +12,7 @@
 // cover.jpg (grid thumbnail), caption.txt, report.json, qa/contact.jpg, page.html.
 import { copyFileSync, existsSync, mkdirSync, readFileSync, rmSync, statSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
+import { spawnSync } from "node:child_process";
 import { ROOT, arg, readJson, renderEnv, run } from "./lib.mjs";
 import { buildProps, highlight, listPosts, nextPost, pickSong, state } from "./plan.mjs";
 
@@ -82,6 +83,18 @@ const duration = Number(probe.format.duration);
 const sizeMb = Number(probe.format.size) / 1e6;
 const problems = [];
 if (v.width !== 1080 || v.height !== 1920) problems.push(`frame is ${v.width}x${v.height}, want 1080x1920`);
+// Render checks in the spirit of motionmaxxing's gates, with ffmpeg: the picture must not
+// sit frozen for more than 1.4 s at the end, and must never go blank for more than 3 frames.
+{
+  const freeze = spawnSync("ffmpeg", ["-v", "info", "-i", reel, "-vf", "freezedetect=n=0.002:d=0.5", "-map", "0:v", "-f", "null", "-"], { encoding: "utf8" }).stderr ?? "";
+  const starts = [...freeze.matchAll(/freeze_start: ([\d.]+)/g)].map((m) => Number(m[1]));
+  const ends = [...freeze.matchAll(/freeze_end: ([\d.]+)/g)].map((m) => Number(m[1]));
+  const last = starts.length > ends.length ? starts[starts.length - 1] : null;
+  if (last !== null && plan.seconds - last > 1.4) problems.push(`the picture holds still for the last ${(plan.seconds - last).toFixed(1)} s; end on motion or keep the end hold under 1.4 s`);
+  const black = spawnSync("ffmpeg", ["-v", "info", "-i", reel, "-vf", "blackdetect=d=0.11:pix_th=0.04", "-an", "-f", "null", "-"], { encoding: "utf8" }).stderr ?? "";
+  const blanks = [...black.matchAll(/black_start:([\d.]+) black_end:([\d.]+)/g)];
+  for (const [, a, b] of blanks) problems.push(`blank frames from ${a} s to ${b} s`);
+}
 if (Math.abs(duration - plan.seconds) > 0.25) problems.push(`duration ${duration.toFixed(2)} s, planned ${plan.seconds.toFixed(2)} s`);
 if (sizeMb > 250) problems.push(`file is ${sizeMb.toFixed(0)} MB`);
 

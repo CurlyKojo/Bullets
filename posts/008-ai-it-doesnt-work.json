@@ -23,19 +23,16 @@
     },
     {
       "type": "tip",
-      "index": "1 of 3",
       "title": "Paste the *real* error",
       "body": "Not your summary of it. The exact text, every line."
     },
     {
       "type": "tip",
-      "index": "2 of 3",
       "title": "Show the *code* it came from",
       "body": "The function, not the whole project. Enough to see the bug."
     },
     {
       "type": "tip",
-      "index": "3 of 3",
       "title": "Say what you *expected*",
       "body": "\"Expected X, got Y\" turns a guess into a diagnosis."
     }

@@ -43,7 +43,7 @@ const Painted: React.FC<{ lines: Tokens; count: number }> = ({ lines, count }) =
 
 // Words sit in a column inside the safe box, top-weighted so they're read before the
 // footage underneath pulls the eye down.
-const WordsBlock: React.FC<{ s: Scene; accent: string; size?: number; top?: number }> = ({ s, accent, size, top = SAFE.top + 40 }) => (
+const WordsBlock: React.FC<{ s: Scene; accent: string; size?: number; top?: number; stagger?: number }> = ({ s, accent, size, top = SAFE.top + 40, stagger }) => (
   <div
     style={{
       position: "absolute",
@@ -56,7 +56,7 @@ const WordsBlock: React.FC<{ s: Scene; accent: string; size?: number; top?: numb
       gap: 28,
     }}
   >
-    {s.title && <Title text={s.title} accent={accent} size={size ?? (s.title.length > 42 ? 84 : 100)} />}
+    {s.title && <Title text={s.title} accent={accent} size={size ?? (s.title.length > 42 ? 84 : 100)} stagger={stagger} />}
     {s.sub && (
       <div style={{ fontFamily: BODY, fontWeight: 600, fontSize: 42, color: DIM, textAlign: "center", maxWidth: 820 }}>{s.sub}</div>
     )}
@@ -86,15 +86,12 @@ export const Hook: React.FC<P> = ({ s, r }) => {
         )}
       </AbsoluteFill>
       <Scrim />
-      <div style={{ position: "absolute", top: SAFE.top - 40, left: SAFE.left }}>
-        <Tag name={r.project.name} kind={r.project.kind} accent={r.accent} />
-      </div>
       {s.media && s.media.kind !== "none" ? (
-        <WordsBlock s={s} accent={r.accent} size={s.title && s.title.length > 46 ? 92 : 112} top={SAFE.top + 50} />
+        <WordsBlock s={s} accent={r.accent} size={s.title && s.title.length > 46 ? 92 : 112} top={SAFE.top + 50} stagger={3} />
       ) : (
         // Text-only hook (tips): bigger words, sitting in the upper-middle of the frame
         // where the eye lands first, with the sub line as the promise.
-        <WordsBlock s={s} accent={r.accent} size={s.title && s.title.length > 40 ? 104 : 120} top={420} />
+        <WordsBlock s={s} accent={r.accent} size={s.title && s.title.length > 40 ? 104 : 120} top={420} stagger={3} />
       )}
     </AbsoluteFill>
   );
@@ -280,27 +277,21 @@ export const Grid: React.FC<P> = ({ s, r }) => (
   </AbsoluteFill>
 );
 
-// The end card: the mark, the name, the handle, one line of call to action. It sits on the
-// same backdrop as the hook so the Reel loops cleanly.
+// The end card: the mark settles in from oversize, decelerating, and the wordmark joins it.
+// Nothing else: no handle, no call to action, no footer (the caption carries the ask). It
+// holds about a second and sits on the hook's backdrop so the Reel loops cleanly.
 export const End: React.FC<P> = ({ s, r }) => {
   const f = useCurrentFrame();
-  const draw = interpolate(f, [0, 14], [0, 1], { extrapolateRight: "clamp", easing: (t) => 1 - Math.pow(1 - t, 3) });
+  const land = interpolate(f, [0, 12], [0, 1], { extrapolateRight: "clamp", easing: (t) => 1 - Math.pow(1 - t, 4) });
+  const word = interpolate(f, [6, 18], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: (t) => 1 - Math.pow(1 - t, 3) });
   return (
     <AbsoluteFill>
       <Backdrop accent={r.accent} intensity={0.6} shader />
-      <AbsoluteFill style={{ opacity: draw }}>
-        <ObjectClip kind="logo" accent={r.accent} y={505} size={330} />
+      <AbsoluteFill style={{ opacity: Math.min(1, land * 2), transform: `scale(${1 + (1 - land) * 0.6})` }}>
+        <ObjectClip kind="logo" accent={r.accent} y={800} size={380} />
       </AbsoluteFill>
-      <div style={{ position: "absolute", top: 380, left: 0, right: 0, display: "flex", flexDirection: "column", alignItems: "center", gap: 34 }}>
-        {/* Space for the 3D mark, drawn full-frame behind this column. */}
-        <div style={{ width: 250, height: 250 }} />
-        <div style={{ opacity: draw }}>
-          <Wordmark size={96} color={PAPER} dim={DIM} font={DISPLAY} />
-        </div>
-        <div style={{ fontFamily: MONO, fontSize: 34, letterSpacing: 2, color: DIM, marginTop: -18, opacity: draw }}>{r.handle}</div>
-        <div style={{ width: 120, height: 2, background: LINE, margin: "10px 0" }} />
-        {s.title && <Title text={s.title} accent={r.accent} size={66} delay={6} />}
-        {s.sub && <div style={{ fontFamily: BODY, fontWeight: 400, fontSize: 36, color: DIM, marginTop: -10, textAlign: "center", maxWidth: 820 }}>{s.sub}</div>}
+      <div style={{ position: "absolute", top: 1080, left: 0, right: 0, display: "flex", justifyContent: "center", opacity: word, transform: `translateY(${(1 - word) * 14}px)` }}>
+        <Wordmark size={96} color={PAPER} dim={DIM} font={DISPLAY} />
       </div>
     </AbsoluteFill>
   );
@@ -310,7 +301,6 @@ export const End: React.FC<P> = ({ s, r }) => {
 // Sits on the backdrop (or dimmed footage) so the words are the whole picture.
 export const Tip: React.FC<P> = ({ s, r }) => {
   const f = useCurrentFrame();
-  const label = interpolate(f, [0, 10], [0, 1], { extrapolateRight: "clamp" });
   const body = interpolate(f, [14, 26], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
   return (
     <AbsoluteFill>
@@ -324,9 +314,6 @@ export const Tip: React.FC<P> = ({ s, r }) => {
         </>
       )}
       <div style={{ position: "absolute", top: 470, left: SAFE.left, width: SAFE.right - SAFE.left, display: "flex", flexDirection: "column", gap: 36 }}>
-        {s.index && (
-          <div style={{ fontFamily: MONO, fontSize: 30, letterSpacing: 5, textTransform: "uppercase", color: r.accent, opacity: label }}>{s.index}</div>
-        )}
         {s.title && <Title text={s.title} accent={r.accent} size={s.title.length > 36 ? 84 : 100} align="left" delay={4} />}
         {s.body && (
           <div style={{ fontFamily: BODY, fontWeight: 400, fontSize: 44, lineHeight: 1.35, color: DIM, maxWidth: 860, opacity: body, transform: `translateY(${(1 - body) * 14}px)` }}>

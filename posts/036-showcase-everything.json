@@ -19,8 +19,7 @@
         "start": 60
       },
       "title": "*Burnline*",
-      "caption": "satellite sim, accurate to 1 meter · live",
-      "sub": "1 of 4 · built with a friend"
+      "caption": "a satellite sim built with a friend, accurate to 1 meter"
     },
     {
       "type": "media",
@@ -29,23 +28,20 @@
         "start": 30
       },
       "title": "*{flow}*",
-      "caption": "AI that turns notes into performance statements · live",
-      "sub": "2 of 4"
+      "caption": "AI that turns notes into performance statements · live"
     },
     {
       "type": "media",
       "media": "wisp:states/happy",
       "title": "*Wisp*",
-      "caption": "an animated face for a voice assistant",
-      "sub": "3 of 4"
+      "caption": "an animated face for a voice assistant"
     },
     {
       "type": "media",
       "media": "ghost:hero",
       "title": "*Ghost* · in progress",
       "caption": "a talking Destiny Ghost, designed to 3D print",
-      "beats": 5,
-      "sub": "4 of 4"
+      "beats": 5
     },
     {
       "type": "grid",

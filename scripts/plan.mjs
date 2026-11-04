@@ -8,7 +8,7 @@ const FPS = 30;
 const MAX_SECONDS = 34;
 
 // How long each scene type holds by default, in beats.
-const DEFAULT_BEATS = { hook: 4, media: 4, stat: 4, type: 12, split: 6, grid: 8, tip: 8, end: 6 };
+const DEFAULT_BEATS = { hook: 4, media: 4, stat: 4, type: 12, split: 6, grid: 8, tip: 8, end: 3 };
 
 export const listPosts = () =>
   readdirSync(join(ROOT, "posts"))

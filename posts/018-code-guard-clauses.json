@@ -25,13 +25,11 @@
     },
     {
       "type": "tip",
-      "index": "The pattern",
       "title": "Handle the *exits* first",
       "body": "Return early on the bad cases. The happy path ends up flat at the bottom."
     },
     {
       "type": "tip",
-      "index": "Why",
       "title": "*Fewer* levels, fewer bugs",
       "body": "Every indent is one more thing to hold in your head."
     }

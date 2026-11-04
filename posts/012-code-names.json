@@ -25,13 +25,11 @@
     },
     {
       "type": "tip",
-      "index": "Rule 1",
       "title": "No *magic numbers*",
       "body": "86400 means nothing. SECONDS_PER_DAY explains itself."
     },
     {
       "type": "tip",
-      "index": "Rule 2",
       "title": "Name what it *does*",
       "body": "send_reminder() tells you what happens. x() tells you nothing."
     }

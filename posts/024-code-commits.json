@@ -24,13 +24,11 @@
     },
     {
       "type": "tip",
-      "index": "Rule 1",
       "title": "One change per *commit*",
       "body": "Small commits are easy to review and easy to undo."
     },
     {
       "type": "tip",
-      "index": "Rule 2",
       "title": "Say what it *does*",
       "body": "Start with a verb: Fix, Add, Remove. The log should read like a changelog."
     }

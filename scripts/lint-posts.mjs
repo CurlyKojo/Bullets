@@ -65,6 +65,11 @@ const viral = (p) => {
   }
   const cap = MAX_REEL_S[p.project] ?? MAX_REEL_S.default;
   if (plan.seconds > cap) found.push(`runs ${plan.seconds.toFixed(1)} s; ${p.project === "tips" ? "tips" : "this kind of Reel"} should stay under ${cap} s`);
+  // Page chrome (motionmaxxing): counters and kicker labels read as a slide deck.
+  for (const sc of [p.hook ?? {}, ...(p.scenes ?? [])]) {
+    for (const k of ["title", "sub", "caption"]) if (/\b\d+\s*(of|\/)\s*\d+\b/i.test(sc[k] ?? "")) found.push(`"${sc[k]}" is a counter; counters read as page chrome, cut it`);
+    if (sc.index) found.push(`kicker label "${sc.index}" above a headline reads as a slide; drop it`);
+  }
   const paras = (p.caption ?? "").trim().split(/\n\s*\n/);
   if (!paras.slice(-2).some((x) => CTA.test(x))) found.push("caption needs a call to action in its last two paragraphs (send, save, follow, a question...)");
   const emoji = (p.caption ?? "").match(EMOJI) ?? [];

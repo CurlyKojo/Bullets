@@ -70,6 +70,26 @@ friend.
 - **Honesty:** say where a project really stands. "I'm building" beats a claim the
   comments will catch.
 
+## Craft: what makes motion look professionally made
+
+From [motionmaxxing](https://github.com/Tejashmakwana/motionmaxxing) (Apache-2.0), a motion
+design skill whose rules come from frame-by-frame measurement of professional pieces.
+Summarised in our own words, applied where they fit a Reel:
+
+- **No page chrome.** No progress bars, corner tags, tracked-caps labels, counters
+  ("1 of 4") or kicker labels above headlines. They make a film read as a slide deck.
+- **Words arrive like speech.** Whole words 3-6 frames apart, each settling in from a
+  little oversize and decelerating; nothing bounces, nothing grows from zero.
+- **Every frame is alive.** Something always moves: drift, a turning object, light.
+- **End small and short.** The mark and the name, held about a second. No footer of
+  handle, button and URL; the caption carries the ask.
+- **Show, don't caption.** A claim on screen is followed by the thing doing it.
+
+**Applied here:** the engine draws no progress bar, tag, kicker or counter; headline
+words land 5 frames apart (3 in hooks) and settle from 1.35x; end cards are 3 beats with
+the 3D mark and wordmark only. `npm run check` rejects counters and kicker labels, and
+every render is checked for a frozen ending over 1.4 s and for blank frames.
+
 ## What to watch in Insights
 
 Weekly: average watch time and shares (sends) per Reel. Make more of the formats that win
@@ -91,4 +111,5 @@ format.
 - [Instagram: your own logo on a Reel is OK (Social Media Today)](https://www.socialmediatoday.com/news/instagram-clarifies-including-your-own-logo-on-a-reel-is-ok/730852/)
 - [The 6 psychological triggers behind viral content (PR Daily)](https://prdaily.com/the-6-psychological-triggers-behind-viral-content)
 - [Why people share (MediaPost)](https://www.mediapost.com/publications/article/254027/why-people-share.html)
+- [motionmaxxing: motion design skill (Tejash Makwana, Apache-2.0)](https://github.com/Tejashmakwana/motionmaxxing)
 - [Viral video, via Harvard Business Review (Alchemy Worx)](https://alchemyworx.com/blog/viral-video-every-marketers-dream-via-harvard-business-review/)
