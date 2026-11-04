@@ -14,7 +14,8 @@ get studio lighting and soft shadows, numbers roll like an odometer, code is syn
 coloured, and text-led scenes sit on a slow grain gradient. Motion components adapted
 from [remocn](https://github.com/Remocn/remocn) (MIT); syntax colours by
 [Shiki](https://github.com/shikijs/shiki); 3D lighting by
-[drei](https://github.com/pmndrs/drei).
+[drei](https://github.com/pmndrs/drei); floating 3D emoji from Microsoft's
+[Fluent Emoji](https://github.com/microsoft/fluentui-emoji) (MIT).
 
 ## What's here
 

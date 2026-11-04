@@ -51,7 +51,13 @@ npx remotion still src/index.ts Reel out/check.png --props=out/002-ghost-talks/p
   (`src/components/Objects3D.tsx`): a chat bubble for prompt tips, `</>` brackets for
   coding tips, a neural network for AI tips, the 3D logo on every end card, and drifting
   particles behind before/after cards. Chosen from the post's `kind`. All built from
-  primitives in code, so nothing to download and no licensed models.
+  primitives in code, so nothing to download and no licensed models. Tip scenes and
+  text-only hooks also float three Fluent 3D emoji around the object
+  (`src/components/Props.tsx`, images in `public/emoji/`, MIT, licence alongside).
+- Speed, measured: frames are captured as JPEG 95 (~25% faster than PNG); a film-grain
+  overlay cost ~20% per frame and was dropped; pre-rendering the 3D objects into cached
+  clips saved nothing (the 3D isn't the slow part), so they're drawn live. A tip Reel
+  takes ~6 min.
 - Don't add @react-three/postprocessing: its EffectComposer draws nothing under
   Remotion's frame-by-frame rendering. Don't put a WebGL shader behind whole scenes: in
   software WebGL it made renders 2-4x slower. Both were tried.

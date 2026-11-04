@@ -7,7 +7,9 @@ import { Rolling } from "../components/Rolling";
 import { Caption, Tag, Title } from "../components/Words";
 import { BODY, DISPLAY, DIM, INK, LINE, MONO, PAPER, SAFE } from "../theme";
 import { Wordmark } from "../components/Logo";
-import { kindFor, Object3D } from "../components/Objects3D";
+import { kindFor } from "../components/Objects3D";
+import { ObjectClip } from "../components/ObjectClip";
+import { FloatingProps } from "../components/Props";
 import type { ReelProps, Scene } from "../types";
 
 type P = { s: Scene; r: ReelProps };
@@ -79,7 +81,14 @@ export const Hook: React.FC<P> = ({ s, r }) => {
     <AbsoluteFill>
       <Backdrop accent={r.accent} shader={textOnly} />
       <AbsoluteFill style={{ transform: `scale(${1.06 - 0.06 * punch})` }}>
-        {textOnly ? <Object3D kind={kindFor(r.project.kind)} accent={r.accent} y={1290} size={500} /> : <MediaLayer media={s.media} accent={r.accent} dur={s.dur} />}
+        {textOnly ? (
+          <>
+            <ObjectClip kind={kindFor(r.project.kind)} accent={r.accent} y={1290} size={500} />
+            <FloatingProps kind={kindFor(r.project.kind)} />
+          </>
+        ) : (
+          <MediaLayer media={s.media} accent={r.accent} dur={s.dur} />
+        )}
       </AbsoluteFill>
       <Scrim />
       <div style={{ position: "absolute", top: SAFE.top - 40, left: SAFE.left }}>
@@ -173,7 +182,7 @@ export const TypeScene: React.FC<P> = ({ s, r }) => {
   return (
     <AbsoluteFill>
       <Backdrop accent={r.accent} shader={!s.media} />
-      {s.media ? <MediaLayer media={s.media} accent={r.accent} dur={s.dur} dim={0.7} /> : <Object3D kind="none" accent={r.accent} />}
+      {s.media ? <MediaLayer media={s.media} accent={r.accent} dur={s.dur} dim={0.7} /> : <ObjectClip kind="none" accent={r.accent} y={0} size={0} />}
       {s.title && <WordsBlock s={{ ...s, sub: undefined }} accent={r.accent} size={76} top={SAFE.top - 20} />}
       <div style={{ position: "absolute", top: 560, left: SAFE.left, display: "flex", flexDirection: "column", gap: 34 }}>
         <div style={card}>
@@ -285,7 +294,7 @@ export const End: React.FC<P> = ({ s, r }) => {
     <AbsoluteFill>
       <Backdrop accent={r.accent} intensity={0.6} shader />
       <AbsoluteFill style={{ opacity: draw }}>
-        <Object3D kind="logo" accent={r.accent} y={505} size={330} />
+        <ObjectClip kind="logo" accent={r.accent} y={505} size={330} />
       </AbsoluteFill>
       <div style={{ position: "absolute", top: 380, left: 0, right: 0, display: "flex", flexDirection: "column", alignItems: "center", gap: 34 }}>
         {/* Space for the 3D mark, drawn full-frame behind this column. */}
@@ -311,7 +320,14 @@ export const Tip: React.FC<P> = ({ s, r }) => {
   return (
     <AbsoluteFill>
       <Backdrop accent={r.accent} shader={!s.media} />
-      {s.media ? <MediaLayer media={s.media} accent={r.accent} dur={s.dur} dim={0.78} /> : <Object3D kind={kindFor(r.project.kind)} accent={r.accent} y={1230} size={520} />}
+      {s.media ? (
+        <MediaLayer media={s.media} accent={r.accent} dur={s.dur} dim={0.78} />
+      ) : (
+        <>
+          <ObjectClip kind={kindFor(r.project.kind)} accent={r.accent} y={1230} size={520} />
+          <FloatingProps kind={kindFor(r.project.kind)} />
+        </>
+      )}
       <div style={{ position: "absolute", top: 470, left: SAFE.left, width: SAFE.right - SAFE.left, display: "flex", flexDirection: "column", gap: 36 }}>
         {s.index && (
           <div style={{ fontFamily: MONO, fontSize: 30, letterSpacing: 5, textTransform: "uppercase", color: r.accent, opacity: label }}>{s.index}</div>

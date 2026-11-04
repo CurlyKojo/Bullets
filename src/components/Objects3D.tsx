@@ -252,3 +252,4 @@ export const Object3D: React.FC<{ kind: Object3DKind; accent: string; y?: number
     </ThreeCanvas>
   );
 };
+
