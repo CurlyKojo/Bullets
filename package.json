@@ -13,12 +13,15 @@
     "check": "tsc --noEmit -p . && node scripts/lint-posts.mjs"
   },
   "dependencies": {
-    "@react-three/fiber": "^9.3.0",
+    "@react-three/drei": "^10.7.9",
+    "@react-three/fiber": "^9.8.2",
     "@remotion/cli": "4.0.539",
     "@remotion/three": "4.0.539",
+    "@remotion/transitions": "^4.0.539",
     "react": "19.1.1",
     "react-dom": "19.1.1",
     "remotion": "4.0.539",
+    "shiki": "^4.6.0",
     "three": "0.179.1"
   },
   "devDependencies": {

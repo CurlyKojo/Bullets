@@ -128,3 +128,21 @@ export const buildProps = (post, song, brand) => {
     caption: buildCaption(post, project),
   };
 };
+
+// Syntax colours for code in before/after scenes. A scene with `lang` (or `beforeLang` /
+// `afterLang`) gets its text tokenised here, at plan time, so the video just paints
+// coloured spans as it types. Theme: vitesse-dark, muted enough to sit on graphite.
+export const highlight = async (props) => {
+  const { codeToTokens } = await import("shiki");
+  const toLines = async (text, lang) => {
+    if (!text || !lang || lang === "text") return undefined;
+    const { tokens } = await codeToTokens(text, { lang, theme: "vitesse-dark" });
+    return tokens.map((line) => line.map((t) => ({ t: t.content, c: t.color })));
+  };
+  for (const s of props.scenes) {
+    if (s.type !== "type") continue;
+    s.beforeTokens = await toLines(s.before, s.beforeLang ?? s.lang);
+    s.afterTokens = await toLines(s.after, s.afterLang ?? s.lang);
+  }
+  return props;
+};

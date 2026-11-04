@@ -42,6 +42,9 @@ export type Scene = {
   meter?: { used: number; limit: number; label?: string };
   /** type: render the result in monospace too (code, prompts). */
   mono?: boolean;
+  /** type: syntax colours, filled in by scripts/plan.mjs from `lang`. One array per line. */
+  beforeTokens?: { t: string; c?: string }[][];
+  afterTokens?: { t: string; c?: string }[][];
   /** tip: the small label above the title ("TIP 1 OF 3") and the line under it. */
   index?: string;
   body?: string;

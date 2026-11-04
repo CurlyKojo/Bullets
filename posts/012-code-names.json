@@ -20,7 +20,8 @@
       "after": "seconds = days * SECONDS_PER_DAY\nif seconds > ONE_WEEK:\n    send_reminder()",
       "mono": true,
       "beats": 14,
-      "title": "Same code. *Readable*."
+      "title": "Same code. *Readable*.",
+      "lang": "python"
     },
     {
       "type": "tip",

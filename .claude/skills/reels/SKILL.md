@@ -42,6 +42,16 @@ npx remotion still src/index.ts Reel out/check.png --props=out/002-ghost-talks/p
 
 ## Gotchas
 
+- Visual upgrades and where they live: beat-centred transitions with a light leak on the
+  drop (`src/Reel.tsx`, `src/components/LightLeak.tsx` from remocn, MIT), studio lighting
+  and contact shadows on STLs (`src/components/Stl.tsx`, drei), odometer numbers
+  (`src/components/Rolling.tsx`), syntax colours from Shiki at plan time (`highlight()` in
+  `scripts/plan.mjs`, set `lang` on a type scene) and the CSS grain gradient behind
+  text-led scenes (`src/components/Grain.tsx`).
+- Don't add @react-three/postprocessing: its EffectComposer draws nothing under
+  Remotion's frame-by-frame rendering. Don't put a WebGL shader behind whole scenes: in
+  software WebGL it made renders 2-4x slower. Both were tried.
+
 - WebGL needs `swangle` (set in remotion.config.ts). Plain `swiftshader` can't create a
   context in the headless shell, and the STL scenes fail.
 - Remotion without REMOTION_BROWSER tries to download Chromium and fails offline. The

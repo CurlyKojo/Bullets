@@ -24,7 +24,8 @@
       "before": "# What this is\nA satellite sim. C++17 engine.\n# Rules\nRun the tests before any commit.\nNever edit engine/ without asking.",
       "after": "Every session starts already knowing your stack, your rules and what not to touch.",
       "beats": 14,
-      "title": "Example *CLAUDE.md*"
+      "title": "Example *CLAUDE.md*",
+      "beforeLang": "markdown"
     },
     {
       "type": "tip",

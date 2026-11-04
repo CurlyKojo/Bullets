@@ -3,6 +3,7 @@ import { ThreeCanvas } from "@remotion/three";
 import { continueRender, delayRender, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
 import * as THREE from "three";
 import { STLLoader } from "three/examples/jsm/loaders/STLLoader.js";
+import { ContactShadows, Environment, Lightformer } from "@react-three/drei";
 
 // Loads STLs once, centres each on its bounding box, scales to unit size, and stands it
 // up the way it prints (the generator writes Z-up, three.js is Y-up).
@@ -46,16 +47,26 @@ const useGeometries = (srcs: string[]) => {
   return geoms;
 };
 
-const Lights: React.FC<{ accent: string }> = ({ accent }) => (
+// Product-shot lighting: a soft studio environment made of light panels (no HDRI to
+// download, so it renders the same offline), a key and fill, a rim in the project's
+// accent, and a contact shadow to ground the part. (A postprocessing pass was tried and
+// dropped: its composer doesn't draw under Remotion's frame-by-frame rendering.)
+const Studio: React.FC<{ accent: string; shadowY?: number; shadows?: boolean }> = ({ accent, shadowY = -0.55, shadows = true }) => (
   <>
-    <ambientLight intensity={0.35} />
-    <hemisphereLight args={["#dfe9ff", "#101420", 0.7]} />
-    <directionalLight position={[2.5, 3, 2]} intensity={2.2} />
-    {/* Rim light in the accent colour: the edge glow that makes a grey print look premium. */}
-    <directionalLight position={[-3, 1.5, -2.5]} intensity={2.6} color={accent} />
-    <pointLight position={[0, -2, 2]} intensity={0.6} color="#ffffff" />
+    <Environment resolution={256} frames={1}>
+      <Lightformer form="rect" intensity={2.2} position={[0, 3, 2]} scale={[6, 2, 1]} />
+      <Lightformer form="rect" intensity={1.2} position={[-4, 1, 1]} rotation-y={Math.PI / 2} scale={[4, 3, 1]} />
+      <Lightformer form="rect" intensity={1.6} color={accent} position={[4, 0.5, -1]} rotation-y={-Math.PI / 2} scale={[3, 4, 1]} />
+      <Lightformer form="ring" intensity={1} position={[0, 1, -5]} scale={3} />
+    </Environment>
+    <ambientLight intensity={0.15} />
+    <directionalLight position={[2.5, 3, 2]} intensity={1.6} />
+    <directionalLight position={[-3, 1.5, -2.5]} intensity={2.2} color={accent} />
+    {shadows && <ContactShadows position={[0, shadowY, 0]} opacity={0.55} scale={3} blur={2.4} far={1.2} resolution={512} color="#000000" />}
   </>
 );
+
+const pla = (color: string) => new THREE.MeshPhysicalMaterial({ color, roughness: 0.5, metalness: 0, clearcoat: 0.25, clearcoatRoughness: 0.6, sheen: 0.2 });
 
 // One part, turning. A full revolution every 5 seconds, a slight tilt so the top reads.
 export const StlTurntable: React.FC<{ src: string; color?: string; accent: string; scale?: number }> = ({
@@ -67,14 +78,11 @@ export const StlTurntable: React.FC<{ src: string; color?: string; accent: strin
   const f = useCurrentFrame();
   const { width, height, fps } = useVideoConfig();
   const geoms = useGeometries([src]);
-  const mat = useMemo(
-    () => new THREE.MeshStandardMaterial({ color, roughness: 0.55, metalness: 0.05 }),
-    [color],
-  );
+  const mat = useMemo(() => pla(color), [color]);
   const angle = (f / (fps * 5)) * Math.PI * 2;
   return (
-    <ThreeCanvas width={width} height={height} camera={{ position: [0, 0.35, 2.3], fov: 35 }}>
-      <Lights accent={accent} />
+    <ThreeCanvas width={width} height={height} camera={{ position: [0, 0.35, 2.3], fov: 35 }} gl={{ antialias: true }}>
+      <Studio accent={accent} shadowY={-0.42} />
       {geoms && (
         // A 9:16 frame is narrow: at this camera the view is ~0.82 units wide, so a unit-size
         // part is scaled to fill about three quarters of the width, and sits a little low so
@@ -100,7 +108,7 @@ export const StlGrid: React.FC<{ items: { src: string; color?: string }[]; accen
   const { fps } = useVideoConfig();
   const geoms = useGeometries(items.map((i) => i.src));
   const mats = useMemo(
-    () => items.map((i) => new THREE.MeshStandardMaterial({ color: i.color ?? "#e9e4da", roughness: 0.55, metalness: 0.05 })),
+    () => items.map((i) => pla(i.color ?? "#e9e4da")),
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [items.map((i) => i.color).join()],
   );
@@ -110,10 +118,11 @@ export const StlGrid: React.FC<{ items: { src: string; color?: string }[]; accen
     <ThreeCanvas
       width={width}
       height={height}
+      gl={{ antialias: true }}
       orthographic
       camera={{ position: [0, 0, 10], zoom: Math.min(width / (cols * gap + 0.2), height / (rows * gap + 0.2)) }}
     >
-      <Lights accent={accent} />
+      <Studio accent={accent} shadows={false} />
       {geoms?.map((g, i) => {
         const r = Math.floor(i / cols);
         const c = i % cols;

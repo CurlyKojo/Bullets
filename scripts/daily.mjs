@@ -13,7 +13,7 @@
 import { copyFileSync, existsSync, mkdirSync, readFileSync, rmSync, statSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { ROOT, arg, readJson, renderEnv, run } from "./lib.mjs";
-import { buildProps, listPosts, nextPost, pickSong, state } from "./plan.mjs";
+import { buildProps, highlight, listPosts, nextPost, pickSong, state } from "./plan.mjs";
 
 const date = arg("date", new Date().toLocaleDateString("en-CA", { timeZone: "America/Los_Angeles" }));
 const want = arg("post");
@@ -27,6 +27,7 @@ if (arg("sync")) run("node", ["scripts/sync.mjs"], { stdio: "inherit", timeout: 
 const brand = readJson("brand/brand.json");
 const song = pickSong(post, date, arg("song"));
 const plan = buildProps(post, song, brand);
+await highlight(plan.props);
 const remaining = listPosts().filter((p) => !state().posted[p.id] && p.id !== post.id).length;
 
 const lines = [

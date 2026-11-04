@@ -1,14 +1,18 @@
 import React from "react";
 import { AbsoluteFill, useCurrentFrame } from "remotion";
 import { INK, INK_2 } from "../theme";
+import { Grain } from "./Grain";
 
 // Graphite with a faint engineering grid that drifts slowly, and a soft pool of the
 // project's accent behind the subject. Present, never loud.
-export const Backdrop: React.FC<{ accent: string; intensity?: number }> = ({ accent, intensity = 1 }) => {
+export const Backdrop: React.FC<{ accent: string; intensity?: number; shader?: boolean }> = ({ accent, intensity = 1, shader = false }) => {
   const f = useCurrentFrame();
   const drift = (f * 0.4) % 60;
   return (
     <AbsoluteFill style={{ background: `linear-gradient(180deg, ${INK_2} 0%, ${INK} 60%)` }}>
+      {/* Text-led scenes (tips, end card) get the moving grain gradient; footage scenes
+          keep the plain grid, since the footage is the picture there. */}
+      {shader && <Grain accent={accent} />}
       <AbsoluteFill
         style={{
           backgroundImage: "linear-gradient(rgba(255,255,255,0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.045) 1px, transparent 1px)",

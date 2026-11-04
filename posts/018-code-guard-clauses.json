@@ -20,7 +20,8 @@
       "after": "def ship(order):\n    if not order: return\n    if not order.paid: return\n    if not order.in_stock: return\n    send(order)",
       "mono": true,
       "beats": 14,
-      "title": "Same logic. *Flat*."
+      "title": "Same logic. *Flat*.",
+      "lang": "python"
     },
     {
       "type": "tip",

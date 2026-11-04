@@ -9,6 +9,13 @@ repos, spinning 3D turntables of the actual STL files, captions in the safe zone
 card, a grid cover, and the Instagram caption with hashtags. One command, about five
 minutes.
 
+The look: cuts land on the beat with real transitions (a light leak on the drop), 3D parts
+get studio lighting and soft shadows, numbers roll like an odometer, code is syntax
+coloured, and text-led scenes sit on a slow grain gradient. Motion components adapted
+from [remocn](https://github.com/Remocn/remocn) (MIT); syntax colours by
+[Shiki](https://github.com/shikijs/shiki); 3D lighting by
+[drei](https://github.com/pmndrs/drei).
+
 ## What's here
 
 | Path | What it is |

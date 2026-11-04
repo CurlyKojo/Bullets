@@ -31,7 +31,9 @@
       "after": "before the fix:  FAILED\nafter the fix:   PASSED",
       "mono": true,
       "beats": 12,
-      "title": "The test that *proves* it"
+      "title": "The test that *proves* it",
+      "beforeLang": "python",
+      "afterLang": "text"
     }
   ],
   "end": {

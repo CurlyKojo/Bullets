@@ -20,7 +20,9 @@
       "after": "Last line = what broke: no 'email' key.\nLine above = where: signup.py, line 14.\nFix: check what the form actually sends.",
       "mono": true,
       "beats": 16,
-      "title": "What it's *actually* saying"
+      "title": "What it's *actually* saying",
+      "beforeLang": "python",
+      "afterLang": "text"
     },
     {
       "type": "tip",

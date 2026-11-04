@@ -3,12 +3,40 @@ import { AbsoluteFill, interpolate, spring, useCurrentFrame, useVideoConfig } fr
 import { Backdrop, Scrim } from "../components/Backdrop";
 import { MediaLayer } from "../components/MediaLayer";
 import { StlGrid } from "../components/Stl";
+import { Rolling } from "../components/Rolling";
 import { Caption, Tag, Title } from "../components/Words";
 import { BODY, DISPLAY, DIM, INK, LINE, MONO, PAPER, SAFE } from "../theme";
 import { LogoMark, Wordmark } from "../components/Logo";
 import type { ReelProps, Scene } from "../types";
 
 type P = { s: Scene; r: ReelProps };
+
+type Tokens = { t: string; c?: string }[][];
+
+// Paints the first `count` characters of highlighted code, line by line, in each token's
+// colour. Newlines count as one character, the same as slicing the raw string.
+const Painted: React.FC<{ lines: Tokens; count: number }> = ({ lines, count }) => {
+  let left = count;
+  const out: React.ReactNode[] = [];
+  lines.forEach((line, li) => {
+    if (left <= 0) return;
+    if (li > 0) {
+      out.push("\n");
+      left -= 1;
+    }
+    line.forEach((tok, ti) => {
+      if (left <= 0) return;
+      const part = tok.t.slice(0, left);
+      left -= part.length;
+      out.push(
+        <span key={`${li}-${ti}`} style={{ color: tok.c }}>
+          {part}
+        </span>,
+      );
+    });
+  });
+  return <>{out}</>;
+};
 
 // Words sit in a column inside the safe box, top-weighted so they're read before the
 // footage underneath pulls the eye down.
@@ -45,9 +73,10 @@ export const Hook: React.FC<P> = ({ s, r }) => {
   const f = useCurrentFrame();
   const { fps } = useVideoConfig();
   const punch = spring({ frame: f, fps, config: { damping: 200, stiffness: 60 } });
+  const textOnly = !s.media || s.media.kind === "none";
   return (
     <AbsoluteFill>
-      <Backdrop accent={r.accent} />
+      <Backdrop accent={r.accent} shader={textOnly} />
       <AbsoluteFill style={{ transform: `scale(${1.06 - 0.06 * punch})` }}>
         <MediaLayer media={s.media} accent={r.accent} dur={s.dur} />
       </AbsoluteFill>
@@ -82,8 +111,7 @@ export const Stat: React.FC<P> = ({ s, r }) => {
   const f = useCurrentFrame();
   const end = s.value ?? 0;
   const t = interpolate(f, [2, Math.min(s.dur - 6, 22)], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
-  const eased = 1 - Math.pow(1 - t, 3);
-  const n = (end * eased).toFixed(s.decimals ?? 0);
+  const eased = 1 - Math.pow(1 - t, 4);
   const { fps } = useVideoConfig();
   const pop = spring({ frame: f, fps, config: { damping: 200, stiffness: 90 } });
   return (
@@ -105,7 +133,7 @@ export const Stat: React.FC<P> = ({ s, r }) => {
           }}
         >
           {s.prefix}
-          {n}
+          <Rolling value={end} decimals={s.decimals ?? 0} progress={eased} fontSize={300} color={PAPER} font={DISPLAY} />
           <span style={{ fontSize: 120, letterSpacing: -4, marginLeft: 12, color: r.accent }}>{s.unit}</span>
         </div>
         {s.title && (
@@ -143,14 +171,14 @@ export const TypeScene: React.FC<P> = ({ s, r }) => {
   const label: React.CSSProperties = { fontFamily: MONO, fontSize: 26, letterSpacing: 3, color: DIM, marginBottom: 16, textTransform: "uppercase" };
   return (
     <AbsoluteFill>
-      <Backdrop accent={r.accent} />
+      <Backdrop accent={r.accent} shader={!s.media} />
       <MediaLayer media={s.media} accent={r.accent} dur={s.dur} dim={0.7} />
       {s.title && <WordsBlock s={{ ...s, sub: undefined }} accent={r.accent} size={76} top={SAFE.top - 20} />}
       <div style={{ position: "absolute", top: 560, left: SAFE.left, display: "flex", flexDirection: "column", gap: 34 }}>
         <div style={card}>
           <div style={label}>{s.labels?.[0] ?? "what you wrote"}</div>
           <div style={{ fontFamily: MONO, fontSize: before.length > 120 ? 30 : before.length < 60 ? 44 : 38, lineHeight: 1.35, color: PAPER, minHeight: 104, whiteSpace: "pre-wrap" }}>
-            {shown}
+            {s.beforeTokens ? <Painted lines={s.beforeTokens} count={shown.length} /> : shown}
             {f < flipAt && <span style={{ opacity: caret ? 1 : 0, color: r.accent }}>▍</span>}
           </div>
         </div>
@@ -167,7 +195,7 @@ export const TypeScene: React.FC<P> = ({ s, r }) => {
               whiteSpace: "pre-wrap",
             }}
           >
-            {after.slice(0, afterChars)}
+            {s.afterTokens ? <Painted lines={s.afterTokens} count={afterChars} /> : after.slice(0, afterChars)}
           </div>
           {s.meter && (
             <div style={{ marginTop: 22 }}>
@@ -254,7 +282,7 @@ export const End: React.FC<P> = ({ s, r }) => {
   const draw = interpolate(f, [0, 14], [0, 1], { extrapolateRight: "clamp", easing: (t) => 1 - Math.pow(1 - t, 3) });
   return (
     <AbsoluteFill>
-      <Backdrop accent={r.accent} intensity={0.6} />
+      <Backdrop accent={r.accent} intensity={0.6} shader />
       <div style={{ position: "absolute", top: 380, left: 0, right: 0, display: "flex", flexDirection: "column", alignItems: "center", gap: 34 }}>
         <div style={{ opacity: draw, transform: `translateY(${(1 - draw) * 20}px)` }}>
           <LogoMark size={250} color={PAPER} accent={r.accent} />
@@ -279,7 +307,7 @@ export const Tip: React.FC<P> = ({ s, r }) => {
   const body = interpolate(f, [14, 26], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
   return (
     <AbsoluteFill>
-      <Backdrop accent={r.accent} />
+      <Backdrop accent={r.accent} shader={!s.media} />
       <MediaLayer media={s.media} accent={r.accent} dur={s.dur} dim={0.78} />
       <div style={{ position: "absolute", top: 470, left: SAFE.left, width: SAFE.right - SAFE.left, display: "flex", flexDirection: "column", gap: 36 }}>
         {s.index && (

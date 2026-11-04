@@ -19,7 +19,8 @@
       "after": "git commit -m \"Fix login redirect after password reset\"\ngit commit -m \"Add rate limit to signup endpoint\"",
       "mono": true,
       "beats": 12,
-      "title": "Your git log, *fixed*"
+      "title": "Your git log, *fixed*",
+      "lang": "shellscript"
     },
     {
       "type": "tip",
