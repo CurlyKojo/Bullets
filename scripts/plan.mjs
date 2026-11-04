@@ -114,8 +114,8 @@ export const buildProps = (post, song, brand) => {
       ...(items ? { items: items.map((m) => resolveMedia(m, all)) } : {}),
     };
   });
-  // Emoji props are used sparingly: one, on the first tip card of a Reel, nowhere else.
-  const firstTip = scenes.find((sc) => sc.type === "tip" && !sc.media);
+  // Emoji props are used sparingly: one, on the first tip card of a tip Reel, nowhere else.
+  const firstTip = post.project === "tips" ? scenes.find((sc) => sc.type === "tip" && !sc.media) : undefined;
   if (firstTip) firstTip.prop = true;
   const total = beat(at);
   if (total / FPS > MAX_SECONDS) throw new Error(`Post ${post.id} runs ${(total / FPS).toFixed(1)} s; keep it under ${MAX_SECONDS} s (fewer scenes or beats).`);

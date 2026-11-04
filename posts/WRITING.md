@@ -33,6 +33,11 @@ Before writing, answer these four questions. If any answer is fuzzy, the Reel is
 4. **What do I do next?** The end card and caption give exactly one action: follow for
    part 2, save the tip, try it, comment.
 
+**Every scene must make sense to a cold viewer in one read.** If a scene needs knowledge
+the viewer doesn't have (a terminal command, a file name, an in-joke), it needs a
+plain-language headline that says what it means, or it doesn't go in. Ask of each scene:
+what is this showing, and why is it here?
+
 The hook earns the first second, the scenes deliver the promise, the end gives the next
 step. Nothing in between that doesn't serve that line.
 
