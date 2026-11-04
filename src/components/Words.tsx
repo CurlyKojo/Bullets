@@ -66,28 +66,27 @@ export const Title: React.FC<{
   );
 };
 
-// Caption line under the title: a dark glass chip with a hairline border.
-export const Caption: React.FC<{ text: string; delay?: number }> = ({ text, delay = 6 }) => {
+// The subtitle under a headline: same family, lighter weight, no box. It fades up a beat
+// after the headline so the two read as one title block. (A boxed caption chip was used
+// before; it looked pasted on rather than designed.)
+export const Caption: React.FC<{ text: string; delay?: number; align?: "left" | "center" }> = ({ text, delay = 8, align = "center" }) => {
   const f = useCurrentFrame();
-  const p = interpolate(f - delay, [0, 12], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: ease });
+  const p = interpolate(f - delay, [0, 14], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: ease });
   return (
     <div
       style={{
-        display: "inline-block",
         fontFamily: BODY,
         fontWeight: 500,
-        fontSize: 40,
-        lineHeight: 1.3,
+        fontSize: 46,
+        lineHeight: 1.28,
+        letterSpacing: -0.4,
         color: PAPER,
-        background: "rgba(10,12,15,0.72)",
-        border: "1.5px solid rgba(255,255,255,0.14)",
-        backdropFilter: "blur(14px)",
-        padding: "16px 28px",
-        borderRadius: 14,
-        maxWidth: 820,
-        textAlign: "center",
-        transform: `translateY(${(1 - p) * 18}px)`,
-        opacity: p,
+        maxWidth: 860,
+        textAlign: align,
+        textWrap: "balance",
+        textShadow: "0 2px 18px rgba(10,12,15,0.9), 0 1px 3px rgba(10,12,15,0.8)",
+        transform: `translateY(${(1 - p) * 12}px)`,
+        opacity: p * 0.9,
       }}
     >
       {text}

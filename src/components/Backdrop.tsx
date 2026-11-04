@@ -30,7 +30,9 @@ export const Backdrop: React.FC<{ accent: string; intensity?: number; shader?: b
 export const Scrim: React.FC<{ strength?: number }> = ({ strength = 1 }) => (
   <AbsoluteFill
     style={{
-      background: `linear-gradient(180deg, rgba(10,12,15,${0.82 * strength}) 0%, rgba(10,12,15,${0.2 * strength}) 34%, rgba(10,12,15,${0.08 * strength}) 55%, rgba(10,12,15,${0.85 * strength}) 100%)`,
+      // Darkest behind the title block (top quarter), clear through the middle so the
+      // footage shows, dark again under Instagram's caption and buttons.
+      background: `linear-gradient(180deg, rgba(10,12,15,${0.88 * strength}) 0%, rgba(10,12,15,${0.62 * strength}) 24%, rgba(10,12,15,${0.18 * strength}) 40%, rgba(10,12,15,${0.06 * strength}) 58%, rgba(10,12,15,${0.85 * strength}) 100%)`,
     }}
   />
 );

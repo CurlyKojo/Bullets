@@ -83,7 +83,7 @@ New footage: add it to the project's `assets` (path inside that project's repo),
 
 | type | Use it for | Fields |
 |---|---|---|
-| `media` | the default: footage, a render, a spinning STL | `media`, `title`, `sub`, `caption` |
+| `media` | the default: footage, a render, a spinning STL | `media`, `title`, `sub`, `caption` (a subtitle line set right under the title, no box) |
 | `stat` | one big number counting up | `value`, `decimals`, `prefix`, `unit`, `title`, `media` (dimmed behind) |
 | `type` | raw input → polished output: Flow demos, bad prompt → good prompt, messy code → clean code | `before`, `after`, `labels: [in, out]`, `mono: true` for code and prompts, `lang` (python, shellscript, markdown...) for syntax colours, or `beforeLang` / `afterLang` when the two halves differ ("text" = none), `meter: {used, limit}` |
 | `tip` | one rule in big words with a line of why, with a 3D object below it that matches the tip kind | `index` ("Rule 1 of 3"), `title`, `body`, optional `media` (dimmed, replaces the 3D) |

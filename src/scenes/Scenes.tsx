@@ -60,15 +60,11 @@ const WordsBlock: React.FC<{ s: Scene; accent: string; size?: number; top?: numb
     {s.sub && (
       <div style={{ fontFamily: BODY, fontWeight: 600, fontSize: 42, color: DIM, textAlign: "center", maxWidth: 820 }}>{s.sub}</div>
     )}
+    {s.caption && <Caption text={s.caption} />}
   </div>
 );
 
-const CaptionBlock: React.FC<{ text?: string; y?: number }> = ({ text, y = 1150 }) =>
-  text ? (
-    <div style={{ position: "absolute", top: y, left: 0, width: SAFE.right + 60, display: "flex", justifyContent: "center", paddingLeft: SAFE.left }}>
-      <Caption text={text} />
-    </div>
-  ) : null;
+
 
 // The first second and a half decides everything. Footage is already moving on frame 0,
 // the words land on a fast stagger, and a punch-in on the media sells the cut.
@@ -100,7 +96,6 @@ export const Hook: React.FC<P> = ({ s, r }) => {
         // where the eye lands first, with the sub line as the promise.
         <WordsBlock s={s} accent={r.accent} size={s.title && s.title.length > 40 ? 104 : 120} top={420} />
       )}
-      <CaptionBlock text={s.caption} />
     </AbsoluteFill>
   );
 };
@@ -111,7 +106,6 @@ export const MediaScene: React.FC<P> = ({ s, r }) => (
     <MediaLayer media={s.media} accent={r.accent} dur={s.dur} />
     <Scrim strength={s.media?.kind === "stl" ? 0.4 : 1} />
     <WordsBlock s={s} accent={r.accent} />
-    <CaptionBlock text={s.caption} />
   </AbsoluteFill>
 );
 
@@ -150,8 +144,12 @@ export const Stat: React.FC<P> = ({ s, r }) => {
             <Title text={s.title} accent={r.accent} size={72} delay={6} />
           </div>
         )}
+        {s.caption && (
+          <div style={{ marginTop: 22, display: "flex", justifyContent: "center" }}>
+            <Caption text={s.caption} delay={12} />
+          </div>
+        )}
       </div>
-      <CaptionBlock text={s.caption} />
     </AbsoluteFill>
   );
 };
@@ -222,7 +220,6 @@ export const TypeScene: React.FC<P> = ({ s, r }) => {
         </div>
       </div>
       <AbsoluteFill style={{ background: r.accent, opacity: flash * 0.18, mixBlendMode: "screen" }} />
-      <CaptionBlock text={s.caption} y={1230} />
     </AbsoluteFill>
   );
 };
@@ -280,7 +277,6 @@ export const Grid: React.FC<P> = ({ s, r }) => (
       </AbsoluteFill>
     </div>
     <WordsBlock s={s} accent={r.accent} size={88} top={SAFE.top - 10} />
-    <CaptionBlock text={s.caption} y={1250} />
   </AbsoluteFill>
 );
 
