@@ -18,7 +18,7 @@
         "start": 60
       },
       "title": "*Burnline*",
-      "caption": "satellite sim, textbook accurate",
+      "caption": "satellite sim, built with a friend",
       "beats": 3
     },
     {
@@ -46,7 +46,7 @@
       "type": "stat",
       "value": 4,
       "unit": "",
-      "title": "projects. *1* person.",
+      "title": "projects, *late* nights",
       "media": "ghost:parts"
     }
   ],
@@ -58,5 +58,5 @@
     "software",
     "print"
   ],
-  "caption": "Four projects, one person, a lot of late nights.\n\nBurnline: a satellite simulator checked against the textbook to 1 meter.\nGhost: a talking Destiny Ghost, designed and about to be printed.\nWisp: an animated face for a Raspberry Pi voice assistant.\n{flow}: an AI that writes performance and award statements.\n\nWhat should I build next? Best comment gets built."
+  "caption": "Four projects, a lot of late nights.\n\nBurnline (with a friend): a satellite simulator checked against the textbook to 1 meter.\nGhost: a talking Destiny Ghost, designed and about to be printed.\nWisp: an animated face for a Raspberry Pi voice assistant.\n{flow}: an AI that writes performance and award statements.\n\nWhat should I build next? Best comment gets built."
 }

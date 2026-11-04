@@ -33,8 +33,16 @@
     "ui": "photo/UI example.png",
     "glyph": "assets/brand/burnline-glyph.svg"
   },
-  "status": "Live at orbit-simulation.vercel.app. The C++ engine and the verification gate run in CI. The Unreal plugin is written but has never been compiled, so the Unreal side is a design, not a running build.",
+  "status": "Co-built with a friend: always say we/our, never my/I built, and credit the friend. Live at orbit-simulation.vercel.app. The C++ engine and the verification gate run in CI. The Unreal plugin is written but has never been compiled, so the Unreal side is a design, not a running build.",
   "avoid": [
+    "1 person",
+    "i built my own",
+    "i wanted mine",
+    "my own earth",
+    "my satellite",
+    "my side projects",
+    "myself",
+    "one person",
     "unreal build"
   ]
 }

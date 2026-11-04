@@ -3,12 +3,12 @@
   "project": "burnline",
   "mood": "cinematic",
   "hook": {
-    "title": "I built my own *Earth* instead of using Cesium",
+    "title": "We built our own *Earth* instead of using Cesium",
     "media": {
       "ref": "burnline:globe-iss",
       "start": 0
     },
-    "cover": "I built my own Earth"
+    "cover": "We built our own Earth"
   },
   "scenes": [
     {
@@ -48,5 +48,5 @@
     "burnline",
     "software"
   ],
-  "caption": "The easy move was Cesium. I wanted to understand every number on screen, so I wrote the Earth model myself.\n\nEvery dot is a real satellite from the public catalog. The SGP4 propagator is compiled to WebAssembly, so the whole thing runs in your browser.\n\nWhat satellite should I follow in the next video?"
+  "caption": "The easy move was Cesium. We wanted to understand every number on screen, so we wrote the Earth model ourselves. (Burnline is a build with a friend.)\n\nEvery dot is a real satellite from the public catalog. The SGP4 propagator is compiled to WebAssembly, so the whole thing runs in your browser.\n\nWhat satellite should we follow in the next video?"
 }

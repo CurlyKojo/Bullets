@@ -48,5 +48,5 @@
     "burnline",
     "software"
   ],
-  "caption": "That's the ISS, tracked live with SGP4, the same propagation model real satellite trackers use, compiled to WebAssembly and running in the browser.\n\nIt has to pass the same verification gate as the C++ engine on every push.\n\nWhat should I track next?"
+  "caption": "That's the ISS, tracked live with SGP4, the same propagation model real satellite trackers use, compiled to WebAssembly and running in the browser.\n\nIt has to pass the same verification gate as the C++ engine on every push.\n\nWhat should we track next?"
 }
