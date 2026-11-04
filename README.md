@@ -9,13 +9,16 @@ repos, spinning 3D turntables of the actual STL files, captions in the safe zone
 card, a grid cover, and the Instagram caption with hashtags. One command, about five
 minutes.
 
-The look: cuts land on the beat with real transitions (a light leak on the drop), 3D parts
-get studio lighting and soft shadows, numbers roll like an odometer, code is syntax
-coloured, and text-led scenes sit on a slow grain gradient. Motion components adapted
-from [remocn](https://github.com/Remocn/remocn) (MIT); syntax colours by
-[Shiki](https://github.com/shikijs/shiki); 3D lighting by
-[drei](https://github.com/pmndrs/drei); floating 3D emoji from Microsoft's
-[Fluent Emoji](https://github.com/microsoft/fluentui-emoji) (MIT).
+The look: cuts land on the beat, and every transition has a cause (a light leak on the drop,
+whips, zoom-throughs, an iris into the parts grid). Words land one at a time, the real STL
+files turn on studio-lit turntables, numbers roll like an odometer, code types out syntax
+coloured, and the end card draws the logo on. Rendered with
+[HyperFrames](https://github.com/heygen-com/hyperframes) (Apache-2.0) and
+[GSAP](https://gsap.com); 3D with [three.js](https://threejs.org); syntax colours by
+[Shiki](https://github.com/shikijs/shiki); floating 3D emoji from Microsoft's
+[Fluent Emoji](https://github.com/microsoft/fluentui-emoji) (MIT). The older Remotion
+engine (with components adapted from [remocn](https://github.com/Remocn/remocn), MIT)
+stays as a fallback.
 
 ## What's here
 
@@ -26,7 +29,8 @@ from [remocn](https://github.com/Remocn/remocn) (MIT); syntax colours by
 | `brand/kit/` | Profile picture, story highlight covers, wordmark (rendered) |
 | `posts/` | The queue: one JSON script per Reel. `WRITING.md` is the format and rules |
 | `projects/` | One file per project: name, accent colour, true facts, where its footage lives |
-| `src/` | The Remotion video project: scenes, STL turntables, brand stills |
+| `scripts/hf/` | The video engine (HyperFrames): scenes, transitions, 3D turntables and objects |
+| `src/` | The older Remotion project: the `--engine remotion` fallback, the cover, brand stills |
 | `scripts/daily.mjs` | Render the next post: video, cover, caption, contact sheet, download page |
 | `scripts/sync.mjs` | Pull footage from the project repos into `public/assets/` |
 | `scripts/publish-instagram.mjs` | Optional: post straight to Instagram via the Graph API |
@@ -54,7 +58,8 @@ node scripts/daily.mjs               # render it -> out/latest/
 node scripts/daily.mjs --post 004    # render a specific post
 npm run check                        # typecheck + every post plans cleanly
 npm run brand                        # re-render the profile kit
-npm run preview                      # Remotion Studio, for tinkering with scenes
+node scripts/daily.mjs --post 002 --build   # write the HyperFrames project only (.cache/hf/)
+node scripts/daily.mjs --engine remotion     # the old engine, as a fallback
 ```
 
 Output in `out/latest/`: `reel.mp4` (1080×1920, 30 fps, H.264, silent track), `cover.jpg`,

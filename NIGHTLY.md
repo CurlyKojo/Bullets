@@ -27,7 +27,7 @@ setting it up again from another account or session.
 4. Say "run the daily prompt now" once to test it. The first run creates the download
    page; it's private to you.
 
-3:41 PM Pacific leaves time to render (5–10 minutes) before the 6–8 PM posting window.
+3:41 PM Pacific leaves time to render (3–5 minutes) before the 6–8 PM posting window.
 
 ## The prompt
 

@@ -1,7 +1,0 @@
-# Copied in by build.mjs from public/ (synced footage); regenerate with: node pilot/build.mjs
-showcase/assets/*.mp4
-showcase/assets/*.png
-showcase/assets/stl/
-showcase/assets/fonts/
-showcase/renders/
-showcase/.hyperframes/

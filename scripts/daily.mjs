@@ -7,6 +7,8 @@
 //   node scripts/daily.mjs --dry           # plan only: print the cut, render nothing
 //   node scripts/daily.mjs --mark          # record the post as used in posts/state.json
 //   node scripts/daily.mjs --sync          # pull fresh footage first
+//   node scripts/daily.mjs --engine remotion     # render with the old Remotion engine
+//   node scripts/daily.mjs --build         # write the HyperFrames project only (.cache/hf/<post>/)
 //
 // Writes out/<post id>/ and copies the result to out/latest/: reel.mp4 (the upload),
 // cover.jpg (grid thumbnail), caption.txt, report.json, qa/contact.jpg, page.html.
@@ -15,6 +17,7 @@ import { join } from "node:path";
 import { spawnSync } from "node:child_process";
 import { ROOT, arg, readJson, renderEnv, run } from "./lib.mjs";
 import { buildProps, highlight, listPosts, nextPost, pickSong, state } from "./plan.mjs";
+import { renderProject, writeProject } from "./hf/engine.mjs";
 
 const date = arg("date", new Date().toLocaleDateString("en-CA", { timeZone: "America/Los_Angeles" }));
 const want = arg("post");
@@ -39,6 +42,15 @@ const lines = [
   `downbeat ${plan.downbeat.toFixed(2)} s: start the song so its first big hit lands here`,
   `queue    ${remaining} post(s) left after this one${remaining < 5 ? "  << LOW: write more (posts/WRITING.md)" : ""}`,
 ];
+const engine = arg("engine", "hyperframes");
+if (engine !== "hyperframes" && engine !== "remotion") throw new Error(`--engine is hyperframes or remotion, not "${engine}"`);
+lines.push(`engine   ${engine}`);
+const hfDir = join(ROOT, ".cache/hf", post.id);
+if (arg("build")) {
+  const built = writeProject(plan.props, hfDir);
+  console.log([...lines, ...built.scenes.map((s) => `  ${s.id.padEnd(14)} ${String(s.start).padStart(6)}s +${s.dur}s  in:${s.in || "-"} out:${s.out || "-"}`), `project  ${hfDir}`].join("\n"));
+  process.exit(0);
+}
 if (arg("dry")) {
   console.log(lines.join("\n"));
   process.exit(0);
@@ -53,7 +65,12 @@ writeFileSync(propsFile, JSON.stringify(plan.props, null, 2));
 const env = renderEnv();
 const t0 = Date.now();
 const master = join(out, "master.mp4");
-run("npx", ["remotion", "render", "src/index.ts", "Reel", master, `--props=${propsFile}`, "--concurrency=4", "--log=error"], { env, timeout: 3600000 });
+if (engine === "hyperframes") {
+  writeProject(plan.props, hfDir);
+  renderProject(hfDir, master, env);
+} else {
+  run("npx", ["remotion", "render", "src/index.ts", "Reel", master, `--props=${propsFile}`, "--concurrency=4", "--log=error"], { env, timeout: 3600000 });
+}
 
 // The upload copy: H.264 High at a generous bitrate (Instagram re-encodes everything, and
 // it does far less damage to a clean source), a silent AAC track so every uploader and
@@ -110,6 +127,7 @@ const report = {
   downbeat: Number(plan.downbeat.toFixed(2)),
   queueLeft: remaining,
   renderSeconds: Math.round((Date.now() - t0) / 1000),
+  engine,
   problems,
 };
 writeFileSync(join(out, "report.json"), JSON.stringify(report, null, 2));
