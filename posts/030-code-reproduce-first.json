@@ -43,5 +43,5 @@
   "hashtags": [
     "codingtips"
   ],
-  "caption": "\"I think I fixed it\" isn't a fix.\n\nFirst make the bug happen on purpose. Then write a test that fails because of it. Fix the code until the test passes. Now you know it's fixed, and if it ever comes back, the test catches it before your users do."
+  "caption": "\"I think I fixed it\" isn't a fix.\n\nFirst make the bug happen on purpose. Then write a test that fails because of it. Fix the code until the test passes. Now you know it's fixed, and if it ever comes back, the test catches it before your users do.\n\nSend this to someone who says \"works on my machine\"."
 }

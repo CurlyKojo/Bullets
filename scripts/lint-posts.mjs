@@ -45,6 +45,33 @@ const claims = (p) => {
   }
   return found;
 };
+// The research rules (posts/VIRAL.md), as checks.
+// A new shot at least every ~3 s; scenes you read get a little longer.
+const MAX_SCENE_S = { hook: 4.2, media: 3.3, stat: 3.3, split: 4.2, grid: 4.6, tip: 4.4, type: 7.8 };
+const MAX_REEL_S = { tips: 26, default: 30 };
+const CTA = /\b(send|save|share|tag|comments?|follow|try it|link in bio)\b|\?/i;
+const EMOJI = /\p{Extended_Pictographic}/gu;
+const viral = (p) => {
+  const found = [];
+  let plan;
+  try {
+    plan = buildProps(p, pickSong(p, "2026-01-01"), brand);
+  } catch {
+    return found;
+  }
+  for (const sc of plan.props.scenes) {
+    const max = MAX_SCENE_S[sc.type];
+    if (max && sc.dur / 30 > max) found.push(`${sc.type} scene "${(sc.title ?? "").replace(/\*/g, "")}" holds ${(sc.dur / 30).toFixed(1)} s; keep it under ${max} s (fewer beats)`);
+  }
+  const cap = MAX_REEL_S[p.project] ?? MAX_REEL_S.default;
+  if (plan.seconds > cap) found.push(`runs ${plan.seconds.toFixed(1)} s; ${p.project === "tips" ? "tips" : "this kind of Reel"} should stay under ${cap} s`);
+  const paras = (p.caption ?? "").trim().split(/\n\s*\n/);
+  if (!paras.slice(-2).some((x) => CTA.test(x))) found.push("caption needs a call to action in its last two paragraphs (send, save, follow, a question...)");
+  const emoji = (p.caption ?? "").match(EMOJI) ?? [];
+  if (emoji.length > 1) found.push(`caption has ${emoji.length} emoji; one at most, and only if it adds something`);
+  return found;
+};
+
 const repeats = (p) => {
   const list = shots(p);
   const found = [];
@@ -69,6 +96,7 @@ for (const p of listPosts()) {
   if ((p.caption?.match(/#\w+/g) ?? []).length) problems.push("put hashtags in the hashtags field, not the caption");
   problems.push(...repeats(p));
   problems.push(...claims(p));
+  problems.push(...viral(p));
   try {
     const plan = buildProps(p, pickSong(p, "2026-01-01"), brand);
     if (plan.seconds < 6) problems.push(`only ${plan.seconds.toFixed(1)} s`);

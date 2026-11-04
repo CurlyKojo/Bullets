@@ -35,5 +35,5 @@
   "hashtags": [
     "aitips"
   ],
-  "caption": "If the AI keeps suggesting the same broken fix, more messages usually won't help. Every wrong attempt is still sitting in the conversation.\n\nAsk it to summarize the goal, what works and what's failed. Start a new chat and paste the summary. Fresh context, and it stops repeating itself."
+  "caption": "If the AI keeps suggesting the same broken fix, more messages usually won't help. Every wrong attempt is still sitting in the conversation.\n\nAsk it to summarize the goal, what works and what's failed. Start a new chat and paste the summary. Fresh context, and it stops repeating itself.\n\nSave this for the next time it loops."
 }

@@ -43,5 +43,5 @@
   "hashtags": [
     "codingtips"
   ],
-  "caption": "Both versions do the exact same thing. Only one of them makes sense six months from now.\n\nTwo rules:\n1. Give numbers a name (SECONDS_PER_DAY, not 86400)\n2. Name functions and variables for what they mean, not what type they are\n\nCode gets read way more than it gets written."
+  "caption": "Both versions do the exact same thing. Only one of them makes sense six months from now.\n\nTwo rules:\n1. Give numbers a name (SECONDS_PER_DAY, not 86400)\n2. Name functions and variables for what they mean, not what type they are\n\nCode gets read way more than it gets written.\n\nSend this to the teammate who names everything x."
 }

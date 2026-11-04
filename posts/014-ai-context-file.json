@@ -42,5 +42,5 @@
     "aitips",
     "codingtips"
   ],
-  "caption": "Every new AI chat starts from zero. It doesn't know your stack, your conventions or the folder it should never touch.\n\nSo write it down once. I keep a short context file in my repos. Claude Code reads CLAUDE.md automatically, and Cursor and Copilot have their own version.\n\nBest habit: every time you correct the same mistake twice, add a line."
+  "caption": "Every new AI chat starts from zero. It doesn't know your stack, your conventions or the folder it should never touch.\n\nSo write it down once. I keep a short context file in my repos. Claude Code reads CLAUDE.md automatically, and Cursor and Copilot have their own version.\n\nBest habit: every time you correct the same mistake twice, add a line.\n\nSave this and set yours up today."
 }

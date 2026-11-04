@@ -48,6 +48,8 @@ export type Scene = {
   /** tip: the small label above the title ("TIP 1 OF 3") and the line under it. */
   index?: string;
   body?: string;
+  /** tip: show the one floating emoji prop (set by scripts/plan.mjs on the first tip). */
+  prop?: boolean;
 };
 
 export type ReelProps = {

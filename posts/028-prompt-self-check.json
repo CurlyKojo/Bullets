@@ -42,5 +42,5 @@
     "prompting",
     "aitips"
   ],
-  "caption": "First drafts from AI are first drafts. Build the review into the prompt.\n\nGive it something concrete to check against (the job's requirements, a rubric, a style guide) and tell it to fix anything that misses. Then ask what it guessed at. You'll know exactly what to double-check."
+  "caption": "First drafts from AI are first drafts. Build the review into the prompt.\n\nGive it something concrete to check against (the job's requirements, a rubric, a style guide) and tell it to fix anything that misses. Then ask what it guessed at. You'll know exactly what to double-check.\n\nSave this for your next big draft."
 }

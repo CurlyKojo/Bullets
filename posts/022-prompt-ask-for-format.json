@@ -42,5 +42,5 @@
     "prompting",
     "aitips"
   ],
-  "caption": "If you don't say what shape you want, you get a wall of text.\n\nName the format (table, checklist, JSON, 3 bullets) and, if you know them, the exact fields. \"Table: task | owner | due date\" turns a meeting summary into something you can actually use."
+  "caption": "If you don't say what shape you want, you get a wall of text.\n\nName the format (table, checklist, JSON, 3 bullets) and, if you know them, the exact fields. \"Table: task | owner | due date\" turns a meeting summary into something you can actually use.\n\nSave this for your next meeting."
 }

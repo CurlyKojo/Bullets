@@ -42,5 +42,5 @@
     "aitips",
     "codingtips"
   ],
-  "caption": "If you only ever paste what AI writes, you're stuck the moment it breaks.\n\nAdd two things to the prompt: \"explain each line\" and \"tell me one way it could break\". You get the code, you learn why it works, and you find the edge cases before they find you."
+  "caption": "If you only ever paste what AI writes, you're stuck the moment it breaks.\n\nAdd two things to the prompt: \"explain each line\" and \"tell me one way it could break\". You get the code, you learn why it works, and you find the edge cases before they find you.\n\nSave this for your next coding session."
 }

@@ -13,7 +13,7 @@
       "media": "ghost:reference",
       "title": "Every *seam* matches",
       "caption": "top: Bungie's sheet · bottom: my generator",
-      "beats": 8
+      "beats": 6
     },
     {
       "type": "media",
@@ -37,5 +37,5 @@
     "ghost",
     "software"
   ],
-  "caption": "No CAD for this one. The whole shell comes out of a Python script.\n\nI matched it to the Bungie reference sheet view by view: the diamond with X seams from the front, the X with blunt arm ends from the side, the central diamond and notches from the top.\n\nEvery dimension is a parameter, so you can print a 95% Ghost with one flag, and the generator checks nothing collides before it writes the files.\n\nFan project. Destiny belongs to Bungie."
+  "caption": "No CAD for this one. The whole shell comes out of a Python script.\n\nI matched it to the Bungie reference sheet view by view: the diamond with X seams from the front, the X with blunt arm ends from the side, the central diamond and notches from the top.\n\nEvery dimension is a parameter, so you can print a 95% Ghost with one flag, and the generator checks nothing collides before it writes the files.\n\nThe generator is free, link in bio. Follow to see the first print.\n\nFan project. Destiny belongs to Bungie."
 }

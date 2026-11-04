@@ -3,6 +3,9 @@
 A post is one JSON file in this folder: `NNN-project-slug.json`. The daily run takes the
 lowest-numbered one that isn't in `state.json` yet. Run `npm run check` after writing.
 
+**Read [`VIRAL.md`](VIRAL.md) first:** the research on what makes a Reel spread, and how
+the rules below apply it.
+
 ## What the account is
 
 Kojo Labs is a portfolio of real projects, with useful tips mixed in. Two kinds of post,
@@ -58,6 +61,7 @@ step. Nothing in between that doesn't serve that line.
 - `*word*` paints that word in the accent colour. One or two per title, on the word that
   matters.
 - `cover`: shorter title for the grid thumbnail. Optional, falls back to the hook.
+- `next: true`: jumps the queue (the daily run picks it before anything else).
 - `beats` on any scene overrides its length. Defaults: media 4, stat 4, type 12, split 6,
   grid 8, tip 8, end 6. The hook sizes itself to its word count.
 - `hashtags`: names of sets in `brand/hashtags.json` (or literal `#tags`). Five total, max.

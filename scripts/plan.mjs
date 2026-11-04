@@ -18,9 +18,12 @@ export const listPosts = () =>
 
 export const state = () => (existsSync(join(ROOT, "posts/state.json")) ? readJson("posts/state.json") : { posted: {} });
 
+// The next post: anything marked "next": true jumps the queue (one-off features like a
+// showcase), otherwise the lowest number not yet posted.
 export const nextPost = () => {
   const done = state().posted;
-  return listPosts().find((p) => !done[p.id]);
+  const open = listPosts().filter((p) => !done[p.id]);
+  return open.find((p) => p.next) ?? open[0];
 };
 
 // Same song never two days running, and mood-matched when the post asks for one.
@@ -111,6 +114,9 @@ export const buildProps = (post, song, brand) => {
       ...(items ? { items: items.map((m) => resolveMedia(m, all)) } : {}),
     };
   });
+  // Emoji props are used sparingly: one, on the first tip card of a Reel, nowhere else.
+  const firstTip = scenes.find((sc) => sc.type === "tip" && !sc.media);
+  if (firstTip) firstTip.prop = true;
   const total = beat(at);
   if (total / FPS > MAX_SECONDS) throw new Error(`Post ${post.id} runs ${(total / FPS).toFixed(1)} s; keep it under ${MAX_SECONDS} s (fewer scenes or beats).`);
   return {

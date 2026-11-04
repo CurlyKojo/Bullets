@@ -84,7 +84,6 @@ export const Hook: React.FC<P> = ({ s, r }) => {
         {textOnly ? (
           <>
             <ObjectClip kind={kindFor(r.project.kind)} accent={r.accent} y={1290} size={500} />
-            <FloatingProps kind={kindFor(r.project.kind)} />
           </>
         ) : (
           <MediaLayer media={s.media} accent={r.accent} dur={s.dur} />
@@ -325,7 +324,7 @@ export const Tip: React.FC<P> = ({ s, r }) => {
       ) : (
         <>
           <ObjectClip kind={kindFor(r.project.kind)} accent={r.accent} y={1230} size={520} />
-          <FloatingProps kind={kindFor(r.project.kind)} />
+          {s.prop && <FloatingProps kind={kindFor(r.project.kind)} />}
         </>
       )}
       <div style={{ position: "absolute", top: 470, left: SAFE.left, width: SAFE.right - SAFE.left, display: "flex", flexDirection: "column", gap: 36 }}>

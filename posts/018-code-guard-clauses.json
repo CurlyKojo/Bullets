@@ -43,5 +43,5 @@
   "hashtags": [
     "codingtips"
   ],
-  "caption": "Same logic, way easier to read.\n\nInstead of nesting every condition, check the cases that should stop early and return. They're called guard clauses. The main thing the function does ends up flat at the bottom, where you can actually see it.\n\nWorks in any language."
+  "caption": "Same logic, way easier to read.\n\nInstead of nesting every condition, check the cases that should stop early and return. They're called guard clauses. The main thing the function does ends up flat at the bottom, where you can actually see it.\n\nWorks in any language.\n\nSend this to someone still nesting ifs three deep."
 }

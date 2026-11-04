@@ -48,5 +48,5 @@
     "aitips",
     "codingtips"
   ],
-  "caption": "AI is great at debugging. It's terrible at reading your mind.\n\n\"It doesn't work\" gives it nothing. Give it three things instead:\n1. The exact error, every line\n2. The code it came from\n3. What you expected vs what happened\n\nYou'll get a real fix on the first try way more often."
+  "caption": "AI is great at debugging. It's terrible at reading your mind.\n\n\"It doesn't work\" gives it nothing. Give it three things instead:\n1. The exact error, every line\n2. The code it came from\n3. What you expected vs what happened\n\nYou'll get a real fix on the first try way more often.\n\nSend this to the friend who pastes \"it doesn't work\" into ChatGPT."
 }

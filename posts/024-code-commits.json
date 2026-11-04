@@ -42,5 +42,5 @@
   "hashtags": [
     "codingtips"
   ],
-  "caption": "\"fix\" and \"stuff\" are fine until you need to find which commit broke something.\n\nTwo rules:\n1. One change per commit\n2. Start the message with a verb and say what it does\n\nYour git log turns into a changelog, and undoing one bad change stops being scary."
+  "caption": "\"fix\" and \"stuff\" are fine until you need to find which commit broke something.\n\nTwo rules:\n1. One change per commit\n2. Start the message with a verb and say what it does\n\nYour git log turns into a changelog, and undoing one bad change stops being scary.\n\nSend this to the person whose last commit says \"fix\"."
 }

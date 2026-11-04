@@ -51,5 +51,5 @@
     "space",
     "burnline"
   ],
-  "caption": "No scale model. Burnline's Unreal scene is designed at real scale: one unit is one centimetre, so Earth's radius is 637,800,000 units and GEO sits 4.2 billion units out.\n\nThat used to be a terrible idea: 32-bit floats only resolve about 2.6 m out at GEO, which is bigger than my whole 1 m accuracy budget. UE5's double-precision coordinates resolve 4.8 nanometres at the same distance.\n\nThat's the margin that makes real scale possible."
+  "caption": "No scale model. Burnline's Unreal scene is designed at real scale: one unit is one centimetre, so Earth's radius is 637,800,000 units and GEO sits 4.2 billion units out.\n\nThat used to be a terrible idea: 32-bit floats only resolve about 2.6 m out at GEO, which is bigger than my whole 1 m accuracy budget. UE5's double-precision coordinates resolve 4.8 nanometres at the same distance.\n\nThat's the margin that makes real scale possible.\n\nFollow for more of the physics behind it."
 }
