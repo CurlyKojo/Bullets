@@ -80,7 +80,7 @@ npx hyperframes@0.9.13 snapshot --at 1.5,4.3,7.5  # PNGs plus a contact sheet
   sandbox has no Anthropic key). Character counts, the meter, the checklist and Perfect
   Fit are the app's own logic. Off camera on purpose: login, footer, Evaluator, Acronyms,
   Package Builder headings (Air Force wording) and the CGO rank default (set to CIV).
-  Clips a project lists under `ui` are framed as a phone screen by the engine.
+  Clips a project lists under `ui` are shown near full width (940 px) and cropped below the app's header (`uiTop` source px), so the text reads on a phone; don't shrink them back into a whole-phone frame (too small to read).
 - Never push anything to the project repos (especially Orbit-Simulation-). This repo only
   reads them, into `.cache/repos/`.
 - Words stay inside `SAFE` in `src/theme.ts`; Instagram's UI covers the rest.

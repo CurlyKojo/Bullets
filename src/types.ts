@@ -15,6 +15,8 @@ export type Media = {
   zoom?: "in" | "out";
   /** A screen recording of an app: framed as a phone screen (HyperFrames engine). */
   ui?: boolean;
+  /** Source pixels to crop off the top of a ui clip (the app's own header). */
+  uiTop?: number;
 };
 
 export type SceneType = "hook" | "media" | "stat" | "type" | "split" | "grid" | "tip" | "end";

@@ -65,7 +65,7 @@ const resolveMedia = (ref, all) => {
     ...(o.fit ? { fit: o.fit } : {}),
     ...(o.zoom ? { zoom: o.zoom } : {}),
     // Screen recordings of an app are framed as a phone screen, not full bleed.
-    ...((project.ui ?? []).includes(key) ? { ui: true } : {}),
+    ...((project.ui ?? []).includes(key) ? { ui: true, uiTop: project.uiTop ?? 0 } : {}),
   };
 };
 

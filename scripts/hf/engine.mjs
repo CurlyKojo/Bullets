@@ -51,14 +51,17 @@ function probe(file) {
 function words(text, cls, accent) {
   let out = "";
   let hot = false;
+  let prev = ""; // the raw text before the last star, to tell "*a*." from "the *a*"
   for (const tok of String(text).split(/(\*)/)) {
     if (tok === "*") {
       hot = !hot;
       continue;
     }
+    const joined = prev !== "" && !/\s$/.test(prev) && !/^\s/.test(tok);
+    prev = tok || prev;
     tok.split(/\s+/).forEach((w, i) => {
       if (!w) return;
-      const glue = i === 0 && out && !/^\s/.test(tok);
+      const glue = i === 0 && out && joined;
       out += `${out && !glue ? " " : ""}<span class="${cls}"${hot ? ` style="color:${accent}"` : ""}>${esc(w)}</span>`;
     });
   }
@@ -131,7 +134,7 @@ const backdropJs = (P, dur) => `tl.fromTo("#${P}-glow-a", { x: 0, y: 0 }, { x: 1
 // One picture in a box (the full frame by default). Tall footage fills the box; square and
 // landscape footage sits on a rounded card; landscape stills feather into the backdrop; an
 // STL turns on a turntable. Returns css/html/js plus the 3D it needs, if any.
-function mediaLayer(P, id, m, dur, ctx, { box = { top: 0, height: 1920 }, dim = 0, push = true, fill = false } = {}) {
+function mediaLayer(P, id, m, dur, ctx, { box = { top: 0, height: 1920 }, dim = 0, push = true, fill = false, uiCardTop } = {}) {
   const out = { css: "", html: "", js: "", three: null, mode: "none" };
   if (!m || m.kind === "none" || !m.src) return out;
   const el = `${P}-${id}`;
@@ -158,16 +161,18 @@ function mediaLayer(P, id, m, dur, ctx, { box = { top: 0, height: 1920 }, dim = 
     media = `<img id="${el}-v" ${timed} src="${m.src}" alt="" />`;
   }
   if (m.ui && full) {
-    // An app's own screen: a phone-sized screen with rounded corners and a soft shadow,
-    // drifting slightly, with room above for the title and below for the caption.
+    // An app's own screen, big enough to read: near full width, cropped to the part
+    // under the app's header (m.uiTop px of the source, which also drops the app's own
+    // wordmark), from just under the title down to the caption.
     out.mode = "ui";
-    const w = 440, h = Math.round(w / aspect), top = 410;
+    const w = 940, k = w / info.w, top = uiCardTop ?? 420, bottom = 1196;
+    const h = bottom - top, srcTop = (m.uiTop ?? 0) * k;
     out.css = `
-    #${el} { position: absolute; left: ${(1080 - w) / 2}px; top: ${top}px; width: ${w}px; height: ${h}px; border-radius: 38px; overflow: hidden;
-      box-shadow: 0 50px 110px rgba(0,0,0,0.6), 0 0 0 10px #05070a, 0 0 0 11px rgba(255,255,255,0.12); background: #000; }
-    #${el}-v { position: absolute; left: 0; top: 0; width: ${w}px; height: ${h}px; object-fit: cover; }`;
+    #${el} { position: absolute; left: ${(1080 - w) / 2}px; top: ${top}px; width: ${w}px; height: ${h}px; border-radius: 30px; overflow: hidden;
+      box-shadow: 0 40px 100px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.12); background: #000; }
+    #${el}-v { position: absolute; left: 0; top: ${-Math.round(srcTop)}px; width: ${w}px; height: ${Math.round(info.h * k)}px; object-fit: cover; }`;
     out.html = `<div id="${el}">${media}</div>`;
-    out.js = `tl.fromTo("#${el}", { y: 24, rotation: -0.8 }, { y: -14, rotation: 0.6, duration: ${dur}, ease: "sine.inOut" }, 0);`;
+    out.js = `tl.fromTo("#${el}", { y: 14 }, { y: -10, duration: ${dur}, ease: "sine.inOut" }, 0);`;
     return out;
   }
   if (fitCover) {
@@ -226,7 +231,7 @@ function sceneParts(s, P, r, ctx) {
   const extra = []; // clock-driven drawers: JS bodies taking (t)
 
   if (s.type === "hook") {
-    const ml = mediaLayer(P, "m", s.media, dur, ctx, { push: false });
+    const ml = mediaLayer(P, "m", s.media, dur, ctx, { push: false, uiCardTop: 640 });
     const textOnly = ml.mode === "none";
     css += ml.css;
     html.push(ml.html);
