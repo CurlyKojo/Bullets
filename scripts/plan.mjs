@@ -64,6 +64,8 @@ const resolveMedia = (ref, all) => {
     ...(o.start !== undefined ? { start: o.start } : {}),
     ...(o.fit ? { fit: o.fit } : {}),
     ...(o.zoom ? { zoom: o.zoom } : {}),
+    // Screen recordings of an app are framed as a phone screen, not full bleed.
+    ...((project.ui ?? []).includes(key) ? { ui: true } : {}),
   };
 };
 

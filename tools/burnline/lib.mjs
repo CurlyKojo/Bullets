@@ -15,7 +15,9 @@ const SHELL = process.env.SHELL_PATH ?? (() => {
   throw new Error("no headless shell in /opt/pw-browsers; set SHELL_PATH");
 })();
 export const BASE = process.env.BASE ?? "http://127.0.0.1:4173";
-export const OUT = new URL("../../.cache/footage/burnline/", import.meta.url).pathname;
+export let OUT = new URL("../../.cache/footage/burnline/", import.meta.url).pathname;
+/// Point captures at another folder (the {flow} shots use .cache/footage/flow/).
+export const setOut = (dir) => { OUT = dir.endsWith("/") ? dir : dir + "/"; };
 export const FPS = 30;
 
 export async function open() {
@@ -57,7 +59,7 @@ export async function open() {
     log, errors,
     /// Navigate and wait for the app's status line, then let textures and labels settle.
     async load(path, ready = `/objects|Planned|T\\+/.test(document.querySelector('.gstatus')?.textContent ?? '')`, settleMs = 4000) {
-      await send("Page.navigate", { url: BASE + path });
+      await send("Page.navigate", { url: (process.env.BASE ?? BASE) + path });
       for (let i = 0; i < 300; i++) { if (await ev(ready)) break; await sleep(300); }
       await sleep(settleMs);
       log(`loaded ${path}`);

@@ -13,6 +13,8 @@ export type Media = {
   fit?: "cover" | "contain";
   /** Push-in direction for stills. */
   zoom?: "in" | "out";
+  /** A screen recording of an app: framed as a phone screen (HyperFrames engine). */
+  ui?: boolean;
 };
 
 export type SceneType = "hook" | "media" | "stat" | "type" | "split" | "grid" | "tip" | "end";

@@ -37,7 +37,10 @@
     },
     {
       "type": "media",
-      "media": "flow:kojo",
+      "media": {
+        "ref": "flow:flow-generate",
+        "start": 100
+      },
       "title": "*{flow}*",
       "caption": "AI for performance writing",
       "beats": 3

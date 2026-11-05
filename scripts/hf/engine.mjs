@@ -157,6 +157,19 @@ function mediaLayer(P, id, m, dur, ctx, { box = { top: 0, height: 1920 }, dim = 
   } else {
     media = `<img id="${el}-v" ${timed} src="${m.src}" alt="" />`;
   }
+  if (m.ui && full) {
+    // An app's own screen: a phone-sized screen with rounded corners and a soft shadow,
+    // drifting slightly, with room above for the title and below for the caption.
+    out.mode = "ui";
+    const w = 440, h = Math.round(w / aspect), top = 410;
+    out.css = `
+    #${el} { position: absolute; left: ${(1080 - w) / 2}px; top: ${top}px; width: ${w}px; height: ${h}px; border-radius: 38px; overflow: hidden;
+      box-shadow: 0 50px 110px rgba(0,0,0,0.6), 0 0 0 10px #05070a, 0 0 0 11px rgba(255,255,255,0.12); background: #000; }
+    #${el}-v { position: absolute; left: 0; top: 0; width: ${w}px; height: ${h}px; object-fit: cover; }`;
+    out.html = `<div id="${el}">${media}</div>`;
+    out.js = `tl.fromTo("#${el}", { y: 24, rotation: -0.8 }, { y: -14, rotation: 0.6, duration: ${dur}, ease: "sine.inOut" }, 0);`;
+    return out;
+  }
   if (fitCover) {
     out.mode = "cover";
     out.css = `

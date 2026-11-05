@@ -1,0 +1,48 @@
+{
+  "username": "kojo",
+  "notes": "fixed the network switch that died right before launch. 6 teams were down, back up in 30 min\ndid the office cleanup thing. like 85 ppl showed up. saved $12K on the contract\nran onboarding for 140 new hires. ramp up went from 6 wks to 3",
+  "generate": [
+    {
+      "category": "JOB PERFORMANCE IN PRIMARY DUTY",
+      "text": "Diagnosed a failed core network switch in 30 min during launch week; rerouted traffic and restored service for 6 teams and 300 users, keeping a company-wide product launch on schedule.",
+      "tips": [
+        "It's running short of two full lines: lengthen it with what the launch was worth.",
+        "Add the dollar value or revenue the launch protected.",
+        "Say how long the outage would have lasted without the fix."
+      ]
+    },
+    {
+      "category": "LEADERSHIP AND FOLLOWERSHIP",
+      "text": "Organized 85 volunteers for a company-wide cleanup; hauled out 4 tons of debris in a single day and renegotiated the disposal contract, saving $12K that went straight back into the team budget for next quarter.",
+      "tips": [
+        "Name what the $12K paid for instead.",
+        "Add how many sites or teams took part."
+      ]
+    },
+    {
+      "category": "JOB PERFORMANCE IN PRIMARY DUTY",
+      "text": "Led onboarding for 140 new hires; rebuilt the first-week plan around hands-on practice and paired every hire with a mentor, cutting ramp-up time from 6 weeks to 3 so new staff reached full speed twice as fast.",
+      "tips": [
+        "Add the real hours or dollars the faster ramp-up saved.",
+        "Say what the new hires shipped in their first month."
+      ]
+    }
+  ],
+  "refine": [
+    {
+      "action": "lengthen",
+      "from": "Diagnosed a failed core network switch in 30 min during launch week; rerouted traffic and restored service",
+      "text": "Diagnosed a failed core network switch in 30 min during launch week; rerouted traffic over a backup path and restored service for 6 teams and 300 users, keeping a company-wide product launch on schedule with zero lost work hours for the whole org."
+    }
+  ],
+  "library": [
+    {
+      "category": "JOB PERFORMANCE IN PRIMARY DUTY",
+      "text": "Built a shared on-call runbook for 12 services; cut average incident response from 45 min to 15 and trained 9 teammates to cover nights, ending single-person coverage for the first time in two years of operations."
+    },
+    {
+      "category": "LEADERSHIP AND FOLLOWERSHIP",
+      "text": "Mentored 4 junior analysts through their first quarter; set weekly review sessions and a shared checklist, lifting their first-pass approval rate from 60% to 92% and freeing 6 hours a week of senior review time."
+    }
+  ]
+}

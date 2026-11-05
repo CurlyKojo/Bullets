@@ -86,7 +86,8 @@ New footage: add it to the project's `assets` (path inside that project's repo),
 `npm run sync`. Footage this repo shoots itself lives in `footage/<project>/` and is
 listed as `"studio:footage/..."`; Burnline's camera shots (Follow, Sat view, Chase,
 auto-orbit, a slow rise, the planner flying a plane change or a bi-elliptic) come from
-`tools/burnline/shots.mjs`. Each project file describes its clips under `shots`: read it
+`tools/burnline/shots.mjs`; {flow}'s app footage (notes to statements, the Coach,
+Lengthen to a perfect fit, Save) from `tools/flow/shots.mjs`. Each project file describes its clips under `shots`: read it
 and pick the shot that shows what the words say.
 
 ## Scene types

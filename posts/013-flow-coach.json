@@ -4,7 +4,10 @@
   "mood": "playful",
   "hook": {
     "title": "Your bullet is missing *one* thing",
-    "media": "flow:kojo",
+    "media": {
+      "ref": "flow:flow-coach",
+      "start": 20
+    },
     "cover": "Your bullet is missing one thing"
   },
   "scenes": [

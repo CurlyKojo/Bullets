@@ -34,6 +34,8 @@ stays as a fallback.
 | `scripts/daily.mjs` | Render the next post: video, cover, caption, contact sheet, download page |
 | `scripts/sync.mjs` | Pull footage from the project repos into `public/assets/` |
 | `scripts/publish-instagram.mjs` | Optional: post straight to Instagram via the Graph API |
+| `tools/burnline/`, `tools/flow/` | Frame-by-frame footage capture from the real Burnline site and {flow} app |
+| `footage/` | Footage this repo shot itself (copied into `public/assets/` by sync) |
 | `tools/wisp_render.py` | Renders Wisp's states at full resolution from the Wisp repo's own code |
 | `NIGHTLY.md` | The scheduled task that does all of it every day |
 

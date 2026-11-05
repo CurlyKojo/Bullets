@@ -21,7 +21,11 @@
   ],
   "assets": {
     "kojo": "client/public/kojo.png",
-    "kojo-wave": "client/public/kojo-wave.mp4"
+    "kojo-wave": "client/public/kojo-wave.mp4",
+    "flow-generate": "studio:footage/flow/flow-generate.mp4",
+    "flow-coach": "studio:footage/flow/flow-coach.mp4",
+    "flow-fit": "studio:footage/flow/flow-fit.mp4",
+    "flow-save": "studio:footage/flow/flow-save.mp4"
   },
   "status": "Live web app.",
   "avoid": [
@@ -29,5 +33,20 @@
     "airmen",
     "epb",
     "squadron"
+  ],
+  "shots": {
+    "kojo-wave": "the Kojo mascot waving (animation)",
+    "kojo": "the Kojo mascot (still)",
+    "flow-generate": "the real app: notes typed (0-3 s), Generate, Kojo charges up (4-5 s), three statements land (5.5 s on)",
+    "flow-coach": "the Coach strip opens on a statement: tips and the strength checklist",
+    "flow-fit": "Lengthen: 184/248 grows to 247/248, the meter goes green, Kojo calls PERFECT FIT (2 s)",
+    "flow-save": "Save a statement, the library opens with it on top"
+  },
+  "footage_note": "flow-* clips are the real client UI with scripted AI text (tools/flow/demo-server.mjs); the sandbox has no API key.",
+  "ui": [
+    "flow-generate",
+    "flow-coach",
+    "flow-fit",
+    "flow-save"
   ]
 }

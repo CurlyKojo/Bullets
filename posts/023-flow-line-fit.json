@@ -4,7 +4,10 @@
   "mood": "playful",
   "hook": {
     "title": "It fills the *exact* number of lines. Not one more.",
-    "media": "flow:kojo-wave",
+    "media": {
+      "ref": "flow:flow-fit",
+      "start": 20
+    },
     "cover": "Exactly 2 lines. Every time."
   },
   "scenes": [
@@ -25,7 +28,10 @@
     },
     {
       "type": "media",
-      "media": "flow:kojo",
+      "media": {
+        "ref": "flow:flow-save",
+        "start": 0
+      },
       "title": "*Shorten*. *Lengthen*. Regenerate.",
       "caption": "each one aimed at the exact line target"
     }

@@ -74,6 +74,13 @@ npx hyperframes@0.9.13 snapshot --at 1.5,4.3,7.5  # PNGs plus a contact sheet
   site is blocked from the sandbox). Each shot takes ~7 min. Clips land in
   `footage/burnline/` (committed) and `npm run sync` copies them in. Note the old
   `globe-iss` clip is actually Tianhe: use `follow-iss` when the words say ISS.
+- {flow} footage is the real client filmed frame by frame (`tools/flow/shots.mjs`:
+  generate, coach, fit, save) against `tools/flow/demo-server.mjs`, which answers with the
+  real server's response shapes but scripted AI text (`tools/flow/script.json`; the
+  sandbox has no Anthropic key). Character counts, the meter, the checklist and Perfect
+  Fit are the app's own logic. Off camera on purpose: login, footer, Evaluator, Acronyms,
+  Package Builder headings (Air Force wording) and the CGO rank default (set to CIV).
+  Clips a project lists under `ui` are framed as a phone screen by the engine.
 - Never push anything to the project repos (especially Orbit-Simulation-). This repo only
   reads them, into `.cache/repos/`.
 - Words stay inside `SAFE` in `src/theme.ts`; Instagram's UI covers the rest.
