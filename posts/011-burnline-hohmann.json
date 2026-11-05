@@ -5,7 +5,7 @@
   "hook": {
     "title": "How to change orbits using the *least fuel* possible",
     "media": {
-      "ref": "burnline:planner",
+      "ref": "burnline:orbit-close",
       "start": 0
     },
     "cover": "Change orbits, least fuel"
@@ -23,8 +23,8 @@
     {
       "type": "media",
       "media": {
-        "ref": "burnline:globe-chase",
-        "start": 40
+        "ref": "burnline:follow",
+        "start": 0
       },
       "title": "*Coast*",
       "caption": "half an orbit out to the high point"
@@ -32,8 +32,8 @@
     {
       "type": "media",
       "media": {
-        "ref": "burnline:planner",
-        "start": 120
+        "ref": "burnline:mission",
+        "start": 150
       },
       "title": "Burn *2*",
       "caption": "speed up again: round it out at the new height"
@@ -41,8 +41,8 @@
     {
       "type": "media",
       "media": {
-        "ref": "burnline:modes",
-        "start": 30
+        "ref": "burnline:bielliptic",
+        "start": 0
       },
       "title": "That's a *Hohmann* transfer",
       "caption": "Burnline plans it, plus bi-elliptic, plane change and phasing"

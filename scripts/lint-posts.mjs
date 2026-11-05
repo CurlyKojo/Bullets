@@ -87,7 +87,33 @@ const repeats = (p) => {
   return found;
 };
 
+// Across posts: footage gets stale fast. A video clip may not open two posts in a row (a
+// posted post counts, so the queue doesn't repeat what just went out), and the unposted
+// queue may use any one clip at most twice. Stills, STLs and renders are exempt.
+const MAX_CLIP_USES = 2;
+const isClip = (ref) => {
+  const [pid, ...rest] = ref.split(":");
+  const spec = all[pid]?.assets?.[rest.join(":")];
+  return typeof spec === "string" && /\.(mp4|mov|webm|gif)$/i.test(spec);
+};
+const crossPost = (posts) => {
+  const posted = readJson("posts/state.json").posted ?? {};
+  const found = new Map();
+  const add = (id, msg) => found.set(id, [...(found.get(id) ?? []), msg]);
+  const clips = posts.map((p) => new Set(shots(p).map((x) => x.id).filter((id) => !id.includes("[") && isClip(id))));
+  const uses = new Map();
+  posts.forEach((p, i) => {
+    for (const c of clips[i]) {
+      if (i > 0 && clips[i - 1].has(c)) add(p.id, `${c} was also used in the post before (${posts[i - 1].id}); pick a different shot (projects/${c.split(":")[0]}.json lists them under "shots")`);
+      if (!posted[p.id]) uses.set(c, [...(uses.get(c) ?? []), p.id]);
+    }
+  });
+  for (const [c, ids] of uses) if (ids.length > MAX_CLIP_USES) add(ids[ids.length - 1], `${c} is in ${ids.length} queued posts (${ids.join(", ")}); at most ${MAX_CLIP_USES}`);
+  return found;
+};
+
 const brand = readJson("brand/brand.json");
+const cross = crossPost(listPosts());
 let bad = 0;
 const ids = new Set();
 for (const p of listPosts()) {
@@ -100,6 +126,7 @@ for (const p of listPosts()) {
   if (p.caption && p.caption.length > 2000) problems.push(`caption is ${p.caption.length} chars (Instagram allows 2,200 including hashtags)`);
   if ((p.caption?.match(/#\w+/g) ?? []).length) problems.push("put hashtags in the hashtags field, not the caption");
   problems.push(...repeats(p));
+  problems.push(...(cross.get(p.id) ?? []));
   problems.push(...claims(p));
   problems.push(...viral(p));
   try {

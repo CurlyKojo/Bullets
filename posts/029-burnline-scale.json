@@ -5,8 +5,8 @@
   "hook": {
     "title": "Real scale. One unit = one *centimetre*.",
     "media": {
-      "ref": "burnline:wide",
-      "start": 120
+      "ref": "burnline:satview",
+      "start": 0
     },
     "cover": "Real 1:1 scale"
   },
@@ -29,15 +29,15 @@
       "unit": "B",
       "title": "units out to *GEO*",
       "media": {
-        "ref": "burnline:globe-chase",
-        "start": 90
+        "ref": "burnline:mission",
+        "start": 60
       }
     },
     {
       "type": "media",
       "media": {
-        "ref": "burnline:inspector",
-        "start": 0
+        "ref": "burnline:planechange",
+        "start": 60
       },
       "title": "Precise to *4.8 nm*",
       "caption": "double-precision coordinates, even out at GEO"

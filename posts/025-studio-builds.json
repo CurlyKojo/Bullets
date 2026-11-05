@@ -5,8 +5,8 @@
   "hook": {
     "title": "Everything I'm building right *now*",
     "media": {
-      "ref": "burnline:globe-chase",
-      "start": 0
+      "ref": "burnline:orbit-close",
+      "start": 60
     },
     "cover": "Everything I'm building"
   },
@@ -14,8 +14,8 @@
     {
       "type": "media",
       "media": {
-        "ref": "burnline:wide",
-        "start": 60
+        "ref": "burnline:chase-hst",
+        "start": 0
       },
       "title": "*Burnline*",
       "caption": "satellite sim, built with a friend",

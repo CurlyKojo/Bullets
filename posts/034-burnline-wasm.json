@@ -5,8 +5,8 @@
   "hook": {
     "title": "Tracking the *ISS* live, in a browser tab",
     "media": {
-      "ref": "burnline:globe-iss",
-      "start": 30
+      "ref": "burnline:follow-iss",
+      "start": 0
     },
     "cover": "Tracking the ISS live"
   },
@@ -14,8 +14,8 @@
     {
       "type": "media",
       "media": {
-        "ref": "burnline:globe-chase",
-        "start": 0
+        "ref": "burnline:modes",
+        "start": 30
       },
       "title": "*SGP4* in WebAssembly",
       "caption": "the same model real trackers use"

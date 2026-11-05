@@ -68,6 +68,12 @@ npx hyperframes@0.9.13 snapshot --at 1.5,4.3,7.5  # PNGs plus a contact sheet
   `renderEnv()` as HYPERFRAMES_BROWSER_PATH. Plain Chrome has no beginFrame and is slower.
 - Scene roots must stay transparent: an opaque root hides the outgoing scene during a
   transition (a black flash at the seam).
+- Fresh footage: no clip in two posts in a row or more than twice in the queue
+  (`npm run check`). Burnline shots are captured frame by frame from the real site with
+  `tools/burnline/shots.mjs` (build and serve Burnline's `web/` locally first; the live
+  site is blocked from the sandbox). Each shot takes ~7 min. Clips land in
+  `footage/burnline/` (committed) and `npm run sync` copies them in. Note the old
+  `globe-iss` clip is actually Tianhe: use `follow-iss` when the words say ISS.
 - Never push anything to the project repos (especially Orbit-Simulation-). This repo only
   reads them, into `.cache/repos/`.
 - Words stay inside `SAFE` in `src/theme.ts`; Instagram's UI covers the rest.

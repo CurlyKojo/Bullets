@@ -82,7 +82,9 @@ for (const p of Object.values(all)) {
       copied += want.length;
       continue;
     }
-    const src = join(repo, spec);
+    // "studio:<path>" is footage shot from the project by this repo's own tools
+    // (tools/burnline/shots.mjs), kept under footage/.
+    const src = spec.startsWith("studio:") ? join(ROOT, spec.slice(7)) : join(repo, spec);
     if (!existsSync(src)) {
       console.warn(`! ${p.id}:${key} missing in the repo: ${spec}`);
       continue;

@@ -30,6 +30,14 @@
     "modes": "video/public/clips/modes.mp4",
     "catalog": "video/public/clips/catalog.mp4",
     "inspector": "video/public/clips/inspector.mp4",
+    "follow": "studio:footage/burnline/follow.mp4",
+    "follow-iss": "studio:footage/burnline/follow-iss.mp4",
+    "satview": "studio:footage/burnline/satview.mp4",
+    "chase-hst": "studio:footage/burnline/chase-hst.mp4",
+    "orbit-close": "studio:footage/burnline/orbit-close.mp4",
+    "rise": "studio:footage/burnline/rise.mp4",
+    "planechange": "studio:footage/burnline/planechange.mp4",
+    "bielliptic": "studio:footage/burnline/bielliptic.mp4",
     "ui": "photo/UI example.png",
     "glyph": "assets/brand/burnline-glyph.svg"
   },
@@ -44,5 +52,24 @@
     "myself",
     "one person",
     "unreal build"
-  ]
+  ],
+  "shots": {
+    "wide": "whole Earth, the catalog around it, auto-orbit (establishing)",
+    "globe-iss": "globe flies to Tianhe (CSS), orbit line and swath draw. NOT the ISS",
+    "globe-chase": "behind a spacecraft model, coverage cone under it",
+    "groundtrack": "2D ground-track map following a satellite",
+    "planner": "mission builder UI, numbers dialled",
+    "mission": "LEO to GEO Hohmann flown at 3000x, orbit plane visible",
+    "modes": "chase in night vision, thermal and CRT modes",
+    "catalog": "catalog search typed, one result picked",
+    "inspector": "inspector sheet scrolled through a satellite's facts",
+    "follow": "camera locked on Hubble over the night side, Florida city lights",
+    "follow-iss": "camera locked on the ISS",
+    "satview": "from on board Hubble, tilted to the horizon, slow pan",
+    "chase-hst": "riding behind the Hubble model at 10x",
+    "orbit-close": "auto-orbit close in, MetOp-B's orbit ring and footprint crossing",
+    "rise": "slow rise off Aqua out to the whole Earth",
+    "planechange": "plane change flown from the chase camera",
+    "bielliptic": "bi-elliptic transfer, out past the target and back"
+  }
 }

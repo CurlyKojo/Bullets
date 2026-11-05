@@ -6,8 +6,8 @@
   "hook": {
     "title": "Rate the side projects I'm working on *1–10*",
     "media": {
-      "ref": "burnline:wide",
-      "start": 30
+      "ref": "burnline:rise",
+      "start": 0
     },
     "cover": "Rate these side projects 1–10"
   },
@@ -15,18 +15,15 @@
     {
       "type": "media",
       "media": {
-        "ref": "burnline:globe-iss",
-        "start": 60
+        "ref": "burnline:chase-hst",
+        "start": 90
       },
       "title": "*Burnline*",
       "caption": "a satellite sim built with a friend, accurate to 1 meter"
     },
     {
       "type": "media",
-      "media": {
-        "ref": "flow:kojo-wave",
-        "start": 30
-      },
+      "media": "flow:kojo",
       "title": "*{flow}*",
       "caption": "AI that turns notes into performance statements · live"
     },

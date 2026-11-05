@@ -11,8 +11,8 @@
     {
       "type": "media",
       "media": {
-        "ref": "burnline:planner",
-        "start": 60
+        "ref": "burnline:planechange",
+        "start": 0
       },
       "title": "Every *mistake* is content",
       "beats": 4
