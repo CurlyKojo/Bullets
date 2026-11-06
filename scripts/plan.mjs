@@ -66,6 +66,8 @@ const resolveMedia = (ref, all) => {
     ...(o.zoom ? { zoom: o.zoom } : {}),
     // Screen recordings of an app are framed as a phone screen, not full bleed.
     ...((project.ui ?? []).includes(key) ? { ui: true, uiTop: project.uiTop ?? 0 } : {}),
+    // Footage whose subject sits high (Wisp's face) is lowered so titles clear it.
+    ...(project.shiftY && kind !== "stl" ? { shiftY: project.shiftY } : {}),
   };
 };
 

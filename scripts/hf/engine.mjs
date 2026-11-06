@@ -180,7 +180,12 @@ function mediaLayer(P, id, m, dur, ctx, { box = { top: 0, height: 1920 }, dim = 
     out.css = `
     #${el} { position: absolute; left: 0; top: ${box.top}px; width: 1080px; height: ${box.height}px; overflow: hidden; }
     #${el}-z { position: absolute; inset: 0; transform-origin: 50% 50%; }
-    #${el}-v { position: absolute; left: 0; top: 0; width: 1080px; height: ${box.height}px; object-fit: cover; }`;
+    #${el}-v { position: absolute; left: 0; top: 0; width: 1080px; height: ${box.height}px; object-fit: cover; }${
+      m.shiftY && full
+        ? `
+    #${el}-z { top: ${m.shiftY}px; -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 220px); mask-image: linear-gradient(180deg, transparent 0, #000 220px); }`
+        : ""
+    }`;
     out.html = `<div id="${el}"><div id="${el}-z">${media}</div>${dim ? `<div style="position:absolute;inset:0;background:rgba(5,7,13,${dim})"></div>` : ""}</div>`;
     if (push) out.js = `tl.fromTo("#${el}-z", { scale: ${z0} }, { scale: ${z1}, duration: ${dur}, ease: "none" }, 0);`;
     return out;
@@ -216,7 +221,10 @@ function mediaLayer(P, id, m, dur, ctx, { box = { top: 0, height: 1920 }, dim = 
 }
 
 // Top and bottom scrims so words read over full-bleed footage.
-const scrimHtml = (P) => `<div id="${P}-scrim" style="position:absolute;inset:0;background:linear-gradient(180deg, rgba(10,12,15,0.82) 0%, rgba(10,12,15,0.3) 24%, rgba(10,12,15,0) 38%, rgba(10,12,15,0) 54%, rgba(10,12,15,0.65) 64%, rgba(10,12,15,0.7) 74%, rgba(10,12,15,0) 90%)"></div>`;
+const scrimHtml = (P, caption = true) =>
+  caption
+    ? `<div id="${P}-scrim" style="position:absolute;inset:0;background:linear-gradient(180deg, rgba(10,12,15,0.82) 0%, rgba(10,12,15,0.3) 24%, rgba(10,12,15,0) 38%, rgba(10,12,15,0) 54%, rgba(10,12,15,0.65) 64%, rgba(10,12,15,0.7) 74%, rgba(10,12,15,0) 90%)"></div>`
+    : `<div id="${P}-scrim" style="position:absolute;inset:0;background:linear-gradient(180deg, rgba(10,12,15,0.82) 0%, rgba(10,12,15,0.3) 24%, rgba(10,12,15,0) 38%)"></div>`;
 
 // ---- Scenes -----------------------------------------------------------------------------
 function sceneParts(s, P, r, ctx) {
@@ -239,7 +247,7 @@ function sceneParts(s, P, r, ctx) {
     else js.push(ml.js);
     if (ml.three) three = ml.three;
     if (textOnly) three = { type: "object", kind: kind3d, y: 1290, size: 500 };
-    if (ml.mode === "cover") html.push(scrimHtml(P));
+    if (ml.mode === "cover") html.push(scrimHtml(P, !!s.caption));
     // A short accent at the end of the hook ("*1–10*") becomes the giant number under it.
     const m = /^(.*?)\s*\*([^*]{1,6})\*\s*$/.exec(s.title ?? "");
     if (m && !m[1].includes("*")) {
@@ -269,7 +277,7 @@ function sceneParts(s, P, r, ctx) {
     html.push(ml.html);
     js.push(ml.js);
     if (ml.three) three = ml.three;
-    if (ml.mode === "cover") html.push(scrimHtml(P));
+    if (ml.mode === "cover") html.push(scrimHtml(P, !!s.caption));
     const c = copyBlock(P, s, accent, at);
     html.push(c.html);
     js.push(c.js);

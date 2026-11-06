@@ -17,6 +17,8 @@ export type Media = {
   ui?: boolean;
   /** Source pixels to crop off the top of a ui clip (the app's own header). */
   uiTop?: number;
+  /** Lower full-frame footage by this many px (the top edge fades into the backdrop). */
+  shiftY?: number;
 };
 
 export type SceneType = "hook" | "media" | "stat" | "type" | "split" | "grid" | "tip" | "end";
